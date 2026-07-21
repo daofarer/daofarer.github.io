@@ -203,12 +203,28 @@
       display: none;
     }
 
+    .mobile-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-height: 58px;
+      padding-right: 12px;
+    }
+
     .mobile-brand {
       display: flex;
       align-items: center;
       gap: 10px;
+      min-width: 0;
+      flex: 1 1 auto;
       padding: 10px 14px 9px;
-      border-bottom: 1px solid var(--line);
+    }
+
+    .mobile-brand .brand-mark {
+      width: 38px;
+      height: 38px;
+      font-size: 20px;
     }
 
     .mobile-brand strong {
@@ -225,28 +241,76 @@
     }
 
     .mobile-toc {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      padding: 9px 14px;
-      overflow: visible;
+      position: absolute;
+      top: calc(100% + 1px);
+      right: 8px;
+      left: 8px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      max-height: min(68vh, 520px);
+      padding: 10px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      border: 1px solid var(--line);
+      border-radius: 0 0 12px 12px;
+      background: rgba(7, 11, 11, 0.98);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.42);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity 150ms ease, transform 150ms ease, visibility 150ms ease;
+    }
+
+    .mobile-header.menu-open .mobile-toc {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
     .mobile-toc a {
-      flex: 0 0 auto;
-      padding: 7px 10px;
+      display: block;
+      min-width: 0;
+      padding: 9px 10px;
       border: 1px solid var(--line);
       border-radius: 8px;
       color: #eadfc7;
       background: rgba(255, 255, 255, 0.045);
-      font-size: 13px;
-      white-space: nowrap;
+      font-size: 12px;
+      line-height: 1.35;
+      white-space: normal;
     }
 
     .mobile-toc a.active {
       color: #0d1111;
       border-color: transparent;
       background: linear-gradient(135deg, var(--gold), var(--jade));
+    }
+
+    .mobile-menu-toggle {
+      flex: 0 0 auto;
+      min-height: 38px;
+      padding: 0 11px;
+      border: 1px solid rgba(214, 168, 79, 0.28);
+      border-radius: 8px;
+      color: #f0e5cc;
+      background: rgba(214, 168, 79, 0.09);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .mobile-menu-toggle::after {
+      display: inline-block;
+      margin-left: 6px;
+      content: "⌄";
+      transition: transform 150ms ease;
+    }
+
+    .mobile-header.menu-open .mobile-menu-toggle::after {
+      transform: rotate(180deg);
     }
 
     .hero {
@@ -607,6 +671,7 @@
     }
 
     .dialogue-line.protagonist .dialogue-bubble {
+      width: min(74%, 760px);
       border-right: 3px solid rgba(45, 212, 191, 0.86);
       border-left: 1px solid rgba(255, 255, 255, 0.12);
       background: rgba(20, 184, 166, 0.09);
@@ -636,7 +701,7 @@
 
     .dialogue-line.protagonist .dialogue-speaker {
       color: #7dd3fc;
-      text-align: right;
+      text-align: left;
     }
 
     .dialogue-text {
@@ -865,11 +930,12 @@
 
     .dialogue-history-item.protagonist {
       justify-self: end;
+      width: min(78%, 760px);
       border-left: 0;
       border-right: 2px solid rgba(45, 212, 191, 0.7);
       color: #dff7f2;
       background: rgba(20, 184, 166, 0.07);
-      text-align: right;
+      text-align: left;
     }
 
     .dialogue-history-item.npc {
@@ -1272,6 +1338,12 @@
         max-width: 100%;
       }
 
+      .dialogue-line.protagonist .dialogue-bubble,
+      .dialogue-history-item.protagonist {
+        width: 100%;
+        max-width: 100%;
+      }
+
       .relation-card,
       .chain-card {
         padding: 18px;
@@ -1282,18 +1354,38 @@
         gap: 2px;
       }
     }
+
+    @media (max-width: 420px) {
+      .mobile-brand small {
+        display: none;
+      }
+
+      .mobile-toc {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
 <body>
   <header class="mobile-header">
-    <a class="mobile-brand" href="#top">
-      <span class="brand-mark">☯</span>
-      <span>
-        <strong id="mobileProjectName">道行天涯 ARPG</strong>
-        <small id="mobileProjectSubtitle">降妖除魔 · 多路线任务</small>
-      </span>
-    </a>
+    <div class="mobile-header-bar">
+      <a class="mobile-brand" href="#top">
+        <span class="brand-mark">☯</span>
+        <span>
+          <strong id="mobileProjectName">道行天涯 ARPG</strong>
+          <small id="mobileProjectSubtitle">降妖除魔 · 多路线任务</small>
+        </span>
+      </a>
+
+      <button
+        class="mobile-menu-toggle"
+        id="mobileMenuToggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobileToc"
+      >目录</button>
+    </div>
 
     <nav class="mobile-toc" id="mobileToc"></nav>
   </header>
@@ -7839,6 +7931,7 @@
       desktopToc: document.getElementById("desktopToc"),
       mobileToc: document.getElementById("mobileToc"),
       mobileHeader: document.querySelector(".mobile-header"),
+      mobileMenuToggle: document.getElementById("mobileMenuToggle"),
       toolbarWrap: document.querySelector(".toolbar-wrap"),
       documentInner: document.getElementById("documentInner"),
       searchInput: document.getElementById("searchInput"),
@@ -7867,6 +7960,11 @@
     }
 
     function bindEvents() {
+      elements.mobileMenuToggle.addEventListener("click", () => {
+        const shouldOpen = !elements.mobileHeader.classList.contains("menu-open");
+        setMobileMenuOpen(shouldOpen);
+      });
+
       elements.searchInput.addEventListener("input", (event) => {
         state.searchText = event.target.value.trim().toLowerCase();
         renderDocument();
@@ -7917,9 +8015,23 @@
           }
 
           state.navigationLockUntil = Date.now() + 800;
+          setMobileMenuOpen(false);
           setActiveChapter(link.dataset.chapterLink);
           window.setTimeout(syncActiveChapterFromHash, 850);
         });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!elements.mobileHeader.contains(event.target)) {
+          setMobileMenuOpen(false);
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setMobileMenuOpen(false);
+          elements.mobileMenuToggle.focus();
+        }
       });
 
       elements.relationTabs.addEventListener("click", (event) => {
@@ -7935,6 +8047,11 @@
       });
 
       window.addEventListener("hashchange", syncActiveChapterFromHash);
+    }
+
+    function setMobileMenuOpen(isOpen) {
+      elements.mobileHeader.classList.toggle("menu-open", isOpen);
+      elements.mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
     }
 
     function setupStickyMeasurements() {
