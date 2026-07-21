@@ -608,11 +608,13 @@
 
     .dialogue-line.protagonist .dialogue-bubble {
       border-right: 3px solid rgba(45, 212, 191, 0.86);
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
       background: rgba(20, 184, 166, 0.09);
     }
 
     .dialogue-line.npc .dialogue-bubble {
       border-left: 3px solid rgba(245, 158, 11, 0.86);
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
       background: rgba(245, 158, 11, 0.09);
     }
 
@@ -634,11 +636,273 @@
 
     .dialogue-line.protagonist .dialogue-speaker {
       color: #7dd3fc;
+      text-align: right;
     }
 
     .dialogue-text {
       font-size: 14px;
       line-height: 1.85;
+    }
+
+    .task-segment-list {
+      display: grid;
+      gap: 16px;
+      max-width: 1080px;
+      margin-top: 16px;
+    }
+
+    .task-segment {
+      overflow: hidden;
+      border: 1px solid rgba(214, 168, 79, 0.22);
+      border-radius: 12px;
+      background: rgba(4, 7, 7, 0.3);
+    }
+
+    .task-segment-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 13px 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(214, 168, 79, 0.07);
+    }
+
+    .task-segment-index {
+      color: #d6a84f;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .task-segment-title {
+      margin-top: 3px;
+      color: #f0e5cc;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .task-segment-id {
+      color: #809087;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+    }
+
+    .task-segment-body {
+      padding: 14px 15px 16px;
+    }
+
+    .task-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .task-meta-item {
+      padding: 9px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .task-meta-label {
+      margin-bottom: 3px;
+      color: #91bdb4;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .task-meta-value {
+      color: #d9d1bf;
+      font-size: 13px;
+      line-height: 1.55;
+      white-space: pre-line;
+    }
+
+    .task-segment-content {
+      color: #ddd4c1;
+      font-size: 14px;
+      line-height: 1.9;
+      white-space: pre-line;
+    }
+
+    .task-structure-empty {
+      max-width: 980px;
+      margin-top: 14px;
+      padding: 13px 15px;
+      border: 1px dashed rgba(45, 212, 191, 0.28);
+      border-radius: 10px;
+      color: #8eaaa3;
+      background: rgba(45, 212, 191, 0.035);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .dialogue-node {
+      padding: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.028);
+    }
+
+    .dialogue-node + .dialogue-node {
+      margin-top: 10px;
+    }
+
+    .dialogue-node-id {
+      margin-bottom: 7px;
+      color: #77867f;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+    }
+
+    .dialogue-choices {
+      display: grid;
+      gap: 8px;
+      margin-top: 11px;
+      padding-left: 22px;
+    }
+
+    .dialogue-choice {
+      position: relative;
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      border-radius: 8px;
+      background: rgba(20, 184, 166, 0.055);
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+      transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .dialogue-choice:hover,
+    .dialogue-choice:focus-visible {
+      border-color: rgba(94, 234, 212, 0.58);
+      background: rgba(20, 184, 166, 0.12);
+      transform: translateX(2px);
+      outline: none;
+    }
+
+    .dialogue-choice::before {
+      position: absolute;
+      left: -22px;
+      top: 9px;
+      color: #5eead4;
+      content: "›";
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .dialogue-choice-text {
+      color: #dff7f2;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.65;
+    }
+
+    .choice-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 7px;
+    }
+
+    .choice-tag {
+      padding: 3px 7px;
+      border-radius: 999px;
+      color: #c9d4ce;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .choice-tag.requirement { color: #fde68a; background: rgba(245, 158, 11, 0.13); }
+    .choice-tag.reward { color: #bbf7d0; background: rgba(34, 197, 94, 0.13); }
+    .choice-tag.result { color: #bfdbfe; background: rgba(96, 165, 250, 0.13); }
+    .choice-tag.next { color: #e9d5ff; background: rgba(168, 85, 247, 0.13); }
+
+    .dialogue-node[hidden] {
+      display: none;
+    }
+
+    .dialogue-branch-result {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border: 1px solid rgba(96, 165, 250, 0.2);
+      border-radius: 8px;
+      color: #ced9e8;
+      background: rgba(96, 165, 250, 0.07);
+      font-size: 12px;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+
+    .dialogue-branch-result.visible {
+      display: block;
+    }
+
+    .dialogue-history {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .dialogue-history-item {
+      width: fit-content;
+      max-width: 78%;
+      padding: 7px 9px;
+      border-left: 2px solid rgba(45, 212, 191, 0.55);
+      color: #aebdb6;
+      background: rgba(255, 255, 255, 0.025);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .dialogue-history-item.protagonist {
+      justify-self: end;
+      border-left: 0;
+      border-right: 2px solid rgba(45, 212, 191, 0.7);
+      color: #dff7f2;
+      background: rgba(20, 184, 166, 0.07);
+      text-align: right;
+    }
+
+    .dialogue-history-item.npc {
+      justify-self: start;
+      border-left: 2px solid rgba(245, 158, 11, 0.7);
+      border-right: 0;
+      color: #f4dfbc;
+      background: rgba(245, 158, 11, 0.07);
+      text-align: left;
+    }
+
+    .dialogue-history-item.narration {
+      justify-self: center;
+      border-left: 0;
+      color: #aeb9b2;
+      text-align: center;
+    }
+
+    .dialogue-restart {
+      display: none;
+      margin-top: 10px;
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 7px;
+      color: #c8d0c4;
+      background: rgba(255, 255, 255, 0.055);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .dialogue-restart.visible {
+      display: inline-flex;
     }
 
     .empty-state {
@@ -985,6 +1249,22 @@
 
       .reward-grid {
         grid-template-columns: 1fr;
+      }
+
+      .task-meta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .task-segment-head {
+        flex-direction: column;
+      }
+
+      .dialogue-choices {
+        padding-left: 17px;
+      }
+
+      .dialogue-choice::before {
+        left: -17px;
       }
 
       .dialogue-bubble,
@@ -4414,6 +4694,196 @@
                   label: "第一节：遇险狼妖",
                   guide: "路上就发现有狼群的攻击，然后再走不久，就看到有老人在路旁的树上，被狼群围攻。就下老人。老人是周围旁边村子的。然后告诉主角，不知为何，近期此地村民，在外出的时候经常被狼群围攻。据说周围住着狼妖。村中有多人被攻击了。甚至还有一位和主角年纪相仿的外村赶路人，也被咬伤，在村中养伤",
                   status: "draft",
+                  segments: [
+                    {
+                      "id": "2-1-a",
+                      "title": "山路狼袭",
+                      "location": "承安村外山道",
+                      "objective": "击退狼群并检查异常",
+                      "trigger": "离开祥云村后自动触发",
+                      "content": "玩家第一次独自遭遇狼群。可正面战斗、以火驱散，或使用望气判断狼群受到了惊扰。",
+                      "completion": "发现前方老人被困，进入救援段。",
+                      "dialogue": []
+                    },
+                    {
+                      "id": "2-1-b",
+                      "title": "树下救人",
+                      "location": "山道老槐树",
+                      "objective": "救下老人并决定下一步",
+                      "trigger": "完成山路狼袭",
+                      "content": "老人请求主角前往承安村，但狼足迹显示狼群像被什么东西赶下山。",
+                      "completion": "根据回复获得村民信任、狼踪线索或报酬。",
+                      "dialogue": [
+                        {
+                          "id": "elder-plea",
+                          "side": "npc",
+                          "speaker": "承安村老人",
+                          "text": "村里已经伤了好几个人。求小道长随我回去看看！",
+                          "choices": [
+                            {
+                              "id": "help-free",
+                              "text": "救人要紧，我随你回村。",
+                              "result": "老人完全信任主角",
+                              "reward": "承安村声望 +5",
+                              "flags": [
+                                "accepted_wolf_quest",
+                                "elder_trust"
+                              ],
+                              "next": "chapter2-village"
+                            },
+                            {
+                              "id": "track-first",
+                              "text": "我先追查狼群从哪里来。",
+                              "requirement": "感知达到 5",
+                              "check": "感知检定",
+                              "result": "发现狼群来自被破坏的山龛",
+                              "reward": "线索：异常狼踪",
+                              "flags": [
+                                "tracked_wolves_first"
+                              ],
+                              "next": "chapter2-wolf-trail"
+                            },
+                            {
+                              "id": "ask-payment",
+                              "text": "可以，但村里要准备报酬。",
+                              "requirement": "口才达到 4",
+                              "check": "口才检定",
+                              "result": "老人答应由村长支付",
+                              "reward": "银钱 +20；村民好感 -2",
+                              "flags": [
+                                "paid_wolf_quest"
+                              ],
+                              "next": "chapter2-village"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "chapter2-village",
+                          "side": "npc",
+                          "speaker": "承安村老人",
+                          "text": "多谢小道长。村子就在前面，不过进村前，你还想问些什么？",
+                          "choices": [
+                            {
+                              "id": "ask-wolf-detail",
+                              "text": "狼群最早是什么时候出现的？",
+                              "result": "老人回忆起狼患始于猎户带回幼狼之后",
+                              "reward": "线索：失踪的幼狼",
+                              "flags": ["heard_about_wolf_cub"],
+                              "next": "elder-wolf-detail"
+                            },
+                            {
+                              "id": "ask-traveler-detail",
+                              "text": "那个受伤的年轻人是什么来历？",
+                              "result": "老人说年轻人独自从北方而来",
+                              "reward": "线索：年轻赶路人",
+                              "flags": ["asked_about_traveler"],
+                              "next": "elder-traveler-detail"
+                            },
+                            {
+                              "id": "leave-for-village",
+                              "text": "没有了，我们现在进村。",
+                              "result": "结束交谈并前往承安村",
+                              "flags": ["departed_for_village"],
+                              "next": "elder-farewell"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "chapter2-wolf-trail",
+                          "side": "narration",
+                          "speaker": "",
+                          "text": "你俯身查看狼足迹。大部分足印朝山下延伸，只有一组沾着香灰，来自西侧破败山龛。",
+                          "choices": [
+                            {
+                              "id": "inspect-shrine-now",
+                              "text": "先去山龛看看。",
+                              "requirement": "感知检定成功",
+                              "result": "提前发现猎户留下的绳索和幼狼毛",
+                              "reward": "隐藏线索：猎户捕狼",
+                              "flags": ["shrine_inspected_early"],
+                              "next": "wolf-trail-discovery"
+                            },
+                            {
+                              "id": "return-to-elder",
+                              "text": "先把老人送回村，再回来调查。",
+                              "result": "保护老人优先，调查延后",
+                              "reward": "老人好感 +3",
+                              "flags": ["elder_escorted_first"],
+                              "next": "chapter2-village"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "elder-wolf-detail",
+                          "side": "npc",
+                          "speaker": "承安村老人",
+                          "text": "约莫半月前。猎户赵二从山里回来后，狼才开始追着人咬。他说自己只捡了几张狼皮，可没人见过那些皮。",
+                          "choices": [
+                            {
+                              "id": "question-hunter-later",
+                              "text": "进村后带我去见赵二。",
+                              "result": "老人答应引路",
+                              "reward": "解锁调查点：猎户家",
+                              "flags": ["hunter_house_unlocked"],
+                              "next": "elder-farewell"
+                            },
+                            {
+                              "id": "ask-traveler-after-wolf",
+                              "text": "再说说那个受伤的年轻人。",
+                              "next": "elder-traveler-detail"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "elder-traveler-detail",
+                          "side": "npc",
+                          "speaker": "承安村老人",
+                          "text": "他不肯说师承，只说四海为家。奇怪的是，他昏迷时一直喊一个从未听过的道号。",
+                          "choices": [
+                            {
+                              "id": "remember-dao-name",
+                              "text": "把那个道号告诉我。",
+                              "requirement": "口才达到 4",
+                              "check": "口才检定",
+                              "result": "老人说出残缺道号",
+                              "reward": "隐藏线索：玄衡二字",
+                              "flags": ["traveler_dao_name_known"],
+                              "next": "elder-farewell"
+                            },
+                            {
+                              "id": "do-not-press-elder",
+                              "text": "记不清便算了，先进村。",
+                              "result": "老人松了一口气",
+                              "next": "elder-farewell"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "wolf-trail-discovery",
+                          "side": "narration",
+                          "speaker": "",
+                          "text": "破龛后压着一截捕兽绳和带血幼狼毛。狼患看来不是无缘无故发生的。",
+                          "choices": [
+                            {
+                              "id": "take-evidence-village",
+                              "text": "收好证物，带老人回村。",
+                              "result": "主角取得早期关键证据",
+                              "reward": "捕兽绳、幼狼毛",
+                              "flags": ["wolf_cub_evidence"],
+                              "next": "elder-farewell"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "elder-farewell",
+                          "side": "npc",
+                          "speaker": "承安村老人",
+                          "text": "翻过前面那道坡就是承安村。小道长今日救命之恩，我会在村长面前说清楚。",
+                          "choices": []
+                        }
+                      ]
+                    }
+                  ],
                   value: "章节开场：主角离开祥云村后，第一次真正独自行走江湖。山路上先遇到普通狼群袭击，作为第二章战斗节奏教学，让玩家适应没有爷爷保护后的探索压力。\n\n事件推进：继续前行时，主角发现一位老人爬在树上求救，树下有狼群围攻。救下老人后，老人自称来自附近的承安村，说近期村民出门常被狼群围攻，村里传言山里出了狼妖。\n\n关键信息：承安村已有多人受伤，其中有一名与主角年纪相仿的外村赶路人，被狼咬伤后暂住村中养伤。老人请求主角去村里看看。\n\n玩法目标：完成野外救援、追踪狼足印、辨别普通狼和妖气狼的区别。玩家可选择立刻进村、先追狼踪、或询问老人更多村中情况。\n\n章节作用：建立第二章主题：主角离乡后遇到的第一个陌生人和第一个陌生村，不再是熟人社会，玩家需要自己判断谁可信。",
                   dialogue: [
                     {
@@ -4445,6 +4915,71 @@
                   label: "第二节：进入村中休息",
                   guide: "晚间帮助村子解除一个被女鬼缠身的男子",
                   status: "draft",
+                  segments: [
+                    {
+                      "id": "2-2-a",
+                      "title": "进入承安村",
+                      "location": "承安村村口",
+                      "objective": "取得村长许可并寻找住处",
+                      "trigger": "随老人抵达承安村",
+                      "content": "村民对外来道士半信半疑。此前救援选择会改变老人作证的力度。",
+                      "completion": "获得临时住处，解锁村中调查。",
+                      "dialogue": []
+                    },
+                    {
+                      "id": "2-2-b",
+                      "title": "夜半女鬼",
+                      "location": "承安村民宅",
+                      "objective": "处理被女鬼缠身的男子",
+                      "trigger": "入夜后在住处休息",
+                      "content": "男子梦中不断说起一只银镯。玩家可直接驱鬼，也可问魂调查其隐瞒的往事。",
+                      "completion": "决定女鬼被驱散、安魂或继续纠缠。",
+                      "dialogue": [
+                        {
+                          "id": "haunted-man",
+                          "side": "npc",
+                          "speaker": "被缠男子",
+                          "text": "我没有拿她的镯子……你快把她赶走！",
+                          "choices": [
+                            {
+                              "id": "question-man",
+                              "text": "你若没拿，为什么知道她在找镯子？",
+                              "result": "男子说漏嘴，开启遗物调查",
+                              "reward": "线索：藏匿的银镯",
+                              "flags": [
+                                "man_lied",
+                                "ghost_truth_route"
+                              ],
+                              "next": "find-bracelet"
+                            },
+                            {
+                              "id": "drive-ghost",
+                              "text": "退后，我现在就驱散女鬼。",
+                              "requirement": "战斗驱邪达到 3",
+                              "result": "快速结束闹鬼，但真相被掩盖",
+                              "reward": "经验 +80；承负 -2",
+                              "flags": [
+                                "ghost_driven"
+                              ],
+                              "next": "night-rest"
+                            },
+                            {
+                              "id": "calm-spirit",
+                              "text": "先让我与她说话。",
+                              "requirement": "斋醮科仪达到 3",
+                              "check": "斋醮科仪检定",
+                              "result": "女鬼说明遗愿，男子被迫认错",
+                              "reward": "承安村声望 +8",
+                              "flags": [
+                                "ghost_reconciled"
+                              ],
+                              "next": "ghost-farewell"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
                   value: "进入承安村后，村民因狼患紧张，对外来小道士半信半疑。老人替主角作证，村长才允许主角暂住。\n\n夜间事件：主角准备休息时，有村民急忙敲门求助：“道长，有个女鬼又来我家了。”这是第二章的第一个非狼妖事件，用来告诉玩家：一个村子的妖患不止一条线。\n\n任务内容：被女鬼缠身的男子夜里梦魇、说胡话、身体发冷。玩家可用问魂、清心符、望气、询问家人等方式调查。真相可以设计为：女鬼并非想害人，而是生前与男子有未了之事，或她的遗物被人私藏。\n\n解决方式：\n1. 直接驱散女鬼，快速完成但少得真相。\n2. 问魂查明遗愿，帮助女鬼安魂，提升百姓信任。\n3. 发现男子隐瞒过错，让玩家第一次面对“人也可能有问题”。\n\n章节作用：让主角在承安村初步获得信任，也引出问魂、超度、清心符等非战斗能力。",
                   dialogue: [
                     {
@@ -4476,6 +5011,111 @@
                   label: "第三节：击败狼妖，为承安村解困",
                   guide: "进入承安村。为年轻人疗伤，年轻人是无父无母流落天涯，年轻人想要以重金酬谢，主角说同是天涯沦落人，不必如此，击败狼妖后，这个年轻人也是修道之人，后面要经常出现在主角后面出现的地方与主角遇到。因为这个年轻人实际上是最重大boss的徒弟，就是来跟踪主角的。",
                   status: "draft",
+                  segments: [
+                    {
+                      "id": "2-3-a",
+                      "title": "救治年轻赶路人",
+                      "location": "承安村空屋",
+                      "objective": "稳定伤势并询问狼妖情报",
+                      "trigger": "完成夜半女鬼事件",
+                      "content": "年轻人愿以重金求医，实际暗中观察主角的术法与心性。",
+                      "completion": "取得狼妖巢穴位置，并记录年轻人对主角的评价。",
+                      "dialogue": [
+                        {
+                          "id": "traveler-payment",
+                          "side": "npc",
+                          "speaker": "年轻赶路人",
+                          "text": "若道长肯治我，这袋银子便是谢礼。",
+                          "choices": [
+                            {
+                              "id": "refuse-money",
+                              "text": "同是天涯沦落人，不必如此。",
+                              "result": "年轻人对主角产生兴趣",
+                              "reward": "年轻赶路人好感 +8",
+                              "flags": [
+                                "traveler_impressed_kind"
+                              ],
+                              "next": "inspect-wound"
+                            },
+                            {
+                              "id": "take-money",
+                              "text": "看病收钱，天经地义。",
+                              "result": "正常交易",
+                              "reward": "银钱 +40",
+                              "flags": [
+                                "traveler_paid"
+                              ],
+                              "next": "inspect-wound"
+                            },
+                            {
+                              "id": "read-intent",
+                              "text": "你不像普通赶路人。",
+                              "requirement": "术数命理达到 4",
+                              "check": "术数命理检定",
+                              "result": "发现其命格受到遮掩",
+                              "reward": "线索：命格遮掩",
+                              "flags": [
+                                "traveler_suspected"
+                              ],
+                              "next": "inspect-wound"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "2-3-b",
+                      "title": "狼妖巢穴",
+                      "location": "承安村北山",
+                      "objective": "解决狼患并判断真正起因",
+                      "trigger": "完成伤口与狼踪调查",
+                      "content": "狼妖指控猎户夺走幼崽、破坏山龛。可杀死狼妖、归还幼崽、修复山龛或驱离。",
+                      "completion": "改变山林生态、承安村安全及后续狼族态度。",
+                      "dialogue": [
+                        {
+                          "id": "wolf-accusation",
+                          "side": "npc",
+                          "speaker": "狼妖",
+                          "text": "人夺我幼崽、毁我栖身处，如今害怕了，便说我是恶妖。",
+                          "choices": [
+                            {
+                              "id": "return-cub",
+                              "text": "我会归还幼崽，你也必须约束狼群。",
+                              "requirement": "已找到幼狼",
+                              "result": "双方立约，狼患和平结束",
+                              "reward": "狼牙护符；善妖声望 +6",
+                              "flags": [
+                                "wolf_pact"
+                              ],
+                              "next": "village-celebration"
+                            },
+                            {
+                              "id": "kill-wolf",
+                              "text": "伤人便要偿命，今日留你不得。",
+                              "result": "进入狼妖战斗",
+                              "reward": "狼妖材料；村庄声望 +10",
+                              "flags": [
+                                "wolf_killed"
+                              ],
+                              "next": "wolf-battle"
+                            },
+                            {
+                              "id": "repair-shrine",
+                              "text": "我先修复山龛，再谈边界。",
+                              "requirement": "风水堪舆达到 4",
+                              "check": "风水堪舆检定",
+                              "result": "狼妖接受迁界",
+                              "reward": "山神残香；承负 +4",
+                              "flags": [
+                                "shrine_repaired"
+                              ],
+                              "next": "village-celebration"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
                   value: "主线目标：调查狼患，救治被咬伤的年轻赶路人，找出狼群频繁攻击人的原因。\n\n调查过程：玩家查看伤口后发现不是普通狼咬，伤口边缘有妖气和尸臭。村民说狼群最近像被什么东西驱赶，白天也敢下山。通过寻踪符或风水堪舆可发现狼群巢穴附近有被破坏的山神小龛，或有猎户误入禁地。\n\n狼妖设定：狼妖不一定是最终大恶。它可能是被邪气侵染的头狼，也可能因人类盗猎幼狼而报复。玩家可以选择直接击败、驱离狼群、归还幼狼、修复山神龛或用困妖阵制服头狼。\n\n战斗设计：狼妖带狼群围攻，擅长夜间伏击、撕咬流血、呼唤群狼。玩家可先清理小狼、用火把驱散、用镇邪阵限制狼妖冲锋。\n\n结果：狼患暂时解除，承安村恢复通行。若玩家查明根源并处理，村民信任大幅提高；若只杀狼妖，短期安全，但后续山林生态可能恶化。\n\n章节作用：完成第二章第一个完整妖患闭环，让主角从“被收留者”变成“能独立解决问题的小道士”。",
                   dialogue: [
                     {
@@ -4507,6 +5147,68 @@
                   label: "第四节：被盗",
                   guide: "最后休息一夜，却被偷了。查到了是一只小猴所为",
                   status: "draft",
+                  segments: [
+                    {
+                      "id": "2-4-a",
+                      "title": "清晨失窃",
+                      "location": "承安村住处",
+                      "objective": "检查现场并判断盗贼身份",
+                      "trigger": "解决狼患后休息一夜",
+                      "content": "包裹和爷爷遗物被偷。窗边留下果核、猴毛与倒贴符纸。",
+                      "completion": "确认盗贼是小猴，解锁追踪路线。",
+                      "dialogue": []
+                    },
+                    {
+                      "id": "2-4-b",
+                      "title": "同行试探",
+                      "location": "承安村村口",
+                      "objective": "决定是否接受年轻赶路人同行",
+                      "trigger": "完成失窃调查",
+                      "content": "年轻赶路人主动提出帮忙追踪。玩家可以接受、拒绝或提供假路线试探。",
+                      "completion": "改变其跟踪方式与后续信任。",
+                      "dialogue": [
+                        {
+                          "id": "traveler-offer",
+                          "side": "npc",
+                          "speaker": "年轻赶路人",
+                          "text": "山路难走，我陪你去追吧。",
+                          "choices": [
+                            {
+                              "id": "accept-company",
+                              "text": "好，一起走。",
+                              "result": "年轻人近距离观察主角",
+                              "reward": "临时同伴",
+                              "flags": [
+                                "traveler_companion"
+                              ],
+                              "next": "road-qinghe"
+                            },
+                            {
+                              "id": "decline-company",
+                              "text": "你留在村里养伤。",
+                              "result": "年轻人改为暗中跟随",
+                              "flags": [
+                                "traveler_hidden"
+                              ],
+                              "next": "road-qinghe"
+                            },
+                            {
+                              "id": "false-route",
+                              "text": "可以，我们先往南走。",
+                              "requirement": "口才达到 5",
+                              "check": "欺骗检定",
+                              "result": "发现对方知道真实方向",
+                              "reward": "线索：提前知情",
+                              "flags": [
+                                "traveler_caught_knowing"
+                              ],
+                              "next": "road-qinghe"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
                   value: "狼患解决后，主角在承安村休息一夜。第二天醒来发现包裹被偷，里面可能有爷爷留下的旧物、少量银钱、符纸、药材或第一章结尾的重要信物。\n\n初步调查：村民都说夜里没见外人，玩家可以询问村长、被救的年轻人、老人和客栈 / 民宅主人。若玩家之前帮助女鬼或救治年轻人，村民会主动提供线索。\n\n线索：屋顶瓦片有抓痕，窗边有果核，床脚有猴毛，墙上挂着的符纸被倒着贴。玩家在村中查不到人类盗贼，最终确认是小猴所为。\n\n申三登场：小猴并非普通动物，而是小灵猴申三。它偷包不是为了钱，而是为了试探主角，也可能被某个和尚、商人或山林妖物误导。\n\n收束：主角与村长、被救年轻人道别，开始追寻包裹。承安村成为第二章第一个据点，后续可回来买药、听传闻或查看狼患后果。",
                   dialogue: [
                     {
@@ -4538,6 +5240,70 @@
                   label: "第五节：一路追寻来到了青和村，然后发现青和村的一些任务，解决后发现小猴是在青森寺北边的山林中",
                   guide: "",
                   status: "draft",
+                  segments: [
+                    {
+                      "id": "2-5-a",
+                      "title": "追踪到青和村",
+                      "location": "青和村",
+                      "objective": "沿果核和脚印追踪申三",
+                      "trigger": "离开承安村",
+                      "content": "申三故意沿路丢下小物件。青和村同时出现供品失窃事件。",
+                      "completion": "确认申三藏在青森寺北林。",
+                      "dialogue": [
+                        {
+                          "id": "villager-bargain",
+                          "side": "npc",
+                          "speaker": "青和村妇人",
+                          "text": "要问猴子的去向，先替我找回供桌上的果子。",
+                          "choices": [
+                            {
+                              "id": "help-find",
+                              "text": "我替你找。",
+                              "result": "完成供品任务",
+                              "reward": "青和村声望 +5；山林地图",
+                              "flags": [
+                                "offerings_returned"
+                              ],
+                              "next": "north-forest"
+                            },
+                            {
+                              "id": "pay-fruit",
+                              "text": "我赔你果钱。",
+                              "requirement": "银钱 15",
+                              "result": "跳过调查",
+                              "reward": "失去银钱 15；获得近路",
+                              "flags": [
+                                "offerings_paid"
+                              ],
+                              "next": "north-forest"
+                            },
+                            {
+                              "id": "expose-child",
+                              "text": "果核在你家孩子袖里。",
+                              "requirement": "感知达到 5",
+                              "check": "感知检定",
+                              "result": "揭穿真正偷食者",
+                              "reward": "经验 +60",
+                              "flags": [
+                                "child_exposed"
+                              ],
+                              "next": "north-forest"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "2-5-b",
+                      "title": "北林入口",
+                      "location": "青森寺北林",
+                      "objective": "选择安全山路",
+                      "trigger": "取得申三位置",
+                      "content": "可凭地图走近路、用风水判断气机，或跟随猴群进入。",
+                      "completion": "进入申三追逐区域。",
+                      "dialogue": []
+                    }
+                  ],
                   value: "追踪路线：主角沿着猴毛、果核、屋顶脚印和被丢弃的小物件一路追到青和村。青和村靠近青森寺，村民常给寺里送菜、供香，也常受山林小妖捉弄。\n\n青和村事件：村中最近有几件怪事：香客供品被偷、孩子学猴叫、屋顶瓦片被掀、寺中小和尚说夜里听见林中有人笑。村民怀疑是山林猴群，也有人说是青森寺北边的林子不干净。\n\n任务玩法：玩家可在青和村解决一到两个小事件来换取线索。例如帮村民找回供品、识破假和尚传话、用术数命理判断哪条山路安全、用风水堪舆发现林中气机异常。\n\n关键信息：完成青和村调查后，玩家确认小灵猴申三躲在青森寺北边山林。村民提醒主角，青森寺表面清静，但最近寺里也不太安宁。\n\n章节作用：从“追包裹”自然转入“青森寺主线”，并让申三成为连接村庄、山林、寺庙三处地图的角色。",
                   dialogue: [
                     {
@@ -4569,6 +5335,71 @@
                   label: "第六节：找到小灵猴发生事件，找回包裹。",
                   guide: "",
                   status: "draft",
+                  segments: [
+                    {
+                      "id": "2-6-a",
+                      "title": "树梢追逐",
+                      "location": "青森寺北林",
+                      "objective": "追上携带包裹的申三",
+                      "trigger": "进入北林",
+                      "content": "申三沿树梢、溪石和破亭逃跑。可疾行追逐、预判路线或假装放弃。",
+                      "completion": "截住申三，追逐方式影响好感。",
+                      "dialogue": []
+                    },
+                    {
+                      "id": "2-6-b",
+                      "title": "申三的条件",
+                      "location": "北林破亭",
+                      "objective": "取回包裹并查清偷窃原因",
+                      "trigger": "完成追逐",
+                      "content": "申三闻到爷爷遗物上的特殊气息，故意把主角引向青森寺。",
+                      "completion": "申三成为朋友、暂时合作或敌对逃离。",
+                      "dialogue": [
+                        {
+                          "id": "monkey-caught",
+                          "side": "npc",
+                          "speaker": "申三",
+                          "text": "人拿妖的东西叫降妖，妖拿人的东西为什么就叫贼？",
+                          "choices": [
+                            {
+                              "id": "same-rule",
+                              "text": "偷就是偷，谁做都一样。",
+                              "result": "申三认可主角讲同一套道理",
+                              "reward": "申三好感 +8；取回全部物品",
+                              "flags": [
+                                "monkey_respected"
+                              ],
+                              "next": "temple-road"
+                            },
+                            {
+                              "id": "threaten",
+                              "text": "把包交出来，否则动手。",
+                              "requirement": "威慑达到 4",
+                              "check": "威慑检定",
+                              "result": "申三交包但藏起一件物品",
+                              "reward": "申三好感 -8",
+                              "flags": [
+                                "monkey_intimidated"
+                              ],
+                              "next": "temple-road"
+                            },
+                            {
+                              "id": "play-game",
+                              "text": "陪你玩一局，你输了便说实话。",
+                              "requirement": "幸运达到 4",
+                              "check": "幸运检定",
+                              "result": "申三主动结伴",
+                              "reward": "猴儿果；申三好感 +5",
+                              "flags": [
+                                "monkey_befriended"
+                              ],
+                              "next": "temple-road"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
                   value: "地点：青森寺北边山林。这里适合做追逐、跳跃、屋顶 / 树梢路线和轻度解谜。\n\n事件：主角终于找到小灵猴申三。申三背着主角包裹，在树上模仿人说话，故意激怒主角。它会不断丢出包裹里的小物件，引导玩家追它穿过林间、溪石、破亭和旧香道。\n\n玩法路线：\n1. 追逐战：靠移动、疾行符、预判路线抓住它。\n2. 斗智：用果子、谜题、假装离开或术数命理骗它下来。\n3. 非战斗：发现它只是恶作剧，不直接攻击，选择陪它完成一个小要求。\n\n真相：申三偷包不是单纯害人。它可能在包裹里闻到爷爷留下的特殊气息，或发现某件东西与青森寺有关。它把主角引来，是想让主角去寺里看看。\n\n结果：主角找回包裹，但申三不会完全消失。若玩家守信、不伤它，它会成为长期亦敌亦友角色；若玩家强打，它会逃走，并在后续章节继续捣乱。",
                   dialogue: [
                     {
@@ -4600,6 +5431,70 @@
                   label: "第七节：初入青森寺",
                   guide: "",
                   status: "draft",
+                  segments: [
+                    {
+                      "id": "2-7-a",
+                      "title": "山门两种说法",
+                      "location": "青森寺前院",
+                      "objective": "决定先听取哪一方证词",
+                      "trigger": "抵达青森寺",
+                      "content": "方丈指控年轻和尚勾结山妖；年轻和尚则称方丈私藏香火与魂灯。",
+                      "completion": "开启方丈线、和尚线或中立调查线。",
+                      "dialogue": [
+                        {
+                          "id": "abbot-request",
+                          "side": "npc",
+                          "speaker": "青森寺方丈",
+                          "text": "逆徒勾结妖猴、盗取经卷。请小道长助本寺清理门户。",
+                          "choices": [
+                            {
+                              "id": "support-abbot",
+                              "text": "若证据确凿，我会帮你。",
+                              "result": "方丈开放部分区域",
+                              "reward": "方丈信任 +5",
+                              "flags": [
+                                "abbot_route"
+                              ],
+                              "next": "temple-search"
+                            },
+                            {
+                              "id": "ask-evidence",
+                              "text": "先让我看失窃处与经书目录。",
+                              "requirement": "经典义理达到 4",
+                              "check": "经典义理检定",
+                              "result": "发现目录被涂改",
+                              "reward": "线索：伪造书目",
+                              "flags": [
+                                "neutral_investigation"
+                              ],
+                              "next": "temple-archives"
+                            },
+                            {
+                              "id": "defend-monkey",
+                              "text": "不能只凭一句话认定申三有罪。",
+                              "requirement": "申三好感达到 5",
+                              "result": "申三信任上升，方丈转冷",
+                              "reward": "申三好感 +4",
+                              "flags": [
+                                "monkey_defended"
+                              ],
+                              "next": "young-monk"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "2-7-b",
+                      "title": "寺中夜宿",
+                      "location": "青森寺客房",
+                      "objective": "调查钟声与封闭偏殿",
+                      "trigger": "获得留宿许可",
+                      "content": "夜间响起反常钟声，申三看见有人从偏殿运出封魂灯。",
+                      "completion": "解锁偏殿异象。",
+                      "dialogue": []
+                    }
+                  ],
                   value: "进入青森寺：主角带着找回的包裹来到寺门。寺中僧人表面温和，香火不弱，但气氛有些压抑。寺门、钟楼、后山、斋堂、客房和藏经处都可作为探索点。\n\n初始目标：主角本来只是想查清申三为什么把自己引来，却发现寺里近期多名僧人失眠、香客做噩梦、夜里钟声无故响起。\n\n人物设置：\n1. 方丈：表面慈悲稳重，暂时表现为受害者或被蒙蔽者。\n2. 年轻和尚：对方丈不满，似乎暗中策划什么。\n3. 小和尚：胆小但知道夜间异象。\n4. 青和村香客：提供寺中异常的民间视角。\n\n玩法目标：调查寺内各处，收集钟声、梦魇、供品、后山脚印、破损经卷等线索。申三可能在暗处偷看，偶尔丢石子提示玩家不要相信表面。",
                   dialogue: [
                     {
@@ -4631,6 +5526,72 @@
                   label: "第八节：青森寺发现了异象",
                   guide: "想写成有一个和尚想要颠覆方丈。终于被主角识破。并制服（但是在后面吗第八章发现原来方丈其实是坏人背后做着讲不得人的勾当。之前的和尚就是受害者的孩子，想要报仇而已）",
                   status: "draft",
+                  segments: [
+                    {
+                      "id": "2-8-a",
+                      "title": "偏殿魂灯",
+                      "location": "青森寺偏殿",
+                      "objective": "确认异象来源",
+                      "trigger": "夜间追踪运灯者",
+                      "content": "年轻和尚正在破坏阵法，方丈命主角立即拿人。墙后却传来残魂哭声。",
+                      "completion": "选择抓捕、协助或交易。",
+                      "dialogue": [
+                        {
+                          "id": "monk-cornered",
+                          "side": "npc",
+                          "speaker": "年轻和尚",
+                          "text": "你若看看墙后那些魂灯，便知道谁更像恶人。",
+                          "choices": [
+                            {
+                              "id": "inspect-wall",
+                              "text": "带我去看。你若撒谎，我再拿你。",
+                              "requirement": "感知达到 4",
+                              "check": "感知检定",
+                              "result": "发现被封残魂",
+                              "reward": "证据：偏殿魂灯",
+                              "flags": [
+                                "monk_trusted",
+                                "soul_lamps_found"
+                              ],
+                              "next": "break-array"
+                            },
+                            {
+                              "id": "arrest-monk",
+                              "text": "先随我见方丈。",
+                              "result": "年轻和尚反抗，进入战斗",
+                              "reward": "方丈信任 +8",
+                              "flags": [
+                                "monk_arrested"
+                              ],
+                              "next": "abbot-judgment"
+                            },
+                            {
+                              "id": "demand-payment",
+                              "text": "帮你可以，你拿什么交换？",
+                              "requirement": "口才达到 5",
+                              "check": "口才检定",
+                              "result": "和尚交出法器作为定金",
+                              "reward": "破妄珠；承负 -2",
+                              "flags": [
+                                "monk_bargain"
+                              ],
+                              "next": "break-array"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "2-8-b",
+                      "title": "破阵或封口",
+                      "location": "偏殿地窖",
+                      "objective": "处理魂灯阵与证据",
+                      "trigger": "发现魂灯",
+                      "content": "可解救残魂、封阵保存证据，或帮助方丈销毁痕迹换取报酬。",
+                      "completion": "决定第二章真相保留程度。",
+                      "dialogue": []
+                    }
+                  ],
                   value: "表层冲突：主角调查后发现，一名年轻和尚暗中布置符灰、藏匿供器、引发夜间钟声，似乎想制造寺中闹鬼的假象，逼方丈退位或让香客不再信任方丈。\n\n主角识破：通过问魂、风水堪舆、术数命理或调查供器，玩家发现异象有人工痕迹。年轻和尚承认自己想颠覆方丈，但不愿说出全部原因。\n\n战斗 / 制服：年轻和尚可使用简易阵法、香灰迷眼、木鱼声扰心等手段。玩家可以正面制服，也可以用定身咒、破阵术、说服或揭露证据让他停手。\n\n第二层伏笔：表面上，年轻和尚是破坏寺庙秩序的人；但他临被制服前说出模糊线索：方丈曾害过他的家人，寺中藏着不能让香客知道的东西。当前章节不完全揭开真相，只让玩家觉得事情不止如此。\n\n第八章伏笔：后面第八章再揭露，方丈其实背后做着见不得人的勾当，年轻和尚是受害者的孩子，第二章玩家以为自己平乱，实际上只是压住了更深的仇恨。\n\n本节目标：让第二章有一个完整寺庙事件，同时埋下“正派表象不可靠”的长期因果。",
                   dialogue: [
                     {
@@ -4662,6 +5623,112 @@
                   label: "第九节：处理完青森寺的事情，然后回到青和村完结本章",
                   guide: "",
                   status: "draft",
+                  segments: [
+                    {
+                      "id": "2-9-a",
+                      "title": "青森寺处置",
+                      "location": "青森寺大殿",
+                      "objective": "决定方丈、和尚和魂灯证据的处理",
+                      "trigger": "完成偏殿调查",
+                      "content": "玩家可公开真相、暂时妥协，或站在方丈一边。",
+                      "completion": "生成第八章会回收的长期旗标。",
+                      "dialogue": [
+                        {
+                          "id": "abbot-final",
+                          "side": "npc",
+                          "speaker": "青森寺方丈",
+                          "text": "你真要为几个残魂，毁掉一寺清名？",
+                          "choices": [
+                            {
+                              "id": "save-evidence",
+                              "text": "靠封口维持的清名不值得保。",
+                              "requirement": "持有魂灯证据",
+                              "result": "保留真相并释放残魂",
+                              "reward": "承负 +6；第八章证据强化",
+                              "flags": [
+                                "temple_evidence_saved",
+                                "abbot_hostile"
+                              ],
+                              "next": "return-qinghe"
+                            },
+                            {
+                              "id": "truce",
+                              "text": "我暂不公开，但魂灯必须停用。",
+                              "requirement": "口才达到 6",
+                              "check": "口才检定",
+                              "result": "达成脆弱妥协",
+                              "reward": "青森寺声望 +3",
+                              "flags": [
+                                "temple_truce"
+                              ],
+                              "next": "return-qinghe"
+                            },
+                            {
+                              "id": "coverup",
+                              "text": "此事便按逆徒作乱结案。",
+                              "result": "方丈销毁证据",
+                              "reward": "银钱 +80；承负 -8",
+                              "flags": [
+                                "abbot_coverup",
+                                "monk_enemy"
+                              ],
+                              "next": "return-qinghe"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "2-9-b",
+                      "title": "青和村告别",
+                      "location": "青和村外",
+                      "objective": "结算申三关系并离开",
+                      "trigger": "离开青森寺",
+                      "content": "申三归还最后一件小物，询问以后是否还能同行。",
+                      "completion": "取得第三章古战场传闻。",
+                      "dialogue": [
+                        {
+                          "id": "monkey-farewell",
+                          "side": "npc",
+                          "speaker": "申三",
+                          "text": "以后若再见，你还会先拔剑吗？",
+                          "choices": [
+                            {
+                              "id": "invite",
+                              "text": "别再偷包，便可以同行。",
+                              "requirement": "申三好感达到 5",
+                              "result": "申三成为长期友方",
+                              "reward": "申三同伴旗标",
+                              "flags": [
+                                "monkey_companion"
+                              ],
+                              "next": "chapter3"
+                            },
+                            {
+                              "id": "friendly",
+                              "text": "路不同也能再见。",
+                              "result": "保持友好",
+                              "reward": "猴毛信物",
+                              "flags": [
+                                "monkey_friend"
+                              ],
+                              "next": "chapter3"
+                            },
+                            {
+                              "id": "reject",
+                              "text": "妖就是妖，我不会再信你。",
+                              "result": "申三受伤离去",
+                              "reward": "承负 -3",
+                              "flags": [
+                                "monkey_rejected"
+                              ],
+                              "next": "chapter3"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
                   value: "收束路线：处理完青森寺异象后，主角回到青和村。村民感谢寺中恢复平静，青森寺也暂时恢复香火。主角取回包裹，准备继续上路。\n\n结果反馈：\n1. 若玩家没有伤害申三，申三会在村外或树上再次出现，把一个小物件丢还给主角，暗示以后还会再见。\n2. 若玩家粗暴对待申三，它会偷走一个小道具或留下嘲讽痕迹。\n3. 若玩家善待年轻和尚，后续第八章可更容易相信他的真相。\n4. 若玩家完全站在方丈一边，第八章揭露真相时会形成反转和因果压力。\n\n青和村结尾：村民讲起第三章方向的传闻，例如古战场夜里有马蹄声、断旗村有人失踪、旧军营传来号角。这自然引向第三章。",
                   dialogue: [
                     {
@@ -6816,6 +7883,20 @@
       });
 
       elements.documentInner.addEventListener("click", (event) => {
+        const dialogueChoice = event.target.closest("[data-dialogue-choice]");
+
+        if (dialogueChoice) {
+          activateDialogueChoice(dialogueChoice);
+          return;
+        }
+
+        const dialogueRestart = event.target.closest("[data-dialogue-restart]");
+
+        if (dialogueRestart) {
+          restartDialogue(dialogueRestart.closest("[data-dialogue-tree]"));
+          return;
+        }
+
         const button = event.target.closest("[data-section-tab]");
 
         if (!button) {
@@ -6910,18 +7991,37 @@
 
           section.fields.forEach((field, fieldPosition) => {
             const fieldPath = `${chapterName} > ${section.title || "未命名 section"} > 第 ${fieldPosition + 1} 个字段`;
+            const segmentText = getTaskSegmentText(getTaskSegments(field));
+            const dialogueText = getDialogueText(getDialogueLines(field));
+            const hasFieldContent = String(field.value || "").trim() !== ""
+              || segmentText !== ""
+              || dialogueText !== "";
 
             if (!field.label || !field.label.trim()) {
               warnings.push(`字段 label 为空：${fieldPath}。`);
             }
 
-            if (field.status === "todo" && String(field.value || "").trim() !== "") {
+            if (field.status === "todo" && hasFieldContent) {
               warnings.push(`字段已有内容但 status 仍是 todo：${fieldPath}。建议改成 draft。`);
             }
 
-            if (field.status === "draft" && String(field.value || "").trim() === "") {
+            if (field.status === "draft" && !hasFieldContent) {
               warnings.push(`字段是 draft 但 value 为空：${fieldPath}。建议改成 todo。`);
             }
+
+            getTaskSegments(field).forEach((segment, segmentIndex) => {
+              if (!segment.title) {
+                warnings.push(`任务段标题为空：${fieldPath} > 第 ${segmentIndex + 1} 段。`);
+              }
+
+              segment.dialogue.forEach((node) => {
+                node.choices.forEach((choice) => {
+                  if (choice.next && choice.next === node.id) {
+                    warnings.push(`对话选项循环指向自身：${fieldPath} > ${node.id} > ${choice.id}。`);
+                  }
+                });
+              });
+            });
           });
         });
       });
@@ -7124,11 +8224,14 @@
       const normalizedValue = String(field.value || "").trim();
       const dialogueLines = getDialogueLines(field);
       const dialogueText = getDialogueText(dialogueLines);
+      const taskSegments = getTaskSegments(field);
+      const taskSegmentText = getTaskSegmentText(taskSegments);
       const rewardEntries = getRewardEntries(field, context);
       const rewardText = getRewardText(rewardEntries);
       const hasRewardContent = rewardEntries.some((entry) => entry.value !== "");
       const hasDialogue = dialogueLines.length > 0;
-      const fieldBody = normalizedValue || dialogueText || (hasRewardContent ? rewardText : "");
+      const hasTaskSegments = taskSegments.length > 0;
+      const fieldBody = normalizedValue || taskSegmentText || dialogueText || (hasRewardContent ? rewardText : "");
       const isTodo = field.status === "todo" || fieldBody === "";
 
       if (state.todoOnly && !isTodo) {
@@ -7140,6 +8243,7 @@
         field.guide,
         field.status,
         field.value,
+        taskSegmentText,
         dialogueText,
         rewardText
       ]);
@@ -7160,9 +8264,118 @@
 
           <div class="field-guide">${escapeHtml(field.guide)}</div>
           ${normalizedValue ? `<div class="field-content">${escapeHtml(content)}</div>` : ""}
-          ${hasDialogue ? renderDialogue(dialogueLines) : ""}
+          ${hasTaskSegments ? renderTaskSegments(taskSegments) : ""}
+          ${hasDialogue && !hasTaskSegments ? renderDialogue(dialogueLines) : ""}
           ${rewardEntries.length > 0 ? renderRewards(rewardEntries) : ""}
-          ${!normalizedValue && !hasDialogue ? `<div class="field-content">${escapeHtml(content)}</div>` : ""}
+          ${!normalizedValue && !hasDialogue && !hasTaskSegments && isTaskContext(context)
+            ? renderEmptyTaskStructure()
+            : ""}
+          ${!normalizedValue && !hasDialogue && !hasTaskSegments && !isTaskContext(context)
+            ? `<div class="field-content">${escapeHtml(content)}</div>`
+            : ""}
+        </div>
+      `;
+    }
+
+    function getTaskSegments(field) {
+      const rawSegments = Array.isArray(field.segments)
+        ? field.segments
+        : Array.isArray(field.tasks)
+          ? field.tasks
+          : Array.isArray(field.steps)
+            ? field.steps
+            : [];
+
+      return rawSegments.map((segment, index) => {
+        if (typeof segment === "string") {
+          return {
+            id: `segment-${index + 1}`,
+            title: `任务段 ${index + 1}`,
+            location: "",
+            objective: "",
+            trigger: "",
+            content: segment,
+            completion: "",
+            dialogue: []
+          };
+        }
+
+        return {
+          id: String(segment.id || `segment-${index + 1}`).trim(),
+          title: String(segment.title || segment.name || `任务段 ${index + 1}`).trim(),
+          location: String(segment.location || segment.place || "").trim(),
+          objective: String(segment.objective || segment.goal || "").trim(),
+          trigger: String(segment.trigger || segment.requirement || "").trim(),
+          content: String(segment.content || segment.value || segment.description || "").trim(),
+          completion: String(segment.completion || segment.outcome || segment.result || "").trim(),
+          dialogue: getDialogueLines(segment.dialogue || segment.conversation || segment.lines || [])
+        };
+      });
+    }
+
+    function getTaskSegmentText(segments) {
+      return segments.map((segment) => [
+        segment.id,
+        segment.title,
+        segment.location,
+        segment.objective,
+        segment.trigger,
+        segment.content,
+        segment.completion,
+        getDialogueText(segment.dialogue)
+      ].join(" ")).join(" ").trim();
+    }
+
+    function renderTaskSegments(segments) {
+      return `
+        <div class="task-segment-list">
+          ${segments.map((segment, index) => {
+            const meta = [
+              ["地点", segment.location],
+              ["当前目标", segment.objective],
+              ["触发条件", segment.trigger]
+            ].filter((item) => item[1]);
+
+            return `
+              <article class="task-segment">
+                <div class="task-segment-head">
+                  <div>
+                    <div class="task-segment-index">Segment ${index + 1}</div>
+                    <div class="task-segment-title">${escapeHtml(segment.title)}</div>
+                  </div>
+                  <div class="task-segment-id">${escapeHtml(segment.id)}</div>
+                </div>
+                <div class="task-segment-body">
+                  ${meta.length ? `
+                    <div class="task-meta-grid">
+                      ${meta.map(([label, value]) => `
+                        <div class="task-meta-item">
+                          <div class="task-meta-label">${escapeHtml(label)}</div>
+                          <div class="task-meta-value">${escapeHtml(value)}</div>
+                        </div>
+                      `).join("")}
+                    </div>
+                  ` : ""}
+                  ${segment.content ? `<div class="task-segment-content">${escapeHtml(segment.content)}</div>` : ""}
+                  ${segment.dialogue.length ? renderDialogue(segment.dialogue) : ""}
+                  ${segment.completion ? `
+                    <div class="task-meta-item" style="margin-top: 12px;">
+                      <div class="task-meta-label">完成与流转</div>
+                      <div class="task-meta-value">${escapeHtml(segment.completion)}</div>
+                    </div>
+                  ` : ""}
+                </div>
+              </article>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    function renderEmptyTaskStructure() {
+      return `
+        <div class="task-structure-empty">
+          待补充任务结构：可在本节加入 <code>segments</code>，拆分为多个任务段；每段可填写地点、目标、触发条件、剧情、对话节点与完成结果。对话节点中的 <code>choices</code> 可配置多条主角回复、检定条件、奖励、旗标变化和后续节点。
         </div>
       `;
     }
@@ -7225,30 +8438,84 @@
       `;
     }
 
-    function getDialogueLines(field) {
-      const rawLines = Array.isArray(field.dialogue)
-        ? field.dialogue
-        : Array.isArray(field.lines)
-          ? field.lines
-          : [];
+    function getDialogueLines(source) {
+      const rawLines = Array.isArray(source)
+        ? source
+        : Array.isArray(source.dialogue)
+          ? source.dialogue
+          : Array.isArray(source.conversation)
+            ? source.conversation
+            : Array.isArray(source.lines)
+              ? source.lines
+              : [];
 
       return rawLines
-        .map((line) => {
+        .map((line, index) => {
           if (typeof line === "string") {
             return {
+              id: `dialogue-${index + 1}`,
               side: "narration",
               speaker: "",
-              text: line
+              text: line,
+              choices: []
             };
           }
 
           return {
+            id: String(line.id || line.nodeId || `dialogue-${index + 1}`).trim(),
             side: normalizeDialogueSide(line.side || line.type || line.role || line.speaker),
             speaker: String(line.speaker || "").trim(),
-            text: String(line.text || line.value || "").trim()
+            text: String(line.text || line.value || "").trim(),
+            choices: getDialogueChoices(line)
           };
         })
-        .filter((line) => line.text !== "");
+        .filter((line) => line.text !== "" || line.choices.length > 0);
+    }
+
+    function getDialogueChoices(line) {
+      const rawChoices = Array.isArray(line.choices)
+        ? line.choices
+        : Array.isArray(line.replies)
+          ? line.replies
+          : Array.isArray(line.responses)
+            ? line.responses
+            : [];
+
+      return rawChoices.map((choice, index) => {
+        if (typeof choice === "string") {
+          return {
+            id: `choice-${index + 1}`,
+            text: choice,
+            requirement: "",
+            check: "",
+            result: "",
+            reward: "",
+            flags: "",
+            next: ""
+          };
+        }
+
+        const rewards = choice.rewards && typeof choice.rewards === "object"
+          ? Object.entries(choice.rewards)
+              .map(([key, value]) => `${key}: ${Array.isArray(value) ? value.join("、") : value}`)
+              .join("；")
+          : String(choice.reward || choice.gain || choice.rewards || "").trim();
+
+        const flags = Array.isArray(choice.flags)
+          ? choice.flags.join("、")
+          : String(choice.flags || choice.flag || "").trim();
+
+        return {
+          id: String(choice.id || `choice-${index + 1}`).trim(),
+          text: String(choice.text || choice.label || choice.reply || "").trim(),
+          requirement: String(choice.requirement || choice.condition || choice.requires || "").trim(),
+          check: String(choice.check || choice.skillCheck || "").trim(),
+          result: String(choice.result || choice.outcome || choice.effect || "").trim(),
+          reward: rewards,
+          flags,
+          next: String(choice.next || choice.nextId || choice.goto || "").trim()
+        };
+      }).filter((choice) => choice.text !== "");
     }
 
     function normalizeDialogueSide(value) {
@@ -7267,30 +8534,192 @@
 
     function getDialogueText(lines) {
       return lines
-        .map((line) => `${line.speaker} ${line.text}`.trim())
+        .map((line) => {
+          const choices = line.choices.map((choice) => [
+            choice.text,
+            choice.requirement,
+            choice.check,
+            choice.result,
+            choice.reward,
+            choice.flags,
+            choice.next
+          ].join(" ")).join(" ");
+
+          return `${line.speaker} ${line.text} ${choices}`.trim();
+        })
         .join(" ")
         .trim();
     }
 
     function renderDialogue(lines) {
+      const nodeIds = new Set(lines.map((line) => line.id));
+      const hasInternalBranches = lines.some((line) => {
+        return line.choices.some((choice) => choice.next && nodeIds.has(choice.next));
+      });
+
       return `
-        <div class="dialogue-list">
-          ${lines.map((line) => {
+        <div class="dialogue-list" ${hasInternalBranches ? "data-dialogue-tree" : ""}>
+          ${hasInternalBranches ? `<div class="dialogue-history" data-dialogue-history></div>` : ""}
+          ${lines.map((line, lineIndex) => {
             const speaker = line.speaker
               ? `<div class="dialogue-speaker">${escapeHtml(line.speaker)}</div>`
               : "";
+            const hidden = hasInternalBranches && lineIndex > 0 ? " hidden" : "";
 
             return `
-              <div class="dialogue-line ${escapeHtml(line.side)}">
-                <div class="dialogue-bubble">
-                  ${speaker}
-                  <div class="dialogue-text">${escapeHtml(line.text)}</div>
+              <div class="dialogue-node" data-dialogue-node-id="${escapeHtml(line.id)}"${hidden}>
+                <div class="dialogue-node-id">${escapeHtml(line.id)}</div>
+                <div class="dialogue-line ${escapeHtml(line.side)}">
+                  <div class="dialogue-bubble">
+                    ${speaker}
+                    <div class="dialogue-text">${escapeHtml(line.text)}</div>
+                  </div>
                 </div>
+                ${line.choices.length ? `
+                  <div class="dialogue-choices" aria-label="主角回复选项">
+                    ${line.choices.map((choice, index) => renderDialogueChoice(choice, index)).join("")}
+                  </div>
+                ` : ""}
               </div>
             `;
           }).join("")}
+          ${hasInternalBranches ? `
+            <div class="dialogue-branch-result" data-dialogue-result></div>
+            <button class="dialogue-restart" type="button" data-dialogue-restart>重新选择</button>
+          ` : ""}
         </div>
       `;
+    }
+
+    function renderDialogueChoice(choice, index) {
+      const tags = [
+        choice.requirement ? ["requirement", "条件", choice.requirement] : null,
+        choice.check ? ["requirement", "检定", choice.check] : null,
+        choice.result ? ["result", "结果", choice.result] : null,
+        choice.reward ? ["reward", "获得 / 失去", choice.reward] : null,
+        choice.flags ? ["result", "旗标", choice.flags] : null,
+        choice.next ? ["next", "后续", choice.next] : null
+      ].filter(Boolean);
+
+      return `
+        <button
+          class="dialogue-choice"
+          type="button"
+          data-dialogue-choice
+          data-choice-id="${escapeHtml(choice.id)}"
+          data-choice-text="${escapeHtml(choice.text)}"
+          data-choice-result="${escapeHtml(choice.result)}"
+          data-choice-reward="${escapeHtml(choice.reward)}"
+          data-choice-flags="${escapeHtml(choice.flags)}"
+          data-choice-next="${escapeHtml(choice.next)}"
+        >
+          <div class="dialogue-choice-text">${index + 1}. ${escapeHtml(choice.text)}</div>
+          ${tags.length ? `
+            <div class="choice-tags">
+              ${tags.map(([className, label, value]) => `
+                <span class="choice-tag ${className}">${escapeHtml(label)}：${escapeHtml(value)}</span>
+              `).join("")}
+            </div>
+          ` : ""}
+        </button>
+      `;
+    }
+
+    function activateDialogueChoice(button) {
+      const tree = button.closest("[data-dialogue-tree]");
+
+      if (!tree) {
+        return;
+      }
+
+      const currentNode = button.closest("[data-dialogue-node-id]");
+      const nextId = button.dataset.choiceNext || "";
+      const history = tree.querySelector("[data-dialogue-history]");
+      const resultBox = tree.querySelector("[data-dialogue-result]");
+      const restartButton = tree.querySelector("[data-dialogue-restart]");
+      const resultParts = [
+        button.dataset.choiceResult ? `结果：${button.dataset.choiceResult}` : "",
+        button.dataset.choiceReward ? `获得 / 失去：${button.dataset.choiceReward}` : "",
+        button.dataset.choiceFlags ? `旗标：${button.dataset.choiceFlags}` : ""
+      ].filter(Boolean);
+
+      if (history) {
+        if (currentNode) {
+          const currentLine = currentNode.querySelector(".dialogue-line");
+          const currentSpeaker = currentNode.querySelector(".dialogue-speaker")?.textContent.trim() || "旁白";
+          const currentText = currentNode.querySelector(".dialogue-text")?.textContent.trim() || "";
+          const currentSide = currentLine?.classList.contains("npc")
+            ? "npc"
+            : currentLine?.classList.contains("protagonist")
+              ? "protagonist"
+              : "narration";
+
+          if (currentText) {
+            const npcHistoryItem = document.createElement("div");
+            npcHistoryItem.className = `dialogue-history-item ${currentSide}`;
+            npcHistoryItem.textContent = `${currentSpeaker}：${currentText}`;
+            history.appendChild(npcHistoryItem);
+          }
+        }
+
+        const protagonistHistoryItem = document.createElement("div");
+        protagonistHistoryItem.className = "dialogue-history-item protagonist";
+        protagonistHistoryItem.textContent = `主角：${button.dataset.choiceText || "已选择回复"}`;
+        history.appendChild(protagonistHistoryItem);
+      }
+
+      if (currentNode) {
+        currentNode.hidden = true;
+      }
+
+      const targetNode = nextId
+        ? [...tree.querySelectorAll("[data-dialogue-node-id]")]
+            .find((node) => node.dataset.dialogueNodeId === nextId)
+        : null;
+
+      if (targetNode) {
+        targetNode.hidden = false;
+        resultBox.textContent = resultParts.length
+          ? resultParts.join("\n")
+          : "已进入后续对话。";
+        resultBox.classList.add("visible");
+        targetNode.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      } else {
+        resultBox.textContent = resultParts.length
+          ? resultParts.join("\n")
+          : "该回复结束当前对话。";
+        resultBox.classList.add("visible");
+      }
+
+      restartButton.classList.add("visible");
+    }
+
+    function restartDialogue(tree) {
+      if (!tree) {
+        return;
+      }
+
+      const nodes = [...tree.querySelectorAll("[data-dialogue-node-id]")];
+      nodes.forEach((node, index) => {
+        node.hidden = index !== 0;
+      });
+
+      const history = tree.querySelector("[data-dialogue-history]");
+      const resultBox = tree.querySelector("[data-dialogue-result]");
+      const restartButton = tree.querySelector("[data-dialogue-restart]");
+
+      if (history) {
+        history.innerHTML = "";
+      }
+
+      if (resultBox) {
+        resultBox.textContent = "";
+        resultBox.classList.remove("visible");
+      }
+
+      if (restartButton) {
+        restartButton.classList.remove("visible");
+      }
     }
 
     function matchesSearch(values) {
@@ -7333,10 +8762,12 @@
 
       const completed = fields.filter((field) => {
         const value = String(field.value || "").trim();
+        const taskSegmentText = getTaskSegmentText(getTaskSegments(field));
         const dialogueText = getDialogueText(getDialogueLines(field));
         const rewardText = getRewardText(getRewardEntries(field, {}));
 
-        return field.status !== "todo" && (value !== "" || dialogueText !== "" || rewardText !== "");
+        return field.status !== "todo"
+          && (value !== "" || taskSegmentText !== "" || dialogueText !== "" || rewardText !== "");
       });
 
       const percentage = fields.length === 0
