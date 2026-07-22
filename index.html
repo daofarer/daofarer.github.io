@@ -6085,7 +6085,7 @@
                       location: "山神庙",
                       objective: "",
                       trigger: "",
-                      content: "夜间找到女鬼，对话，女鬼同意为他超度，还说山里的蛇越来越多了，它们像是在找什么东西。用葫芦收了女鬼，为女鬼进行超度，或者进行吞噬。",
+                      content: "夜间找到女鬼，对话，女鬼同意为他超度，还说山里的蛇越来越多了， 好像是有蛇妖在此。用葫芦收了女鬼，为女鬼进行超度，或者进行吞噬。",
                       completion: "",
                       dialogue: [
                         {
@@ -6140,45 +6140,46 @@
                   value: "",
                   segments: [
                     {
-                      id: "",
+                      id: "1-8-a",
                       title: "",
                       location: "",
                       objective: "",
-                      trigger: "",
+                      trigger: "完成第八节女鬼任务后，第二天白天",
                       content: "",
-                      completion: "",
+                      completion: "处理普通的蛇妖，找到蛇妖的的洞窟。",
                       dialogue: [
                         {
                           id: "",
                           side: "npc",
-                          speaker: "",
-                          text: "",
+                          speaker: "爷爷",
+                          text: "西边的山脚下又有蛇患了，看来有必要彻底处理一下。",
                           choices: [
                             {
                               "id": "",
-                              "text": "",
+                              "text": "上次收服女鬼的时候，听那个女鬼说山里面好像有蛇妖。我去调查一番",
+                              "requirement":"必须是最终完成了女鬼任务。解除了女尸封印",
                               "result": "",
                               "reward": "",
                               "flags": [
                                 "",
                                 ""
                               ],
-                              "next": ""
+                              "next": "1-8-a-1"
                             },
                             {
                               "id": "",
-                              "text": "",
+                              "text": "我去查探一番，看看究竟是为何总有蛇患。",
                               "result": "",
                               "reward": "",
                               "flags": [
                                 "",
                                 ""
                               ],
-                              "next": ""
+                              "next": "1-8-a-1"
                             },
                             {
                               "id": "",
-                              "text": "",
+                              "text": "刚刚解决了女鬼，还是改日再说吧。",
                               "result": "",
                               "reward": "",
                               "flags": [
@@ -6189,26 +6190,15 @@
                             },
                           ]
                         },
-                      ]
-                    },
-                    {
-                      id: "",
-                      title: "",
-                      location: "",
-                      objective: "",
-                      trigger: "",
-                      content: "",
-                      completion: "",
-                      dialogue: [
                         {
-                          id: "",
+                          id: "1-8-a-1",
                           side: "npc",
-                          speaker: "",
-                          text: "",
+                          speaker: "爷爷",
+                          text: "要多加小心，如果确有强大的蛇妖，记得先回来从长计议。",
                           choices: [
                             {
                               "id": "",
-                              "text": "",
+                              "text": "好的，爷爷",
                               "result": "",
                               "reward": "",
                               "flags": [
@@ -6217,20 +6207,17 @@
                               ],
                               "next": ""
                             },
+                          ]
+                        },
+                        {
+                          id: "1-8-a-2",
+                          side: "npc",
+                          speaker: "爷爷",
+                          text: "多加小心，应该不是普通的蛇患。",
+                          choices: [
                             {
                               "id": "",
-                              "text": "",
-                              "result": "",
-                              "reward": "",
-                              "flags": [
-                                "",
-                                ""
-                              ],
-                              "next": ""
-                            },
-                            {
-                              "id": "",
-                              "text": "",
+                              "text": "放心吧",
                               "result": "",
                               "reward": "",
                               "flags": [
@@ -6252,12 +6239,12 @@
                   value: "",
                   segments: [
                     {
-                      id: "",
+                      id: "1-9-a",
                       title: "",
                       location: "",
                       objective: "",
-                      trigger: "",
-                      content: "",
+                      trigger: "找到了蛇妖的洞窟",
+                      content: "回来报告爷爷，一起去降伏蛇妖。",
                       completion: "",
                       dialogue: [
                         {
@@ -6304,11 +6291,11 @@
                       ]
                     },
                     {
-                      id: "",
+                      id: "1-9-b",
                       title: "",
                       location: "",
                       objective: "",
-                      trigger: "",
+                      trigger: "降伏了蛇妖",
                       content: "",
                       completion: "",
                       dialogue: [
