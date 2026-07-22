@@ -1438,7 +1438,7 @@
       <section class="relation-section chapter" id="chapter-relation-map" data-chapter="relation-map">
         <div class="container">
           <div class="chapter-head">
-            <div class="chapter-index">Chapter 20</div>
+            <div class="chapter-index">Chapter 19</div>
             <h2>关系图谱与影响矩阵</h2>
             <p class="chapter-description">
               这里专门整理“玩家行为 → 声望变化 → NPC 态度变化 → 任务分支变化 → 主线 / 结局变化”的复杂关系。
@@ -5859,39 +5859,39 @@
                       objective: "",
                       trigger: "夜间",
                       content: "夜间村民来到的爷爷家敲门。村民夜间在山神庙中休息时发现了女鬼，仓皇逃回来直接来到了爷爷家。说明了此事。",
-                      completion: "",
+                      completion: "答应去上山看女鬼后，村民李有田就会离开。",
                       dialogue: [
                         {
                           id: "",
-                          side: "",
-                          speaker: "",
-                          text: "",
+                          side: "npc",
+                          speaker: "村民李有田",
+                          text: "道士，刚才可吓死老汉我了。我在山上采完药。本来是在山神庙上简单的休息一下。谁知直接睡到了晚上。起身刚要走，忽然借着月光看见了一个女鬼。她看到我后，发出了凄惨的笑声，还冲着我飘来，吓的我赶紧向村里跑回来。一路上我好像还听见她在不停的叫我。道士你快去看看吧，这到底是怎么回事。",
                           choices: [
                             {
                               "id": "",
-                              "text": "",
+                              "text": "好的，我这就去看看。避免这女鬼祸害村里。",
                               "result": "",
                               "reward": "",
                               "flags": [
                                 "",
                                 ""
                               ],
-                              "next": ""
+                              "next": "chapter-1-7-a-1"
                             },
                             {
                               "id": "",
-                              "text": "",
+                              "text": "噢，山上的山神庙居然有女鬼，我去看看，到底是怎么回事。",
                               "result": "",
                               "reward": "",
                               "flags": [
                                 "",
                                 ""
                               ],
-                              "next": ""
+                              "next": "chapter-1-7-a-1"
                             },
                             {
                               "id": "",
-                              "text": "",
+                              "text": "啊，女鬼，好可怕的。",
                               "result": "",
                               "reward": "",
                               "flags": [
@@ -5902,10 +5902,29 @@
                             },
                           ]
                         },
+                        {
+                          id: "chapter-1-7-a-1",
+                          side: "npc",
+                          speaker: "村民李有田",
+                          text: "好的，道士，多多注意安全",
+                          // choices: [
+                          //   {
+                          //     "id": "",
+                          //     "text": "",
+                          //     "result": "",
+                          //     "reward": "",
+                          //     "flags": [
+                          //       "",
+                          //       ""
+                          //     ],
+                          //     "next": ""
+                          //   },
+                          // ]
+                        },
                       ]
                     },
                     {
-                      id: "",
+                      id: "1-7-b",
                       title: "",
                       location: "山神庙",
                       objective: "",
@@ -5915,7 +5934,7 @@
                       dialogue: [
                         {
                           id: "",
-                          side: "",
+                          side: "npc",
                           speaker: "",
                           text: "",
                           choices: [
@@ -5967,7 +5986,7 @@
                       dialogue: [
                         {
                           id: "",
-                          side: "",
+                          side: "npc",
                           speaker: "",
                           text: "",
                           choices: [
@@ -6019,7 +6038,7 @@
                       dialogue: [
                         {
                           id: "",
-                          side: "",
+                          side: "npc",
                           speaker: "",
                           text: "",
                           choices: [
@@ -6071,7 +6090,7 @@
                       dialogue: [
                         {
                           id: "",
-                          side: "",
+                          side: "npc",
                           speaker: "",
                           text: "",
                           choices: [
@@ -6131,7 +6150,7 @@
                       dialogue: [
                         {
                           id: "",
-                          side: "",
+                          side: "npc",
                           speaker: "",
                           text: "",
                           choices: [
@@ -6183,7 +6202,7 @@
                       dialogue: [
                         {
                           id: "",
-                          side: "",
+                          side: "npc",
                           speaker: "",
                           text: "",
                           choices: [
@@ -6243,7 +6262,7 @@
                       dialogue: [
                         {
                           id: "",
-                          side: "",
+                          side: "npc",
                           speaker: "",
                           text: "",
                           choices: [
@@ -6295,7 +6314,7 @@
                       dialogue: [
                         {
                           id: "",
-                          side: "",
+                          side: "npc",
                           speaker: "",
                           text: "",
                           choices: [
@@ -8672,55 +8691,9 @@
             }
           ]
         },
-
-        {
-          id: "appellation‌",
-          index: "17",
-          title: "称号系统",
-          description: "",
-          sections: [
-            {
-              title: "手无缚鸡之力",
-              description: "",
-              fields: [
-                {
-                  label: "",
-                  guide: "称号名称：手无缚鸡之力",
-                  status: "todo",
-                  value: "获得方式：被一只普通的鸡杀死。"
-                },
-              ]
-            },
-            {
-              title: "赶尸达人",
-              description: "",
-              fields: [
-                {
-                  label: "",
-                  guide: "称号名称：赶尸达人",
-                  status: "todo",
-                  value: "获得方式：赶尸距离超过10000米，赶尸次数超过10次"
-                },
-              ]
-            },
-            {
-              title: "",
-              description: "",
-              fields: [
-                {
-                  label: "",
-                  guide: "称号名称：",
-                  status: "todo",
-                  value: "获得方式："
-                },
-              ]
-            },
-            
-          ]
-        }, 
         {
           id: "production",
-          index: "18",
+          index: "17",
           title: "开发计划与原型优先级",
           description: "6个月",
           sections: [
@@ -8903,7 +8876,7 @@
         
         {
           id: "model-construction",
-          index: "19",
+          index: "18",
           title: "建模计划",
           description: "6个月",
           sections: [
