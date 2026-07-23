@@ -2873,8 +2873,8 @@
                   value: ""
                 },
                 {
-                  label: "",
-                  guide: "",
+                  label: "寻踪",
+                  guide: "可以找妖怪，或者人的所在地",
                   status: "draft",
                   value: ""
                 },
@@ -4657,7 +4657,7 @@
                           id: "elder-plea",
                           side: "npc",
                           speaker: "爷爷",
-                          text: "主角姓名，来，去鸡窝杀一只鸡，今天咱们爷俩喝两杯。",
+                          text: "孩子，来，去鸡窝杀一只鸡，今天咱们爷俩喝两杯。",
                           choices: [
                             {
                               "id": "ask-why",
@@ -4808,8 +4808,8 @@
                         },
                         {
                           id: "chicken-to-sister2",
-                          side: "妹妹",
-                          speaker: "",
+                          side: "npc",
+                          speaker: "妹妹",
                           text: "少来，快给我鸡肉",
                           choices: [
                             {
@@ -6343,68 +6343,114 @@
                       ]
                     },
                   ],
-                  dialogue: [
-                    {
-                      side: "narration",
-                      text: "蛇妖盘在破碎的山神像后，鳞片上沾着香灰和血。爷爷强撑着布阵，脸色却越来越白。"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "蛇妖",
-                      text: "你们拜神求平安，我也受香火，凭什么我不能做山神？"
-                    },
-                    {
-                      side: "protagonist",
-                      speaker: "主角",
-                      text: "受香火不是吃供品、吓村民、害牲畜。你要做神，先学会不害人。"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "爷爷",
-                      text: "别只想着赢。看清它的阵眼，记住它怎么借香火。以后没人替你挡在前面了。"
-                    },
-                    {
-                      side: "narration",
-                      text: "战斗结束后，爷爷重伤难治。胜利不是爽快收束，而是主角第一次真正面对失去庇护。"
-                    }
-                  ]
                 },
               ]
             },
             {
               title: "第二章主线",
-              description: "同是天涯沦落人，相逢何必曾相识。主题：离乡后的第一场善意与试探，陌生人未必可信，异类也未必作恶。",
+              description: "同是天涯沦落人，相逢何必曾相识。",
               fields: [
                 {
                   label: "第一节：遇险狼妖",
-                  guide: "路上就发现有狼群的攻击，然后再走不久，就看到有老人在路旁的树上，被狼群围攻。救下老人。老人是周围旁边村子的。然后告诉主角，不知为何，近期此地村民，在外出的时候经常被狼群围攻。据说周围住着狼妖。村中有多人被攻击了。甚至还有一位和主角年纪相仿的外村赶路人，也被咬伤，在村中养伤",
+                  guide: "路上就发现有狼群的攻击，然后再走不久，就看到有老人在路旁的树上，被狼群围攻。救下老人。老人是周围旁边村子的。然后告诉主角，不知为何，近期此地村民，在外出的时候经常被狼群围攻。据说周围住着狼妖。村中有多人被攻击了。",
                   status: "draft",
                   segments: [
                     {
-                      "id": "2-1-a",
-                      "title": "山路狼袭",
-                      "location": "承安村外山道",
-                      "objective": "击退狼群并检查异常",
-                      "trigger": "离开祥云村后自动触发",
-                      "content": "玩家第一次独自遭遇狼群。可正面战斗、以火驱散，或使用望气判断狼群受到了惊扰。",
-                      "completion": "发现前方老人被困，进入救援段。",
-                      "dialogue": []
+                      id: "2-1-a",
+                      title: "山路狼袭",
+                      location: "承安村外山道",
+                      objective: "击退狼群并检查异常",
+                      trigger: "离开祥云村后自动触发",
+                      content: "玩家第一次独自遭遇狼群。可正面战斗、以火驱散，或使用望气判断狼群受到了惊扰。",
+                      completion: "发现前方老人被困，进入救援段。",
+                      segments: [
+                        {
+                          id: "2-1-a",
+                          side: "npc",
+                          speaker: "村民刘老栓",
+                          text: "救民啊！道士长爷，道士长爷，快来救救我。",
+                          choices: [
+                            {
+                              "id": "help-free",
+                              "text": "老人莫慌，我来解救你",
+                              "result": "老人完全信任主角",
+                              "reward": "承安村声望 +5",
+                              "flags": [
+                                "accepted_wolf_quest",
+                                "elder_trust",
+                                "2-1-a-1",
+                              ],
+                              "next": "2-1-a-1"
+                            },
+                            {
+                              "id": "help-free",
+                              "text": "就你可以，不过要付我50文",
+                              "result": "老人完全信任主角",
+                              "reward": "承安村声望 +5",
+                              "flags": [
+                                "accepted_wolf_quest",
+                                "2-1-a-2"
+                              ],
+                              "next": "2-1-a-2"
+                            },
+                          ]
+                        },
+                        {
+                          id: "2-1-a-1",
+                          side: "npc",
+                          speaker: "村民刘老栓",
+                          text: "多谢道士！",
+                          choices: [
+                            {
+                              "id": "help-free",
+                              "text": "结束对话",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "accepted_wolf_quest",
+                                "elder_trust"
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                        {
+                          id: "2-1-a-2",
+                          side: "npc",
+                          speaker: "村民刘老栓",
+                          text: "我答应你，道士。先快快救我吧！",
+                          choices: [
+                            {
+                              "id": "help-free",
+                              "text": "结束对话",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "accepted_wolf_quest",
+                                "elder_trust"
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
                     },
                     {
-                      "id": "2-1-b",
-                      "title": "树下救人",
-                      "location": "山道老槐树",
-                      "objective": "救下老人并决定下一步",
-                      "trigger": "完成山路狼袭",
-                      "content": "老人请求主角前往承安村，但狼足迹显示狼群像被什么东西赶下山。",
-                      "completion": "根据回复获得村民信任、狼踪线索或报酬。",
-                      "dialogue": [
+                      id: "2-1-b",
+                      title: "树下救人",
+                      location: "山道老槐树",
+                      objective: "救下老人并决定下一步",
+                      trigger: "完成山路狼袭",
+                      content: "老人请求主角前往承安村，但狼足迹显示狼群像被什么东西赶下山。",
+                      completion: "根据回复获得村民信任、狼踪线索或报酬。",
+                      segments: [
                         {
-                          "id": "elder-plea",
-                          "side": "npc",
-                          "speaker": "承安村老人",
-                          "text": "村里已经伤了好几个人。求小道长随我回去看看！",
-                          "choices": [
+                          id: "2-1-b-1",
+                          side: "npc",
+                          requerment:"2-1-a-1",
+                          speaker: "村民刘老栓",
+                          text: "进来这边狼患较多，村里已经伤了好几个人。求道士长爷随我回去看看！",
+                          choices: [
                             {
                               "id": "help-free",
                               "text": "救人要紧，我随你回村。",
@@ -6416,506 +6462,712 @@
                               ],
                               "next": "chapter2-village"
                             },
+                          ]
+                        },
+                        {
+                          id: "2-1-b-2",
+                          side: "npc",
+                          requerment:"2-1-a-2",
+                          speaker: "村民刘老栓",
+                          text: "道士这是50文钱，您收好",
+                          choices: [
                             {
-                              "id": "track-first",
-                              "text": "我先追查狼群从哪里来。",
-                              "requirement": "感知达到 5",
-                              "check": "感知检定",
-                              "result": "发现狼群来自被破坏的山龛",
-                              "reward": "线索：异常狼踪",
+                              "id": "help-free",
+                              "text": "老人还挺讲信用",
+                              "result": "",
+                              "reward": "金钱 +50; 承安村声望 -5",
                               "flags": [
-                                "tracked_wolves_first"
+                                "",
+                                ""
                               ],
-                              "next": "chapter2-wolf-trail"
+                              "next": ""
                             },
                             {
-                              "id": "ask-payment",
-                              "text": "可以，但村里要准备报酬。",
-                              "requirement": "口才达到 4",
-                              "check": "口才检定",
-                              "result": "老人答应由村长支付",
-                              "reward": "银钱 +20；村民好感 -2",
+                              "id": "help-free",
+                              "text": "我和你开玩笑呢，我怎么会做趁火打劫之事",
+                              "result": "",
+                              "reward": "",
                               "flags": [
-                                "paid_wolf_quest"
+                                "2-1-a-1",
+                                "elder_trust"
                               ],
-                              "next": "chapter2-village"
-                            }
-                          ]
-                        },
-                        {
-                          "id": "chapter2-village",
-                          "side": "npc",
-                          "speaker": "承安村老人",
-                          "text": "多谢小道长。村子就在前面，不过进村前，你还想问些什么？",
-                          "choices": [
-                            {
-                              "id": "ask-wolf-detail",
-                              "text": "狼群最早是什么时候出现的？",
-                              "result": "老人回忆起狼患始于猎户带回幼狼之后",
-                              "reward": "线索：失踪的幼狼",
-                              "flags": ["heard_about_wolf_cub"],
-                              "next": "elder-wolf-detail"
+                              "next": "2-1-b"
                             },
-                            {
-                              "id": "ask-traveler-detail",
-                              "text": "那个受伤的年轻人是什么来历？",
-                              "result": "老人说年轻人独自从北方而来",
-                              "reward": "线索：年轻赶路人",
-                              "flags": ["asked_about_traveler"],
-                              "next": "elder-traveler-detail"
-                            },
-                            {
-                              "id": "leave-for-village",
-                              "text": "没有了，我们现在进村。",
-                              "result": "结束交谈并前往承安村",
-                              "flags": ["departed_for_village"],
-                              "next": "elder-farewell"
-                            }
                           ]
                         },
-                        {
-                          "id": "chapter2-wolf-trail",
-                          "side": "narration",
-                          "speaker": "",
-                          "text": "你俯身查看狼足迹。大部分足印朝山下延伸，只有一组沾着香灰，来自西侧破败山龛。",
-                          "choices": [
-                            {
-                              "id": "inspect-shrine-now",
-                              "text": "先去山龛看看。",
-                              "requirement": "感知检定成功",
-                              "result": "提前发现猎户留下的绳索和幼狼毛",
-                              "reward": "隐藏线索：猎户捕狼",
-                              "flags": ["shrine_inspected_early"],
-                              "next": "wolf-trail-discovery"
-                            },
-                            {
-                              "id": "return-to-elder",
-                              "text": "先把老人送回村，再回来调查。",
-                              "result": "保护老人优先，调查延后",
-                              "reward": "老人好感 +3",
-                              "flags": ["elder_escorted_first"],
-                              "next": "chapter2-village"
-                            }
-                          ]
-                        },
-                        {
-                          "id": "elder-wolf-detail",
-                          "side": "npc",
-                          "speaker": "承安村老人",
-                          "text": "约莫半月前。猎户赵二从山里回来后，狼才开始追着人咬。他说自己只捡了几张狼皮，可没人见过那些皮。",
-                          "choices": [
-                            {
-                              "id": "question-hunter-later",
-                              "text": "进村后带我去见赵二。",
-                              "result": "老人答应引路",
-                              "reward": "解锁调查点：猎户家",
-                              "flags": ["hunter_house_unlocked"],
-                              "next": "elder-farewell"
-                            },
-                            {
-                              "id": "ask-traveler-after-wolf",
-                              "text": "再说说那个受伤的年轻人。",
-                              "next": "elder-traveler-detail"
-                            }
-                          ]
-                        },
-                        {
-                          "id": "elder-traveler-detail",
-                          "side": "npc",
-                          "speaker": "承安村老人",
-                          "text": "他不肯说师承，只说四海为家。奇怪的是，他昏迷时一直喊一个从未听过的道号。",
-                          "choices": [
-                            {
-                              "id": "remember-dao-name",
-                              "text": "把那个道号告诉我。",
-                              "requirement": "口才达到 4",
-                              "check": "口才检定",
-                              "result": "老人说出残缺道号",
-                              "reward": "隐藏线索：玄衡二字",
-                              "flags": ["traveler_dao_name_known"],
-                              "next": "elder-farewell"
-                            },
-                            {
-                              "id": "do-not-press-elder",
-                              "text": "记不清便算了，先进村。",
-                              "result": "老人松了一口气",
-                              "next": "elder-farewell"
-                            }
-                          ]
-                        },
-                        {
-                          "id": "wolf-trail-discovery",
-                          "side": "narration",
-                          "speaker": "",
-                          "text": "破龛后压着一截捕兽绳和带血幼狼毛。狼患看来不是无缘无故发生的。",
-                          "choices": [
-                            {
-                              "id": "take-evidence-village",
-                              "text": "收好证物，带老人回村。",
-                              "result": "主角取得早期关键证据",
-                              "reward": "捕兽绳、幼狼毛",
-                              "flags": ["wolf_cub_evidence"],
-                              "next": "elder-farewell"
-                            }
-                          ]
-                        },
-                        {
-                          "id": "elder-farewell",
-                          "side": "npc",
-                          "speaker": "承安村老人",
-                          "text": "翻过前面那道坡就是承安村。小道长今日救命之恩，我会在村长面前说清楚。",
-                          "choices": []
-                        }
+                    //     {
+                    //       id: "chapter2-village",
+                    //       side: "npc",
+                    //       speaker: "承安村老人",
+                    //       text: "多谢小道长。村子就在前面，不过进村前，你还想问些什么？",
+                    //       choices: [
+                    //         {
+                    //           "id": "ask-wolf-detail",
+                    //           "text": "狼群最早是什么时候出现的？",
+                    //           "result": "老人回忆起狼患始于猎户带回幼狼之后",
+                    //           "reward": "线索：失踪的幼狼",
+                    //           "flags": ["heard_about_wolf_cub"],
+                    //           "next": "elder-wolf-detail"
+                    //         },
+                    //         {
+                    //           "id": "ask-traveler-detail",
+                    //           "text": "那个受伤的年轻人是什么来历？",
+                    //           "result": "老人说年轻人独自从北方而来",
+                    //           "reward": "线索：年轻赶路人",
+                    //           "flags": ["asked_about_traveler"],
+                    //           "next": "elder-traveler-detail"
+                    //         },
+                    //         {
+                    //           "id": "leave-for-village",
+                    //           "text": "没有了，我们现在进村。",
+                    //           "result": "结束交谈并前往承安村",
+                    //           "flags": ["departed_for_village"],
+                    //           "next": "elder-farewell"
+                    //         }
+                    //       ]
+                    //     },
+                    //     {
+                    //       id: "chapter2-wolf-trail",
+                    //       ide: "narration",
+                    //       speaker: "",
+                    //       text: "你俯身查看狼足迹。大部分足印朝山下延伸，只有一组沾着香灰，来自西侧破败山龛。",
+                    //       choices: [
+                    //         {
+                    //           "id": "inspect-shrine-now",
+                    //           "text": "先去山龛看看。",
+                    //           "requirement": "感知检定成功",
+                    //           "result": "提前发现猎户留下的绳索和幼狼毛",
+                    //           "reward": "隐藏线索：猎户捕狼",
+                    //           "flags": ["shrine_inspected_early"],
+                    //           "next": "wolf-trail-discovery"
+                    //         },
+                    //         {
+                    //           "id": "return-to-elder",
+                    //           "text": "先把老人送回村，再回来调查。",
+                    //           "result": "保护老人优先，调查延后",
+                    //           "reward": "老人好感 +3",
+                    //           "flags": ["elder_escorted_first"],
+                    //           "next": "chapter2-village"
+                    //         }
+                    //       ]
+                    //     },
+                    //     {
+                    //       "id": "elder-wolf-detail",
+                    //       "side": "npc",
+                    //       "speaker": "承安村老人",
+                    //       "text": "约莫半月前。猎户赵二从山里回来后，狼才开始追着人咬。他说自己只捡了几张狼皮，可没人见过那些皮。",
+                    //       "choices": [
+                    //         {
+                    //           "id": "question-hunter-later",
+                    //           "text": "进村后带我去见赵二。",
+                    //           "result": "老人答应引路",
+                    //           "reward": "解锁调查点：猎户家",
+                    //           "flags": ["hunter_house_unlocked"],
+                    //           "next": "elder-farewell"
+                    //         },
+                    //         {
+                    //           "id": "ask-traveler-after-wolf",
+                    //           "text": "再说说那个受伤的年轻人。",
+                    //           "next": "elder-traveler-detail"
+                    //         }
+                    //       ]
+                    //     },
+                    //     {
+                    //       "id": "elder-traveler-detail",
+                    //       "side": "npc",
+                    //       "speaker": "承安村老人",
+                    //       "text": "他不肯说师承，只说四海为家。奇怪的是，他昏迷时一直喊一个从未听过的道号。",
+                    //       "choices": [
+                    //         {
+                    //           "id": "remember-dao-name",
+                    //           "text": "把那个道号告诉我。",
+                    //           "requirement": "口才达到 4",
+                    //           "check": "口才检定",
+                    //           "result": "老人说出残缺道号",
+                    //           "reward": "隐藏线索：玄衡二字",
+                    //           "flags": ["traveler_dao_name_known"],
+                    //           "next": "elder-farewell"
+                    //         },
+                    //         {
+                    //           "id": "do-not-press-elder",
+                    //           "text": "记不清便算了，先进村。",
+                    //           "result": "老人松了一口气",
+                    //           "next": "elder-farewell"
+                    //         }
+                    //       ]
+                    //     },
+                    //     {
+                    //       "id": "wolf-trail-discovery",
+                    //       "side": "narration",
+                    //       "speaker": "",
+                    //       "text": "破龛后压着一截捕兽绳和带血幼狼毛。狼患看来不是无缘无故发生的。",
+                    //       "choices": [
+                    //         {
+                    //           "id": "take-evidence-village",
+                    //           "text": "收好证物，带老人回村。",
+                    //           "result": "主角取得早期关键证据",
+                    //           "reward": "捕兽绳、幼狼毛",
+                    //           "flags": ["wolf_cub_evidence"],
+                    //           "next": "elder-farewell"
+                    //         }
+                    //       ]
+                    //     },
+                    //     {
+                    //       "id": "elder-farewell",
+                    //       "side": "npc",
+                    //       "speaker": "承安村老人",
+                    //       "text": "翻过前面那道坡就是承安村。小道长今日救命之恩，我会在村长面前说清楚。",
+                    //       "choices": []
+                    //     }
                       ]
                     }
                   ],
                   value: "章节开场：主角离开祥云村后，第一次真正独自行走江湖。山路上先遇到普通狼群袭击，作为第二章战斗节奏教学，让玩家适应没有爷爷保护后的探索压力。\n\n事件推进：继续前行时，主角发现一位老人爬在树上求救，树下有狼群围攻。救下老人后，老人自称来自附近的承安村，说近期村民出门常被狼群围攻，村里传言山里出了狼妖。\n\n关键信息：承安村已有多人受伤，其中有一名与主角年纪相仿的外村赶路人，被狼咬伤后暂住村中养伤。老人请求主角去村里看看。\n\n玩法目标：完成野外救援、追踪狼足印、辨别普通狼和妖气狼的区别。玩家可选择立刻进村、先追狼踪、或询问老人更多村中情况。\n\n章节作用：建立第二章主题：主角离乡后遇到的第一个陌生人和第一个陌生村，不再是熟人社会，玩家需要自己判断谁可信。",
                 },
                 {
-                  label: "第二节：进入村中休息",
-                  guide: "晚间帮助村子解除一个被女鬼缠身的男子",
+                  label: "第二节：进村救治",
+                  guide: "甚至还有一位和主角年纪相仿的外村赶路人，也被咬伤，在村中养伤",
                   status: "draft",
                   segments: [
                     {
-                      "id": "2-2-a",
-                      "title": "进入承安村",
-                      "location": "承安村村口",
-                      "objective": "取得村长许可并寻找住处",
-                      "trigger": "随老人抵达承安村",
-                      "content": "村民对外来道士半信半疑。此前救援选择会改变老人作证的力度。",
-                      "completion": "获得临时住处，解锁村中调查。",
-                      "dialogue": []
-                    },
-                    {
-                      "id": "2-2-b",
-                      "title": "夜半女鬼",
-                      "location": "承安村民宅",
-                      "objective": "处理被女鬼缠身的男子",
-                      "trigger": "入夜后在住处休息",
-                      "content": "男子梦中不断说起一只银镯。玩家可直接驱鬼，也可问魂调查其隐瞒的往事。",
-                      "completion": "决定女鬼被驱散、安魂或继续纠缠。",
-                      "dialogue": [
+                      id: "2-2-a",
+                      title: "狼妖伤者",
+                      location: "承安村民宅",
+                      objective: "处理被女鬼缠身的男子",
+                      trigger: "入夜后在住处休息",
+                      content: "有一个外乡人，很久之前受伤了，可是郎中救治了很久也没有好。主角去查验伤势发现不是普通的狼所伤。于是与患者详细交谈，伤者名叫刘旭风，原本也是修道之人，会一些风水算命，可是家乡遭受战火，父母都死在战火中了。自己带着孩子避难于此。可是财物和孩子被一伙强匪掳劫。他上山寻找，没有找到劫匪的地点，却遇到了狼群，被一只强大的恶狼所伤，然后逃到了承安村疗伤。主角推断出，伤害他的应该是一只有一点道行的狼妖，应该道行很低。附近的狼患应该也是有狼妖的缘故。然后解决掉狼妖",
+                      completion: "解决狼妖",
+                      dialogue: [
                         {
-                          "id": "haunted-man",
-                          "side": "npc",
-                          "speaker": "被缠男子",
-                          "text": "我没有拿她的镯子……你快把她赶走！",
-                          "choices": [
+                          id: "haunted-man",
+                          side: "npc",
+                          speaker: "刘旭风",
+                          text: "道士长爷，我叫刘旭风。多日前，逃难至此，在山中被恶狼所伤，一致修养至今，不知为何恢复的很慢。还请您帮忙看看。",
+                          choices: [
                             {
                               "id": "question-man",
-                              "text": "你若没拿，为什么知道她在找镯子？",
-                              "result": "男子说漏嘴，开启遗物调查",
-                              "reward": "线索：藏匿的银镯",
-                              "flags": [
-                                "man_lied",
-                                "ghost_truth_route"
-                              ],
-                              "next": "find-bracelet"
+                              "text": "好的，我来看看你的伤病",
+                              "next": "2-2-b-1"
                             },
                             {
                               "id": "drive-ghost",
-                              "text": "退后，我现在就驱散女鬼。",
-                              "requirement": "战斗驱邪达到 3",
-                              "result": "快速结束闹鬼，但真相被掩盖",
-                              "reward": "经验 +80；承负 -2",
-                              "flags": [
-                                "ghost_driven"
-                              ],
-                              "next": "night-rest"
+                              "text": "因何逃难至此？",
+                              "next": "2-2-b-2"
+                            },
+                            {
+                              "id": "drive-ghost",
+                              "text": "你是做什么的？",
+                              "next": "2-2-b-3"
                             },
                             {
                               "id": "calm-spirit",
-                              "text": "先让我与她说话。",
-                              "requirement": "斋醮科仪达到 3",
-                              "check": "斋醮科仪检定",
-                              "result": "女鬼说明遗愿，男子被迫认错",
-                              "reward": "承安村声望 +8",
-                              "flags": [
-                                "ghost_reconciled"
-                              ],
-                              "next": "ghost-farewell"
-                            }
+                              "text": "你怎么会被狼群所伤？",
+                              "next": "2-2-b-4"
+                            },
+                            {
+                              "id": "",
+                              "text": "我的诊费可是很贵的呦",
+                              "next": "2-2-b-5"
+                            },
+                            {
+                              "id": "",
+                              "text": "你的伤太重了，还是另请高明吧",
+                              "next": "2-2-b-6"
+                            },
                           ]
-                        }
+                        },
+                        {
+                          id: "2-2-b-1",
+                          side: "npc",
+                          speaker: "刘旭风",
+                          text: "多谢道士长爷了，您看伤口在这里。（撩开了上衣，胸口又被狼爪所伤的痕迹。主角姓名注意到刘旭风的伤口并非单纯撕裂。爪痕边缘有细微焦黑，像被阴寒妖气灼伤。）",
+                          value: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "你这个不是被普通的狼所伤，伤口有点妖气。伤你的那只狼应是一只道行尚浅的狼妖。我先给你治伤吧。狼妖也必须要除掉",
+                              "reward":"经验 +50",
+                              "next": "2-2-b-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "2-2-b-2",
+                          side: "npc",
+                          speaker: "刘旭风",
+                          text: "我的家乡遭了兵灾。父母死在乱军手里，我带着孩子一路逃难，想这边寻个安稳地方。走到承安村附近时，我们遇到了一伙强匪。他们抢走了我身上的财物，也把我的孩子带走了。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "你也是一个天涯沦落的可怜之人。",
+                              "next": "2-2-b-2-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "2-2-b-3",
+                          side: "npc",
+                          speaker: "刘旭风",
+                          text: "我也算是个修道之人，会一点风水命理之术。可如今，不过是个连自己孩子都护不住的废人。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "唉，如今这世道！",
+                              "next": "2-2-b-3-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "2-2-b-4",
+                          side: "npc",
+                          speaker: "刘旭风",
+                          text: "我的孩子被劫匪所掳走。我本想找到劫匪的贼窝，我追进山里，找了整整一天。没找到贼窝，却遇上了狼群。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "可恶的劫匪！",
+                              "next": "2-2-b-3-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "2-2-b-5",
+                          side: "npc",
+                          speaker: "刘旭风",
+                          text: "道士长爷，我遇到了一伙强匪。他们抢走了我身上的财物，也把我的孩子带走了。我现在是身无分文了。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "那我就爱莫能助了",
+                              "reward":"经验 +50",
+                              "next": "2-2-b-3-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "2-2-b-1-1",
+                          side: "npc",
+                          speaker: "刘旭风",
+                          text: "多谢道士长爷了。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "对话结束",
+                              "next": ""
+                            },
+                          ]
+                        },
+                        {
+                          id: "2-2-b-2-1",
+                          side: "npc",
+                          speaker: "刘旭风",
+                          text: "唉！希望我的孩子还平安。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "对话结束",
+                              "next": ""
+                            },
+                          ]
+                        },
+                        {
+                          id: "2-2-b-3-1",
+                          side: "npc",
+                          speaker: "刘旭风",
+                          text: "唉",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "对话结束",
+                              "next": ""
+                            },
+                          ]
+                        },
                       ]
-                    }
+                    },
                   ],
-                  value: "进入承安村后，村民因狼患紧张，对外来小道士半信半疑。老人替主角作证，村长才允许主角暂住。\n\n夜间事件：主角准备休息时，有村民急忙敲门求助：“道长，有个女鬼又来我家了。”这是第二章的第一个非狼妖事件，用来告诉玩家：一个村子的妖患不止一条线。\n\n任务内容：被女鬼缠身的男子夜里梦魇、说胡话、身体发冷。玩家可用问魂、清心符、望气、询问家人等方式调查。真相可以设计为：女鬼并非想害人，而是生前与男子有未了之事，或她的遗物被人私藏。\n\n解决方式：\n1. 直接驱散女鬼，快速完成但少得真相。\n2. 问魂查明遗愿，帮助女鬼安魂，提升百姓信任。\n3. 发现男子隐瞒过错，让玩家第一次面对“人也可能有问题”。\n\n章节作用：让主角在承安村初步获得信任，也引出问魂、超度、清心符等非战斗能力。",
-                  dialogue: [
-                    {
-                      side: "narration",
-                      text: "承安村的门关得很早。主角刚在柴房铺下草席，院门就被拍得发响，来人声音里带着哭腔。"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "村民",
-                      text: "小道长，求你去看看我兄弟。他又说梦话了，说有个女人站在床头问他要东西。"
-                    },
-                    {
-                      side: "protagonist",
-                      speaker: "主角",
-                      text: "女鬼问他要什么？命，还是旧物？"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "被缠男子",
-                      text: "我没拿……那镯子不是我拿的……别看我，别看我。"
-                    },
-                    {
-                      side: "narration",
-                      text: "这段对白让玩家知道女鬼事件不一定是单纯驱邪，男子的梦话本身就是线索。"
-                    }
-                  ]
                 },
                 {
                   label: "第三节：击败狼妖，为承安村解困",
-                  guide: "进入承安村。为年轻人疗伤，年轻人是无父无母流落天涯，年轻人想要以重金酬谢，主角说同是天涯沦落人，不必如此，击败狼妖后，这个年轻人也是修道之人，后面要经常出现在主角后面出现的地方与主角遇到。因为这个年轻人实际上是最重大boss的徒弟，就是来跟踪主角的。",
+                  guide: "",
                   status: "draft",
+                  value: "",
                   segments: [
                     {
-                      "id": "2-3-a",
-                      "title": "救治年轻赶路人",
-                      "location": "承安村空屋",
-                      "objective": "稳定伤势并询问狼妖情报",
-                      "trigger": "完成夜半女鬼事件",
-                      "content": "年轻人愿以重金求医，实际暗中观察主角的术法与心性。",
-                      "completion": "取得狼妖巢穴位置，并记录年轻人对主角的评价。",
-                      "dialogue": [
+                      id: "2-3-a",
+                      title: "接受去除狼妖任务",
+                      location: "承安村长家",
+                      objective: "",
+                      trigger: "为刘旭风救治后，白天",
+                      content: "",
+                      completion: "承安村长委托，处理狼患。找到狼妖洞穴，击败狼妖",
+                      dialogue: [
                         {
-                          "id": "traveler-payment",
-                          "side": "npc",
-                          "speaker": "年轻赶路人",
-                          "text": "若道长肯治我，这袋银子便是谢礼。",
-                          "choices": [
+                          id: "haunted-man",
+                          side: "npc",
+                          speaker: "承安村长",
+                          text: "道士长爷，帮我们村把外面的狼患处理了吧，多谢了",
+                          choices: [
                             {
-                              "id": "refuse-money",
-                              "text": "同是天涯沦落人，不必如此。",
-                              "result": "年轻人对主角产生兴趣",
-                              "reward": "年轻赶路人好感 +8",
-                              "flags": [
-                                "traveler_impressed_kind"
-                              ],
-                              "next": "inspect-wound"
+                              "id": "question-man",
+                              "text": "好的，降妖除魔搬来就是我们修道之人的分内之事。",
+                              "next": "2-3-a-1"
                             },
                             {
-                              "id": "take-money",
-                              "text": "看病收钱，天经地义。",
-                              "result": "正常交易",
-                              "reward": "银钱 +40",
-                              "flags": [
-                                "traveler_paid"
-                              ],
-                              "next": "inspect-wound"
+                              "id": "question-man",
+                              "text": "村长，这个可危险的，至少要100文。",
+                              "next": "2-3-a-2"
                             },
                             {
-                              "id": "read-intent",
-                              "text": "你不像普通赶路人。",
-                              "requirement": "术数命理达到 4",
-                              "check": "术数命理检定",
-                              "result": "发现其命格受到遮掩",
-                              "reward": "线索：命格遮掩",
-                              "flags": [
-                                "traveler_suspected"
-                              ],
-                              "next": "inspect-wound"
-                            }
+                              "id": "question-man",
+                              "text": "我再想想",
+                              "next": ""
+                            },
                           ]
-                        }
+                        },
+                        {
+                          id: "2-3-a-1",
+                          side: "npc",
+                          speaker: "承安村长",
+                          text: "道士长爷，狼妖凶险，多多注意安全",
+                          choices: [
+                            {
+                              "id": "question-man",
+                              "text": "谢谢村长提醒。",
+                              "next": ""
+                            },
+                          ]
+                        },
+                        {
+                          id: "2-3-a-2",
+                          side: "npc",
+                          speaker: "承安村长",
+                          text: "答应你便是。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "一言为定。",
+                              "next": ""
+                            },
+                          ]
+                        },
                       ]
                     },
                     {
-                      "id": "2-3-b",
-                      "title": "狼妖巢穴",
-                      "location": "承安村北山",
-                      "objective": "解决狼患并判断真正起因",
-                      "trigger": "完成伤口与狼踪调查",
-                      "content": "狼妖指控猎户夺走幼崽、破坏山龛。可杀死狼妖、归还幼崽、修复山龛或驱离。",
-                      "completion": "改变山林生态、承安村安全及后续狼族态度。",
-                      "dialogue": [
+                      id: "2-3-b",
+                      title: "狼患解除",
+                      location: "承安村长家",
+                      objective: "",
+                      trigger: "处理了狼妖",
+                      content: "",
+                      completion: "与村长对话，完成任务",
+                      dialogue: [
                         {
-                          "id": "wolf-accusation",
-                          "side": "npc",
-                          "speaker": "狼妖",
-                          "text": "人夺我幼崽、毁我栖身处，如今害怕了，便说我是恶妖。",
-                          "choices": [
+                          id: "2-3-a-1",
+                          side: "npc",
+                          speaker: "承安村长",
+                          text: "道士长爷，好厉害。感谢您为村子祛除了祸患！",
+                          choices: [
                             {
-                              "id": "return-cub",
-                              "text": "我会归还幼崽，你也必须约束狼群。",
-                              "requirement": "已找到幼狼",
-                              "result": "双方立约，狼患和平结束",
-                              "reward": "狼牙护符；善妖声望 +6",
-                              "flags": [
-                                "wolf_pact"
-                              ],
-                              "next": "village-celebration"
+                              "id": "question-man",
+                              "text": "分内之事，不足挂齿。",
+                              "reward":"承安村声望 +10",
+                              "next": ""
                             },
-                            {
-                              "id": "kill-wolf",
-                              "text": "伤人便要偿命，今日留你不得。",
-                              "result": "进入狼妖战斗",
-                              "reward": "狼妖材料；村庄声望 +10",
-                              "flags": [
-                                "wolf_killed"
-                              ],
-                              "next": "wolf-battle"
-                            },
-                            {
-                              "id": "repair-shrine",
-                              "text": "我先修复山龛，再谈边界。",
-                              "requirement": "风水堪舆达到 4",
-                              "check": "风水堪舆检定",
-                              "result": "狼妖接受迁界",
-                              "reward": "山神残香；承负 +4",
-                              "flags": [
-                                "shrine_repaired"
-                              ],
-                              "next": "village-celebration"
-                            }
                           ]
-                        }
+                        },
+                        {
+                          id: "2-3-a-2",
+                          side: "npc",
+                          speaker: "承安村长",
+                          text: "道士长爷，谢谢您除患，这是100文，您收好",
+                          choices: [
+                            {
+                              "id": "question-man",
+                              "text": "小意思",
+                              "reward":"金钱 +100文; 承安村声望 -10",
+                              "next": "2-3-b-1"
+                            },
+                          ]
+                        },
                       ]
-                    }
+                    },
+
                   ],
-                  value: "主线目标：调查狼患，救治被咬伤的年轻赶路人，找出狼群频繁攻击人的原因。\n\n调查过程：玩家查看伤口后发现不是普通狼咬，伤口边缘有妖气和尸臭。村民说狼群最近像被什么东西驱赶，白天也敢下山。通过寻踪符或风水堪舆可发现狼群巢穴附近有被破坏的山神小龛，或有猎户误入禁地。\n\n狼妖设定：狼妖不一定是最终大恶。它可能是被邪气侵染的头狼，也可能因人类盗猎幼狼而报复。玩家可以选择直接击败、驱离狼群、归还幼狼、修复山神龛或用困妖阵制服头狼。\n\n战斗设计：狼妖带狼群围攻，擅长夜间伏击、撕咬流血、呼唤群狼。玩家可先清理小狼、用火把驱散、用镇邪阵限制狼妖冲锋。\n\n结果：狼患暂时解除，承安村恢复通行。若玩家查明根源并处理，村民信任大幅提高；若只杀狼妖，短期安全，但后续山林生态可能恶化。\n\n章节作用：完成第二章第一个完整妖患闭环，让主角从“被收留者”变成“能独立解决问题的小道士”。",
-                  dialogue: [
-                    {
-                      side: "narration",
-                      text: "被咬伤的年轻人躺在村中空屋，伤口黑气不散。他看见主角进来，先把手边的钱袋往枕下藏了藏。"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "年轻赶路人",
-                      text: "我有些银钱，若道长肯治我，事后必有重谢。"
-                    },
-                    {
-                      side: "protagonist",
-                      speaker: "主角",
-                      text: "同是天涯沦落人，不必先谈银子。你先告诉我，那狼咬你之前，有没有怕什么东西？"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "狼妖",
-                      text: "人进山，夺我幼崽，毁我小龛。如今你们怕了，便说我是妖。"
-                    },
-                    {
-                      side: "narration",
-                      text: "年轻赶路人的客气要埋伏笔：他看似受助者，实际在观察主角的术法、心性和龙灵反应。"
-                    }
-                  ]
                 },
                 {
                   label: "第四节：被盗",
-                  guide: "最后休息一夜，却被偷了。查到了是一只小猴所为",
+                  guide: "村中设置安置的房屋，为小道士摆酒。第二天醒来，发现自己的包裹被盗了。（除了衣服，所有物品遗失）。刘旭风看道士很有本事可以降伏狼妖，请求道士帮忙查找盗贼的窝点",
                   status: "draft",
+                  value: "",
                   segments: [
                     {
-                      "id": "2-4-a",
-                      "title": "清晨失窃",
-                      "location": "承安村住处",
-                      "objective": "检查现场并判断盗贼身份",
-                      "trigger": "解决狼患后休息一夜",
-                      "content": "包裹和爷爷遗物被偷。窗边留下果核、猴毛与倒贴符纸。",
-                      "completion": "确认盗贼是小猴，解锁追踪路线。",
-                      "dialogue": []
+                      id: "2-4-a",
+                      title: "赶赴庆功宴",
+                      location: "承安村长家中",
+                      objective: "",
+                      trigger: "",
+                      content: "聊天喝酒，分别与其余三人对话：承安村长，刘旭风，村民刘老栓",
+                      completion: "聊天",
+                      dialogue: [
+                        {
+                          id: "",
+                          side: "npc",
+                          speaker: "承安村长",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                          ]
+                        },
+                        {
+                          id: "",
+                          side: "npc",
+                          speaker: "刘旭风",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                          ]
+                        },
+                        {
+                          id: "",
+                          side: "npc",
+                          speaker: "村民刘老栓",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                          ]
+                        },
+                        {
+                          id: "",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                          ]
+                        },
+                        {
+                          id: "",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                          ]
+                        },
+                        {
+                          id: "",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                          ]
+                        },
+                        {
+                          id: "",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                          ]
+                        },
+                        {
+                          id: "",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
                     },
                     {
-                      "id": "2-4-b",
-                      "title": "同行试探",
-                      "location": "承安村村口",
-                      "objective": "决定是否接受年轻赶路人同行",
-                      "trigger": "完成失窃调查",
-                      "content": "年轻赶路人主动提出帮忙追踪。玩家可以接受、拒绝或提供假路线试探。",
-                      "completion": "改变其跟踪方式与后续信任。",
-                      "dialogue": [
+                      id: "2-4-b",
+                      title: "包裹被盗，寻孩",
+                      location: "承安村家中",
+                      objective: "",
+                      trigger: "完成2-4-a",
+                      content: "帮刘旭风处理处理匪患",
+                      completion: "改变其跟踪方式与后续信任。",
+                      dialogue: [
                         {
-                          "id": "traveler-offer",
-                          "side": "npc",
-                          "speaker": "年轻赶路人",
-                          "text": "山路难走，我陪你去追吧。",
-                          "choices": [
+                          id: "2-4-b",
+                          side: "npc",
+                          speaker: "刘旭风",
+                          text: "",
+                          choices: [
                             {
-                              "id": "accept-company",
-                              "text": "好，一起走。",
-                              "result": "年轻人近距离观察主角",
-                              "reward": "临时同伴",
-                              "flags": [
-                                "traveler_companion"
-                              ],
-                              "next": "road-qinghe"
+                              "id": "",
+                              "text": "",
+                              "next": ""
                             },
                             {
-                              "id": "decline-company",
-                              "text": "你留在村里养伤。",
-                              "result": "年轻人改为暗中跟随",
-                              "flags": [
-                                "traveler_hidden"
-                              ],
-                              "next": "road-qinghe"
+                              "id": "",
+                              "text": "",
+                              "next": ""
                             },
                             {
-                              "id": "false-route",
-                              "text": "可以，我们先往南走。",
-                              "requirement": "口才达到 5",
-                              "check": "欺骗检定",
-                              "result": "发现对方知道真实方向",
-                              "reward": "线索：提前知情",
-                              "flags": [
-                                "traveler_caught_knowing"
-                              ],
-                              "next": "road-qinghe"
-                            }
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
                           ]
                         }
                       ]
-                    }
+                    },
+                    {
+                      id: "2-4-c",
+                      title: "处理匪患",
+                      location: "承安村周围匪窝",
+                      objective: "",
+                      trigger: "完成失窃调查",
+                      content: "询问孩子去向，得知孩子被一个和尚买走",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "traveler-offer",
+                          side: "npc",
+                          speaker: "年轻赶路人",
+                          text: "山路难走，我陪你去追吧。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                          ]
+                        }
+                      ]
+                    },
                   ],
-                  value: "狼患解决后，主角在承安村休息一夜。第二天醒来发现包裹被偷，里面可能有爷爷留下的旧物、少量银钱、符纸、药材或第一章结尾的重要信物。\n\n初步调查：村民都说夜里没见外人，玩家可以询问村长、被救的年轻人、老人和客栈 / 民宅主人。若玩家之前帮助女鬼或救治年轻人，村民会主动提供线索。\n\n线索：屋顶瓦片有抓痕，窗边有果核，床脚有猴毛，墙上挂着的符纸被倒着贴。玩家在村中查不到人类盗贼，最终确认是小猴所为。\n\n申三登场：小猴并非普通动物，而是小灵猴申三。它偷包不是为了钱，而是为了试探主角，也可能被某个和尚、商人或山林妖物误导。\n\n收束：主角与村长、被救年轻人道别，开始追寻包裹。承安村成为第二章第一个据点，后续可回来买药、听传闻或查看狼患后果。",
-                  dialogue: [
-                    {
-                      side: "narration",
-                      text: "第二天清晨，主角醒来时，窗户开着，包裹不见了。桌上只剩一枚咬过的野果，符纸被倒着贴在墙上。"
-                    },
-                    {
-                      side: "protagonist",
-                      speaker: "主角",
-                      text: "偷钱就算了，连爷爷留下的东西也偷？"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "村长",
-                      text: "昨夜没外人进村。倒是屋顶响过几声，我还以为是猫。"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "年轻赶路人",
-                      text: "若需要，我可陪你去追。山路难走，多个人照应也好。"
-                    },
-                    {
-                      side: "narration",
-                      text: "窗沿猴毛、果核和倒贴符纸共同指向申三。年轻赶路人的主动帮忙继续维持“可信但不完全可信”的感觉。"
-                    }
-                  ]
                 },
                 {
-                  label: "第五节：一路追寻来到了青和村，然后发现青和村的一些任务，解决后发现小猴是在青森寺北边的山林中",
+                  label: "第五节：途中遇险",
+                  guide: "去往青和村的途中遇险，有僵尸袭击，被妙湛和尚（妙明真心，湛然清净）所救，并处理僵尸祸患。妙湛和尚正巧在附近练功",
+                  status: "draft",
+                  value: "地点：从承安村到青和村，据青和村还有三分之一的路程",
+                  segments: [
+                    {
+                      id: "2-6-a-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "与妙湛和尚对话时僵尸祸患未除",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "",
+                          side: "npc",
+                          speaker: "妙湛和尚",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "2-6-a-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "与妙湛和尚对话时僵尸祸患已经消除",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "",
+                          side: "npc",
+                          speaker: "妙湛和尚",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    }
+                  ],
+                },
+                {
+                  label: "第六节：追查小孩和自己的包裹",
                   guide: "",
                   status: "draft",
                   segments: [
                     {
-                      "id": "2-5-a",
-                      "title": "追踪到青和村",
-                      "location": "青和村",
-                      "objective": "沿果核和脚印追踪申三",
-                      "trigger": "离开承安村",
-                      "content": "申三故意沿路丢下小物件。青和村同时出现供品失窃事件。",
-                      "completion": "确认申三藏在青森寺北林。",
-                      "dialogue": [
+                      id: "2-5-a",
+                      title: "到达青和村",
+                      location: "青和村",
+                      objective: "",
+                      trigger: "离开承安村",
+                      content: "到达青和村，发现自己的包裹被一个青年所拿走，主角抱住了青年防止他逃跑。原来青年发现之前也在承安村，知道了主角，然后也调查出来了小孩真实的去向，是在青森寺，所以才偷了主角的包裹，想引诱主角去青森寺。谁知道主角误以为是盗贼偷的，直接就去找盗贼了。（第八章，青森寺方丈会做法，让术数命理，无法找到小孩的踪迹。）青年觉得主角已经知道孩子的去向了，说自己青和村游玩几日，欢迎随时来找他。",
+                      completion: "",
+                      value: "",
+                      dialogue: [
                         {
-                          "id": "villager-bargain",
-                          "side": "npc",
-                          "speaker": "青和村妇人",
-                          "text": "要问猴子的去向，先替我找回供桌上的果子。",
-                          "choices": [
+                          id: "villager-bargain",
+                          side: "npc",
+                          speaker: "青和村妇人",
+                          text: "要问猴子的去向，先替我找回供桌上的果子。",
+                          choices: [
                             {
                               "id": "help-find",
                               "text": "我替你找。",
@@ -6954,17 +7206,16 @@
                       ]
                     },
                     {
-                      "id": "2-5-b",
-                      "title": "北林入口",
-                      "location": "青森寺北林",
-                      "objective": "选择安全山路",
-                      "trigger": "取得申三位置",
-                      "content": "可凭地图走近路、用风水判断气机，或跟随猴群进入。",
-                      "completion": "进入申三追逐区域。",
-                      "dialogue": []
+                      id: "2-5-b",
+                      title: "初入青森寺",
+                      location: "青森寺北林",
+                      objective: "选择安全山路",
+                      trigger: "取得申三位置",
+                      content: "可凭地图走近路、用风水判断气机，或跟随猴群进入。",
+                      completion: "进入申三追逐区域。",
+                      dialogue: []
                     }
                   ],
-                  value: "追踪路线：主角沿着猴毛、果核、屋顶脚印和被丢弃的小物件一路追到青和村。青和村靠近青森寺，村民常给寺里送菜、供香，也常受山林小妖捉弄。\n\n青和村事件：村中最近有几件怪事：香客供品被偷、孩子学猴叫、屋顶瓦片被掀、寺中小和尚说夜里听见林中有人笑。村民怀疑是山林猴群，也有人说是青森寺北边的林子不干净。\n\n任务玩法：玩家可在青和村解决一到两个小事件来换取线索。例如帮村民找回供品、识破假和尚传话、用术数命理判断哪条山路安全、用风水堪舆发现林中气机异常。\n\n关键信息：完成青和村调查后，玩家确认小灵猴申三躲在青森寺北边山林。村民提醒主角，青森寺表面清静，但最近寺里也不太安宁。\n\n章节作用：从“追包裹”自然转入“青森寺主线”，并让申三成为连接村庄、山林、寺庙三处地图的角色。",
                   dialogue: [
                     {
                       side: "narration",
@@ -6992,121 +7243,25 @@
                   ]
                 },
                 {
-                  label: "第六节：找到小灵猴发生事件，找回包裹。",
+                  label: "第七节：父子团聚",
                   guide: "",
                   status: "draft",
                   segments: [
                     {
-                      "id": "2-6-a",
-                      "title": "树梢追逐",
-                      "location": "青森寺北林",
-                      "objective": "追上携带包裹的申三",
-                      "trigger": "进入北林",
-                      "content": "申三沿树梢、溪石和破亭逃跑。可疾行追逐、预判路线或假装放弃。",
-                      "completion": "截住申三，追逐方式影响好感。",
-                      "dialogue": []
-                    },
-                    {
-                      "id": "2-6-b",
-                      "title": "申三的条件",
-                      "location": "北林破亭",
-                      "objective": "取回包裹并查清偷窃原因",
-                      "trigger": "完成追逐",
-                      "content": "申三闻到爷爷遗物上的特殊气息，故意把主角引向青森寺。",
-                      "completion": "申三成为朋友、暂时合作或敌对逃离。",
-                      "dialogue": [
+                      id: "2-7-a",
+                      title: "山门两种说法",
+                      location: "青森寺前院",
+                      objective: "决定先听取哪一方证词",
+                      trigger: "抵达青森寺",
+                      content: "询问妙湛和尚，是否知道有和尚收买过强匪劫掠的小孩。妙湛和尚表示不知情。找到慧寂方丈，慧寂方丈表示暂时不知道此事，可以帮着打听一下。主推通过术数命理，只能推算出来卦象很模糊，主角和刘旭风请求在寺中住下。方便打探孩子的下落。慧寂方丈说打听到了，是一个年轻的和尚，在山上采药的时候，看见匪人绑着小孩，然后花钱把小孩解救了。现在寄养在青和村的一户人家，已经派人去接过来了。父子团聚。主角和刘旭风谢过慧寂方丈，离开青森寺。主角问刘旭风有什么打算，刘旭风表示打算去天衡府摆摊看风水算命以此谋生，然后别过。主角决定回到青和村",
+                      completion: "开启方丈线、和尚线或中立调查线。",
+                      dialogue: [
                         {
-                          "id": "monkey-caught",
-                          "side": "npc",
-                          "speaker": "申三",
-                          "text": "人拿妖的东西叫降妖，妖拿人的东西为什么就叫贼？",
-                          "choices": [
-                            {
-                              "id": "same-rule",
-                              "text": "偷就是偷，谁做都一样。",
-                              "result": "申三认可主角讲同一套道理",
-                              "reward": "申三好感 +8；取回全部物品",
-                              "flags": [
-                                "monkey_respected"
-                              ],
-                              "next": "temple-road"
-                            },
-                            {
-                              "id": "threaten",
-                              "text": "把包交出来，否则动手。",
-                              "requirement": "威慑达到 4",
-                              "check": "威慑检定",
-                              "result": "申三交包但藏起一件物品",
-                              "reward": "申三好感 -8",
-                              "flags": [
-                                "monkey_intimidated"
-                              ],
-                              "next": "temple-road"
-                            },
-                            {
-                              "id": "play-game",
-                              "text": "陪你玩一局，你输了便说实话。",
-                              "requirement": "幸运达到 4",
-                              "check": "幸运检定",
-                              "result": "申三主动结伴",
-                              "reward": "猴儿果；申三好感 +5",
-                              "flags": [
-                                "monkey_befriended"
-                              ],
-                              "next": "temple-road"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ],
-                  value: "地点：青森寺北边山林。这里适合做追逐、跳跃、屋顶 / 树梢路线和轻度解谜。\n\n事件：主角终于找到小灵猴申三。申三背着主角包裹，在树上模仿人说话，故意激怒主角。它会不断丢出包裹里的小物件，引导玩家追它穿过林间、溪石、破亭和旧香道。\n\n玩法路线：\n1. 追逐战：靠移动、疾行符、预判路线抓住它。\n2. 斗智：用果子、谜题、假装离开或术数命理骗它下来。\n3. 非战斗：发现它只是恶作剧，不直接攻击，选择陪它完成一个小要求。\n\n真相：申三偷包不是单纯害人。它可能在包裹里闻到爷爷留下的特殊气息，或发现某件东西与青森寺有关。它把主角引来，是想让主角去寺里看看。\n\n结果：主角找回包裹，但申三不会完全消失。若玩家守信、不伤它，它会成为长期亦敌亦友角色；若玩家强打，它会逃走，并在后续章节继续捣乱。",
-                  dialogue: [
-                    {
-                      side: "narration",
-                      text: "林中旧香道断在溪边。申三背着比自己还大的包裹蹲在树上，学着主角的语气咳了一声。"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "申三",
-                      text: "小道长，包包重，心事也重。你追我，我就还你一点点。"
-                    },
-                    {
-                      side: "protagonist",
-                      speaker: "主角",
-                      text: "把包还我。你若只是想引我来青森寺，可以好好说。"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "申三",
-                      text: "人说话会骗人，猴偷东西比较快。寺里香很甜，心很苦，你自己去闻。"
-                    },
-                    {
-                      side: "narration",
-                      text: "申三不直接解释，而是用偷包和谜语引主角去寺里。玩家是否伤它，会影响后续关系。"
-                    }
-                  ]
-                },
-                {
-                  label: "第七节：初入青森寺",
-                  guide: "",
-                  status: "draft",
-                  segments: [
-                    {
-                      "id": "2-7-a",
-                      "title": "山门两种说法",
-                      "location": "青森寺前院",
-                      "objective": "决定先听取哪一方证词",
-                      "trigger": "抵达青森寺",
-                      "content": "方丈指控年轻和尚勾结山妖；年轻和尚则称方丈私藏香火与魂灯。",
-                      "completion": "开启方丈线、和尚线或中立调查线。",
-                      "dialogue": [
-                        {
-                          "id": "abbot-request",
-                          "side": "npc",
-                          "speaker": "青森寺方丈",
-                          "text": "逆徒勾结妖猴、盗取经卷。请小道长助本寺清理门户。",
-                          "choices": [
+                          id: "abbot-request",
+                          side: "npc",
+                          speaker: "青森寺方丈",
+                          text: "逆徒勾结妖猴、盗取经卷。请小道长助本寺清理门户。",
+                          choices: [
                             {
                               "id": "support-abbot",
                               "text": "若证据确凿，我会帮你。",
@@ -7145,14 +7300,14 @@
                       ]
                     },
                     {
-                      "id": "2-7-b",
-                      "title": "寺中夜宿",
-                      "location": "青森寺客房",
-                      "objective": "调查钟声与封闭偏殿",
-                      "trigger": "获得留宿许可",
-                      "content": "夜间响起反常钟声，申三看见有人从偏殿运出封魂灯。",
-                      "completion": "解锁偏殿异象。",
-                      "dialogue": []
+                      id: "2-7-b",
+                      title: "寺中夜宿",
+                      location: "青森寺客房",
+                      objective: "调查钟声与封闭偏殿",
+                      trigger: "获得留宿许可",
+                      content: "夜间响起反常钟声，申三看见有人从偏殿运出封魂灯。",
+                      completion: "解锁偏殿异象。",
+                      dialogue: []
                     }
                   ],
                   value: "进入青森寺：主角带着找回的包裹来到寺门。寺中僧人表面温和，香火不弱，但气氛有些压抑。寺门、钟楼、后山、斋堂、客房和藏经处都可作为探索点。\n\n初始目标：主角本来只是想查清申三为什么把自己引来，却发现寺里近期多名僧人失眠、香客做噩梦、夜里钟声无故响起。\n\n人物设置：\n1. 方丈：表面慈悲稳重，暂时表现为受害者或被蒙蔽者。\n2. 年轻和尚：对方丈不满，似乎暗中策划什么。\n3. 小和尚：胆小但知道夜间异象。\n4. 青和村香客：提供寺中异常的民间视角。\n\n玩法目标：调查寺内各处，收集钟声、梦魇、供品、后山脚印、破损经卷等线索。申三可能在暗处偷看，偶尔丢石子提示玩家不要相信表面。",
@@ -7183,25 +7338,26 @@
                   ]
                 },
                 {
-                  label: "第八节：青森寺发现了异象",
-                  guide: "想写成有一个和尚想要颠覆方丈。终于被主角识破。并制服（但是在后面吗第八章发现原来方丈其实是坏人背后做着讲不得人的勾当。之前的和尚就是受害者的孩子，想要报仇而已）",
+                  label: "第八节：青森寺疑惑",
+                  guide: "主角心中有疑惑，为什么青年说孩子在青森寺，可是青森寺的慧寂方丈，查出来的小孩是在青和村。主角决定返回青和村去和青年问清楚它是如何知道小孩在的踪迹的，想要调查清楚整件事的经过。",
                   status: "draft",
+                  value: "返回青和村，寻找青年签完青年居住的客栈，可是找不到人正在疑惑，背后出现一少女。最后得知是小灵猴。原来，她当时是猴子，因此没有人注意到。一值跟着小孩，看到确实是一个和尚买走了小孩后带到的青森寺。主角再次返回青森寺           表层冲突：主角调查后发现，一名年轻和尚暗中布置符灰、藏匿供器、引发夜间钟声，似乎想制造寺中闹鬼的假象，逼方丈退位或让香客不再信任方丈。\n\n主角识破：通过问魂、风水堪舆、术数命理或调查供器，玩家发现异象有人工痕迹。年轻和尚承认自己想颠覆方丈，但不愿说出全部原因。\n\n战斗 / 制服：年轻和尚可使用简易阵法、香灰迷眼、木鱼声扰心等手段。玩家可以正面制服，也可以用定身咒、破阵术、说服或揭露证据让他停手。\n\n第二层伏笔：表面上，年轻和尚是破坏寺庙秩序的人；但他临被制服前说出模糊线索：方丈曾害过他的家人，寺中藏着不能让香客知道的东西。当前章节不完全揭开真相，只让玩家觉得事情不止如此。\n\n第八章伏笔：后面第八章再揭露，方丈其实背后做着见不得人的勾当，年轻和尚是受害者的孩子，第二章玩家以为自己平乱，实际上只是压住了更深的仇恨。\n\n本节目标：让第二章有一个完整寺庙事件，同时埋下“正派表象不可靠”的长期因果。",
                   segments: [
                     {
-                      "id": "2-8-a",
-                      "title": "偏殿魂灯",
-                      "location": "青森寺偏殿",
-                      "objective": "确认异象来源",
-                      "trigger": "夜间追踪运灯者",
-                      "content": "年轻和尚正在破坏阵法，方丈命主角立即拿人。墙后却传来残魂哭声。",
-                      "completion": "选择抓捕、协助或交易。",
-                      "dialogue": [
+                      id: "2-8-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "主角发掘自己的术数命理推算不知道为什么寻踪这种小事都出问题。想要试试其他的推算是不是也有问题。",
+                      completion: "",
+                      dialogue: [
                         {
-                          "id": "monk-cornered",
-                          "side": "npc",
-                          "speaker": "年轻和尚",
-                          "text": "你若看看墙后那些魂灯，便知道谁更像恶人。",
-                          "choices": [
+                          id: "monk-cornered",
+                          side: "npc",
+                          speaker: "年轻和尚",
+                          text: "你若看看墙后那些魂灯，便知道谁更像恶人。",
+                          choices: [
                             {
                               "id": "inspect-wall",
                               "text": "带我去看。你若撒谎，我再拿你。",
@@ -7242,63 +7398,39 @@
                       ]
                     },
                     {
-                      "id": "2-8-b",
-                      "title": "破阵或封口",
-                      "location": "偏殿地窖",
-                      "objective": "处理魂灯阵与证据",
-                      "trigger": "发现魂灯",
-                      "content": "可解救残魂、封阵保存证据，或帮助方丈销毁痕迹换取报酬。",
-                      "completion": "决定第二章真相保留程度。",
-                      "dialogue": []
+                      id: "2-8-b",
+                      title: "破阵或封口",
+                      location: "偏殿地窖",
+                      objective: "处理魂灯阵与证据",
+                      trigger: "发现魂灯",
+                      content: "可解救残魂、封阵保存证据，或帮助方丈销毁痕迹换取报酬。",
+                      completion: "决定第二章真相保留程度。",
+                      dialogue: []
                     }
                   ],
-                  value: "表层冲突：主角调查后发现，一名年轻和尚暗中布置符灰、藏匿供器、引发夜间钟声，似乎想制造寺中闹鬼的假象，逼方丈退位或让香客不再信任方丈。\n\n主角识破：通过问魂、风水堪舆、术数命理或调查供器，玩家发现异象有人工痕迹。年轻和尚承认自己想颠覆方丈，但不愿说出全部原因。\n\n战斗 / 制服：年轻和尚可使用简易阵法、香灰迷眼、木鱼声扰心等手段。玩家可以正面制服，也可以用定身咒、破阵术、说服或揭露证据让他停手。\n\n第二层伏笔：表面上，年轻和尚是破坏寺庙秩序的人；但他临被制服前说出模糊线索：方丈曾害过他的家人，寺中藏着不能让香客知道的东西。当前章节不完全揭开真相，只让玩家觉得事情不止如此。\n\n第八章伏笔：后面第八章再揭露，方丈其实背后做着见不得人的勾当，年轻和尚是受害者的孩子，第二章玩家以为自己平乱，实际上只是压住了更深的仇恨。\n\n本节目标：让第二章有一个完整寺庙事件，同时埋下“正派表象不可靠”的长期因果。",
-                  dialogue: [
-                    {
-                      side: "narration",
-                      text: "半夜钟声再响，主角循声来到钟楼后方，发现香灰铺成的细线从钟架一路延到藏经处。"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "年轻和尚",
-                      text: "你不该跟来。你只看见我布了局，却不知道我为什么非这么做不可。"
-                    },
-                    {
-                      side: "protagonist",
-                      speaker: "主角",
-                      text: "你可以逼香客离寺，也可以害僧人梦魇。但你若不说原因，我只能按眼前证据拦你。"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "年轻和尚",
-                      text: "证据？当年我也有证据。可证据进了这座寺，就再也出不去了。"
-                    },
-                    {
-                      side: "narration",
-                      text: "这里要让玩家抓住他，但不把他写成纯坏人。他的怨恨和方丈的真相留到第八章反转。"
-                    }
-                  ]
+
                 },
                 {
-                  label: "第九节：处理完青森寺的事情，然后回到青和村完结本章",
-                  guide: "",
+                  label: "第九节：青森寺救险",
+                  guide: "想写成有一个和尚想要颠覆慧寂方丈。终于被主角识破。并制服（但是在后面吗第八章发现原来慧寂方丈其实是坏人背后做着买孩子的勾当。之前的和尚就是被收买的孩子，不过逃脱了，现在已经长大了，想要报仇而已）",
                   status: "draft",
+                  value: "回到青森寺，看到确实是刚进来发现寺中一个人都没有，知道去往大殿才发现众和尚以昏倒，只有妙湛和尚站立着，慧寂方丈也躺在地上。慧寂方丈大喊，妙湛毒害了我们，他要霸占青森寺。妙湛转过身，张口要说话，可是却抬起手一掌施法击倒了主角。主角开战。如果一个时辰之内战胜了，方丈起身进入对话，如果超过一个时辰，方丈就恢复了，然后把妙湛打晕在地。进入对话。",
                   segments: [
                     {
-                      "id": "2-9-a",
-                      "title": "青森寺处置",
-                      "location": "青森寺大殿",
-                      "objective": "决定方丈、和尚和魂灯证据的处理",
-                      "trigger": "完成偏殿调查",
-                      "content": "玩家可公开真相、暂时妥协，或站在方丈一边。",
-                      "completion": "生成第八章会回收的长期旗标。",
-                      "dialogue": [
+                      id: "2-9-a",
+                      title: "青森寺处置",
+                      location: "青森寺大殿",
+                      objective: "决定方丈、和尚和魂灯证据的处理",
+                      trigger: "完成偏殿调查",
+                      content: "玩家可公开真相、暂时妥协，或站在方丈一边。",
+                      completion: "生成第八章会回收的长期旗标。",
+                      dialogue: [
                         {
-                          "id": "abbot-final",
-                          "side": "npc",
-                          "speaker": "青森寺方丈",
-                          "text": "你真要为几个残魂，毁掉一寺清名？",
-                          "choices": [
+                          id: "abbot-final",
+                          side: "npc",
+                          speaker: "青森寺方丈",
+                          text: "你真要为几个残魂，毁掉一寺清名？",
+                          choices: [
                             {
                               "id": "save-evidence",
                               "text": "靠封口维持的清名不值得保。",
@@ -7339,20 +7471,20 @@
                       ]
                     },
                     {
-                      "id": "2-9-b",
-                      "title": "青和村告别",
-                      "location": "青和村外",
-                      "objective": "结算申三关系并离开",
-                      "trigger": "离开青森寺",
-                      "content": "申三归还最后一件小物，询问以后是否还能同行。",
-                      "completion": "取得第三章古战场传闻。",
-                      "dialogue": [
+                      id: "2-9-b",
+                      title: "青和村告别",
+                      location: "青和村外",
+                      objective: "结算申三关系并离开",
+                      trigger: "离开青森寺",
+                      content: "申三归还最后一件小物，询问以后是否还能同行。",
+                      completion: "取得第三章古战场传闻。",
+                      dialogue: [
                         {
-                          "id": "monkey-farewell",
-                          "side": "npc",
-                          "speaker": "申三",
-                          "text": "以后若再见，你还会先拔剑吗？",
-                          "choices": [
+                          id: "monkey-farewell",
+                          side: "npc",
+                          speaker: "申三",
+                          text: "以后若再见，你还会先拔剑吗？",
+                          choices: [
                             {
                               "id": "invite",
                               "text": "别再偷包，便可以同行。",
@@ -7389,32 +7521,6 @@
                       ]
                     }
                   ],
-                  value: "收束路线：处理完青森寺异象后，主角回到青和村。村民感谢寺中恢复平静，青森寺也暂时恢复香火。主角取回包裹，准备继续上路。\n\n结果反馈：\n1. 若玩家没有伤害申三，申三会在村外或树上再次出现，把一个小物件丢还给主角，暗示以后还会再见。\n2. 若玩家粗暴对待申三，它会偷走一个小道具或留下嘲讽痕迹。\n3. 若玩家善待年轻和尚，后续第八章可更容易相信他的真相。\n4. 若玩家完全站在方丈一边，第八章揭露真相时会形成反转和因果压力。\n\n青和村结尾：村民讲起第三章方向的传闻，例如古战场夜里有马蹄声、断旗村有人失踪、旧军营传来号角。这自然引向第三章。",
-                  dialogue: [
-                    {
-                      side: "narration",
-                      text: "青和村恢复了香客往来，但主角经过村口时，树上忽然掉下一枚铜钱，正落在他的包裹上。"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "申三",
-                      text: "还你一枚。猴不欠人情，最多欠一点点。"
-                    },
-                    {
-                      side: "protagonist",
-                      speaker: "主角",
-                      text: "下次想让我去哪，直接说。再偷包，我就把你尾巴系在树上。"
-                    },
-                    {
-                      side: "npc",
-                      speaker: "青和村老人",
-                      text: "小道长若往北走，莫在古战场夜宿。那边夜里有马蹄声，还有人听见旧军号。"
-                    },
-                    {
-                      side: "narration",
-                      text: "申三留下长期关系，村民传闻自然引向第三章的赤焰马、古战场和旧军案。"
-                    }
-                  ]
                 },
                 {
                   label: "章节结尾",
@@ -7902,7 +8008,7 @@
                   label: "第二节：灰仓村鼠患",
                   guide: "地点，河滨县，灰仓村",
                   status: "draft",
-                  value: "灰仓村鼠患横行，河滨县张贴告示，请求能人前往灰仓村解决鼠患。主角前去。发现已经有其他的道士在那里在驱散鼠患了。主角与那位道士商量后个负责一部分，主角也布阵帮忙，布下多个阵驱散鼠患。"
+                  value: "灰仓村鼠患横行，河滨县张贴告示，请求能人前往灰仓村解决鼠患。主角前去。发现已经有其他的道士在那里在驱散鼠患了。主角与那位道士商量后各负责一部分，主角也布阵帮忙，布下多个阵驱散鼠患。"
                 },
                 {
                   label: "第三节：断案",
@@ -7920,7 +8026,7 @@
                   label: "第五节：道士醉死妓院，商人醉死赌坊",
                   guide: "",
                   status: "draft",
-                  value: "主角帮助商人和道士招魂。起初两人都是在妓院和花酒，甚至还是和县令一起喝的花酒"
+                  value: "商人和道士昏迷不醒魂灵不在体内，起初两人都是在妓院和花酒，甚至还是和县令一起喝的花酒。然后酒不省人事了。主角帮助商人和道士招魂。"
                 },
                 {
                   label: "第六节：鼠精作祟",
@@ -8163,13 +8269,13 @@
                   status: "draft",
                   value: `
                   
-                  主角认为朱瑞金有重大嫌疑告诉了方丈，
+                  主角认为朱瑞金有重大嫌疑告诉了慧寂方丈，
 
-                  方丈让朱瑞金误以为主角与方丈是一伙的，然后开始战斗。战斗结束后，与朱瑞金对话，终于得知真相，可是还没有缓过气来，被方丈偷袭，此时朱瑞金才发现原来方丈才是罪魁祸首。主角已经元气大伤，其他朋友帮主角先行撤离。
+                  慧寂方丈让朱瑞金误以为主角与慧寂方丈是一伙的，然后开始战斗。战斗结束后，与朱瑞金对话，终于得知真相，可是还没有缓过气来，被方丈偷袭，此时朱瑞金才发现原来方丈才是罪魁祸首。主角已经元气大伤，其他朋友帮主角先行撤离。
 
-                  主角养伤，然后与方丈最后一战
+                  主角养伤，然后与慧寂方丈最后一战
 
-                  方丈是被听命于大boss玄明道人。（玄净道人，玄明道人的双胞胎弟弟）
+                  慧寂方丈是被听命于大boss玄明道人。（玄净道人，玄明道人的双胞胎弟弟）
                   `
                 },
                 {
@@ -8200,7 +8306,7 @@
                   label: "第五节：调查太麓村",
                   guide: "地点：太麓村",
                   status: "draft",
-                  value: "发现慧寂方丈朱瑞金来这里带走过小孩。"
+                  value: "发现慧寂方丈，朱瑞金均来这里带走过小孩。"
                 },
                 {
                   label: "第六节：做客朱府",
@@ -8271,13 +8377,13 @@
                   label: "第五节：爷爷归来",
                   guide: "",
                   status: "draft",
-                  value: "主角与爷爷一同，击退玄明道人，青牛精，爷爷受伤。"
+                  value: "主角与爷爷一同，击退玄明道人，青牛精驮着玄明道人离去，爷爷受伤。"
                 },
                 {
                   label: "第六节：追查最终boss府邸",
                   guide: "",
                   status: "draft",
-                  value: "探寻地上查找碎布。利用地上道士的碎布，和泥土做成了寻路犬，依靠起气息，寻找。路上有玄明道人的信众小怪，会攻击这个寻路犬，所以要保护寻路犬"
+                  value: "探寻地上查找碎布。利用地上道士的碎布，和泥土做成了寻路犬，依靠其气息，寻找。路上有玄明道人的信众小怪，会攻击这个寻路犬，所以要保护寻路犬"
                 },
                 {
                   label: "第七节：兄弟对峙",
