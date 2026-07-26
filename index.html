@@ -12347,61 +12347,841 @@
 
                   苏秀莲便成了在人间游荡的厉鬼。只得到处释放怨气，杀害无辜。
 
+                  赵石林葬在了荔象村，赵英剑葬在了很好的风水之地（当了大官），周应斯刘碧珠葬在了较好的风水之地（黑心商人比较有钱）
+
                   `
                 },
                 {
                   label: "第一节：采石村闹鬼",
                   guide: "地点：采石村，",
                   status: "draft",
-                  value: "这里以前是御用的采石场，然后就形成的采石村。夜晚发现女鬼，女鬼法力强劲。无法战胜。第二晚找不到女鬼了，第二日白天，听说在荔象镇也曾有过女鬼的踪迹，于是决定前往。采石村派人骑马送去。主角乘马去，然后是固定路线，上马后就结束任务。"
+                  value: "这里以前是御用的采石场，然后就形成的采石村。夜晚发现女鬼，女鬼法力强劲。无法战胜。第二晚找不到女鬼了，第二日白天，听说在荔象镇也曾有过女鬼的踪迹，于是决定前往。采石村派人骑马送去。主角乘马去，然后是固定路线，上马后就结束任务。",
+                  segments: [
+                    {
+                      id: "6-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "完成第五章任务",
+                      content: "晚上来到采石村，然后找到女鬼与女鬼战斗。任务导航只到采石村，要自己找女鬼在哪里。然后女鬼打的到了20%就走（道士主角攻击过高，也锁血。）",
+                      completion: "",
+                    }
+                  ]
                 },
                 {
                   label: "第二节：解救小狗",
                   guide: "地点，采石村到荔象镇途中",
                   status: "draft",
-                  value: "线路到了小狗区域后，自动开启第二节。解救小狗，狗精启昭现身。一同帮助前往荔象镇追查女鬼。如果没有解救小狗而是杀死了小狗。那么狗精启昭会出来对战，但是狗精启昭法力不强，只是洞察力很好，因此战败。然后得知主角是去追查女鬼，那么会暗中引诱主角找到女鬼，想借女鬼之力击败主角。"
+                  value: "采石村的村长感谢主角帮助把女鬼驱走了。如果没有马就会送他一匹马，然后送他直奔荔象村（固定路线）。线路到了小狗区域后，自动开启第二节。解救小狗，狗精启昭现身。一同帮助前往荔象镇追查女鬼。如果没有解救小狗而是杀死了小狗。那么狗精启昭会出来对战，但是狗精启昭法力不强，只是洞察力很好，因此战败。然后得知主角是去追查女鬼，那么会暗中引诱主角找到女鬼，想借女鬼之力击败主角。",
+                  segments: [
+                    {
+                      id: "6-2-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "小狗任务出来，一只动物在惨叫。主角决定去一看究竟。被一只野猪精在玩弄。主角上去施救，如果救了以后发现小狗已经身受重伤了，如果我们选择救活这只小狗，黑犬精就会帮助我们。如果主角选择杀死这个狗（坏人路线），不过黑犬精就会出来与主角战斗，然后不敌，逃走。（后面会干扰？）",
+                      completion: "",
+                    },
+                    {
+                      id: "6-2-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "如果救活了小狗",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-2-b",
+                          side: "npc",
+                          speaker: "黑犬精",
+                          text: "道士长爷，多谢救助那只可怜的小狗，我刚刚修炼成精，虽没有什么法术，不过有很好的感知能力。知道可不可以与道长一同上路，如果有事也可以助您一臂之力。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "那自然是甚好。",
+                              "next": "6-2-b-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第三节：女鬼是冤魂",
                   guide: "地点，荔象镇",
                   status: "draft",
-                  value: "女鬼在荔象村，如果有狗会很快如果没有就会很慢。找到女鬼，问清缘由，开始调查真相。找到女鬼后就结束"
+                  value: "女鬼在荔象村，如果有狗会很快如果没有就会很慢。找到女鬼，问清缘由，开始调查真相。找到女鬼后就结束",
+                  segments: [
+                    {
+                      id: "6-3-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "小狗任务结束后",
+                      content: "寻找女鬼",
+                      completion: "",
+                    },
+                    {
+                      id: "6-3-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "与女鬼对话问清楚，开始帮女鬼解除冤屈。",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-3-b",
+                          side: "npc",
+                          speaker: "女鬼苏秀莲",
+                          text: "道士长爷，你为何追我到此地，难道非要将我赶尽杀绝么？",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "你留在人间就会为害村里，不要怪我，我可以为你超度。",
+                              "next": "6-3-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-3-b-1",
+                          side: "npc",
+                          speaker: "女鬼苏秀莲",
+                          text: "道士长爷，可是我有冤屈呀。生前，小女子的夫君叫赵石林。小女子为了夫君，守身如玉。可是被人诬陷不守妇道，还被夫君误会。我夫君还误以为我们的孩子是和其他人生的，他把我们的孩子投了河。我伤心过度，割腕自尽。我死后，夫君甚至没有安葬我。我怨念积累过重，才成了厉鬼。我只想当面和我的夫君说清楚此时，求您了却了我这一桩心愿吧。若您能了却我的心愿，我愿从唯命是从！",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "唉，也是一个冤死鬼。我就帮你这个忙吧。我先去你夫君的墓地，找到他的贴身衣物和头发，把他的魂魄招上来。",
+                              "next": "6-3-b-1-1"
+                            },
+                            {
+                              "id": "",
+                              "text": "好，我给你找来你丈夫的魂灵，让你们把事情说清楚。此后你要伴我左右，唯我命是从。",
+                              "next": "6-3-b-2-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-3-b-1-1",
+                          side: "npc",
+                          speaker: "女鬼苏秀莲",
+                          text: "道士长爷，有劳您了。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-3-b-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第四节：寻找亡夫的灵魂",
                   guide: "",
                   status: "draft",
-                  value: "首先找到赵石林，然后给他招魂。赵石林上来确说是他的爱妻女鬼苏秀莲害死他的。在水中下毒，喂他喝掉毒死的他。可是女鬼苏秀莲却说她跟门没有做。说赵石林把扔到河里面淹死后，他就割腕自尽了。（狗精启昭察觉有不对，）主角文问女鬼此时还牵扯谁。然后开始寻找赵剑英"
+                  value: "首先找到赵石林，然后给他招魂。赵石林上来确说是他的爱妻女鬼苏秀莲害死他的。在水中下毒，喂他喝掉毒死的他。可是女鬼苏秀莲却说她跟门没有做。说赵石林把扔到河里面淹死后，他就割腕自尽了。（狗精启昭察觉有不对，）主角问女鬼，此事还牵扯谁。然后开始寻找赵剑英",
+                  segments: [
+                    {
+                      id: "6-4-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "找到赵石林的墓地，然后找到他的衣物和头发。然后招魂上来",
+                      completion: "",
+                    },
+                    {
+                      id: "6-4-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-4-b",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-4-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-4-b-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-4-b-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-4-b-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-4-b-1-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-4-b-1-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-4-b-1-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "6-4-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-4-c",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-4-c-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-4-c-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-4-c-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第五节：寻找赵英剑",
                   guide: "地点，荔象镇，赵英剑古墓",
                   status: "draft",
-                  value: "调查古墓，打败古墓的守护者。就结束任务。获取赵英剑的遗骸，获取他贴身的物品，和头发，招魂。古墓中有守护者。"
+                  value: "调查古墓，打败古墓的守护者。就结束任务。获取赵英剑的遗骸，获取他贴身的物品，和头发，招魂。古墓中有守护者。",
+                  segments: [
+                    {
+                      id: "6-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "找到赵英剑的坟墓，获取物品，把他的魂灵招上来。",
+                      completion: "",
+                    },
+                    {
+                      id: "6-1-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-1-b",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "6-1-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-1-c",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-c-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-c-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-c-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第六节：招魂赵英剑",
                   guide: "",
                   status: "draft",
-                  value: "承认了自己毒杀赵石林，可是赵石林坚称自己不是他毒死的，他吃了饭菜，是并没有毒死只是很难受，就是苏秀莲给他毒水才毒死的。描述了当晚他没有食欲的情况。主角问，那是谁给他做的饭，赵石林说是自己，主角追问，为什么不是妻子呢，赵石林脑子一下乱了，自言自语陷入了就解决。狗精启昭觉察肯定另有隐情。于是赵英剑吐露背后还有主使。"
+                  value: "承认了自己毒杀赵石林，可是赵石林坚称自己不是他毒死的，他吃了饭菜，是并没有毒死只是很难受，就是苏秀莲给他毒水才毒死的。描述了当晚他没有食欲的情况。主角问，那是谁给他做的饭，赵石林说是自己，主角追问，为什么不是妻子呢，赵石林脑子一下乱了，自言自语陷入了就解决。狗精启昭觉察肯定另有隐情。于是赵英剑吐露背后还有主使。",
+                  segments: [
+                    {
+                      id: "6-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                    },
+                    {
+                      id: "6-1-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-1-b",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "6-1-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-1-c",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-c-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-c-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-c-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第七节：寻找周应斯刘碧珠夫妇",
                   guide: "",
                   status: "draft",
-                  value: "得知都是两夫妇害死的，怨气大增，"
+                  value: "得知都是两夫妇害死的，怨气大增，",
+                  segments: [
+                    {
+                      id: "6-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                    },
+                    {
+                      id: "6-1-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-1-b",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "6-1-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-1-c",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-c-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-c-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-c-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第八节：大战女鬼",
                   guide: "",
                   status: "draft",
-                  value: "战胜后再问后面的真相。如果口才够高，可以避免大战。或者斋醮科仪"
+                  value: "战胜后再问后面的真相。如果口才够高，可以避免大战。或者斋醮科仪",
+                  segments: [
+                    {
+                      id: "6-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                    },
+                    {
+                      id: "6-1-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-1-b",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "6-1-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-1-c",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-c-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-c-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-c-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第九节：孩子没有死",
                   guide: "",
                   status: "draft",
-                  value: "苏秀莲终于怨气散去，决定与赵石林的灵魂长相厮守，弥补一世的姻缘"
+                  value: "苏秀莲终于怨气散去，决定与赵石林的灵魂长相厮守，弥补一世的姻缘",
+                  segments: [
+                    {
+                      id: "6-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                    },
+                    {
+                      id: "6-1-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-1-b",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-b-1-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-b-1-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "6-1-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "6-1-c",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-c-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "6-1-c-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "6-1-c-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
               ]
             },
@@ -12416,69 +13196,1093 @@
                   value: `
                   第七章进入西南山地，风土、蛊术、祭祀和替罪仪式成为核心。羊妖替罪翁擅长蛊惑人心，把人的罪、病、怨转嫁到替罪羊身上。
 
-                  男道士龚云清和女道士颜凝玉为了长相思守，追求长生不老，两人炼制仙丹。女的吃了死亡了。难男道士为了救活女道士想尽了各种办法。他听说苗岚村有一种蛊术，可以通过献祭一千只羊来招魂复活。
+                  男道士龚云清和女道士颜凝玉为了长相思守，追求长生不老，两人炼制仙丹。女的吃了死亡了。难男道士为了救活女道士想尽了各种办法。他听说苗岚村有一种蛊术，可以通过献祭一百只羊来招魂复活。
                   
-                  周围闹僵尸，他欺骗村民，用一千只羊为村民祈福。实际上是为了复活女道士，可是他试了多次都没有成功。
+                  周围闹僵尸，他欺骗村民，用一百只羊为村民祈福。实际上是为了复活女道士，可是他试了多次都没有成功。
                   
                   羊妖璃魅很生气男道士献祭了如此多的羊，幻化成了女道士假装复活了。然后每日鼓励男道士练功，然后吸取男道士的阳气。两人还继续炼制仙丹。
 
-                  难道道士学到的假的，他献祭的羊全部被大僵尸吸收了提升的法力。
+                  男道道士学到的假的，他献祭的羊全部被大僵尸吸收了提升的法力。
 
                   `
                 },
                 {
                   label: "第一节：赶尸",
-                  guide: "地点：荔象镇、江云县、苗岚村",
+                  guide: "地点：荔象镇、苗岚村",
                   status: "draft",
-                  value: "接受委托赶尸到江云县，正巧江云县也有需要赶尸的，有人提醒江云到苗岚村有僵尸，要小心。"
+                  value: "接受委托赶尸到苗岚村，委托人提醒江云到苗岚村有僵尸，要小心。",
+                  segments: [
+                    {
+                      id: "7-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-a",
+                          side: "npc",
+                          speaker: "镇长吴谷生",
+                          text: "道士长爷，我们镇上有个外乡人去世了，是苗岚村的。他在这边没有亲戚，您可否将他的尸体赶回苗岚村。",
+                          choices: [
+                            {
+                              "id": "7-1-a",
+                              "text": "好吧。",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-1-a-1"
+                            },
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      id: "7-1-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-b",
+                          side: "npc",
+                          speaker: "镇长吴谷生",
+                          text: "道士长爷，听说去苗岚村的路上有僵尸，您要多加小心。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "多谢提醒。",
+                              "next": "7-1-b-1"
+                            },
+                          ]
+                        },
+
+                      ]
+                    },
+                    {
+                      id: "7-1-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "赶尸回村，避免僵尸，鬼怪等损坏尸体",
+                      completion: "",
+                    },
+                    {
+                      id: "7-1-d",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-d",
+                          side: "npc",
+                          speaker: "",
+                          text: "道士长爷，多谢您了。您真好，就是来的那位龚云清，每一次我们这里闹僵尸祸患，他都会为我们祈福。只是每次都要一百只羊，实在有点承受不起。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "分内之事。不过，你说祈福是怎么回事，为什么每次要一百只羊。",
+                              "next": "7-1-d-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-d-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "我们这里最近闹僵尸祸患，每一次龚云清祈福后，僵尸祸患都会消失。只不过起了三次福了。龚云清说在有几次僵尸祸患就会彻底消失。希望能早点结束吧。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "啊，那岂不是已经又三百头羊因此没有了性命。这也太残忍了。我要去一看究竟。",
+                              "next": "7-1-d-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第二节：解除将是祸患",
                   guide: "地点，苗岚村",
                   status: "draft",
-                  value: "龚云清有献祭一千只羊来为村民祈福，驱散僵尸祸患。主角道士劝说无用，决定亲自出发去解除僵尸祸患。"
+                  value: "龚云清有献祭一百只羊来为村民祈福，驱散僵尸祸患。主角道士劝说无用，决定亲自出发去解除僵尸祸患。",
+                  segments: [
+                    {
+                      id: "7-2-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "找到了龚云清，前去攀谈。",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-2-a",
+                          side: "npc",
+                          speaker: "龚云清",
+                          text: "道士长爷，我叫龚云清，请问有何贵干。",
+                          choices: [
+                            {
+                              "id": "7-2-a",
+                              "text": "我初到苗岚村，看到您在此为村民祈福，想学习请教一二。请问您是如何祈福，又因何祈福？",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-2-a-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-2-a-1",
+                          side: "npc",
+                          speaker: "龚云清",
+                          text: "此地最近频发僵尸祸患。我要献祭这一百只羊，来为村民欺负，去除这僵尸祸患。",
+                          choices: [
+                            {
+                              "id": "7-2-a-1",
+                              "text": "啊，可是这代价也颇为惨重了吧。而且这方法也不一定有用吧，还要伤害这么多只羊的性命。",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-2-a-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-2-a-1-1",
+                          side: "npc",
+                          speaker: "龚云清",
+                          text: "你懂什么，赶快走开，不要妨碍我！",
+                          choices: [
+                            {
+                              "id": "7-2-a-1-1",
+                              "text": "唉！",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-2-a-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                      
+                    },
+                    {
+                      id: "7-2-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-2-b",
+                          side: "npc",
+                          speaker: "protagonist",
+                          text: "这种方法怎么会有用，我还是亲自去除掉僵尸祸患吧，省得他在总是祸害生灵。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-2-b-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "7-2-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "主角亲自去除去僵尸祸患。",
+                      completion: "",
+                    },
+                  ],
                 },
                 {
                   label: "第三节：",
                   guide: "",
                   status: "draft",
-                  value: "祸患解除，村民却认为是龚云清的功劳，把他奉为龚半仙。龚云清还要继续献祭为村民祈福，只有他知道他要复活自己的爱妻颜凝玉。这一次颜凝玉真的复活了。村名以为是天仙下凡。实际上是羊妖璃媚化身而成的。主角很生气他虽然没有识破璃媚，但是直到这种献祭羊是不对的，他要揭穿他们，可是完全无法使用道术，被众人赶出了村。"
+                  value: "祸患解除，村民却认为是龚云清的功劳，把他奉为龚半仙。龚云清还要继续献祭为村民祈福，只有他知道他要复活自己的爱妻颜凝玉。这一次颜凝玉真的复活了。村民都以为是天仙下凡。实际上是羊妖璃媚化身而成的。主角很生气，他虽然没有识破羊妖璃媚，但是知道这种献祭羊是不对的，他要揭穿他们，可是完全无法使用道术。",
+                  segments: [
+                    {
+                      id: "7-3-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "主角回来，龚云清刚刚又要开始祈福。主角上去想要阻止",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-3-a",
+                          side: "npc",
+                          speaker: "龚云清",
+                          text: "你来做什么，快离开，不要妨碍我为村民祈福。",
+                          choices: [
+                            {
+                              "id": "7-3-a",
+                              "text": "你不要再欺骗村民了。我刚刚已经消除了僵尸祸患。你不要在涂伤圣灵了。",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-3-a-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-3-a-1",
+                          side: "npc",
+                          speaker: "龚云清",
+                          text: "你不要大言不惭了，快点厉害。大家快把这个人拉走，他要阻碍我为村里祈福！",
+                          choices: [
+                            {
+                              "id": "7-3-a-1",
+                              "text": "不要拉走了我，他在骗你，各位快放手。（村民不由分说地把主角姓名拉在了一旁，主角只得看着龚云清完成祈福）",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-3-a-1-1"
+                            },
+                          ]
+                        },
+                        // {
+                        //   id: "7-3-a-1",
+                        //   side: "npc",
+                        //   speaker: "龚云清",
+                        //   text: "",
+                        //   choices: [
+                        //     {
+                        //       "id": "7-3-a-1",
+                        //       "text": "",
+                        //       "result": "",
+                        //       "reward": "",
+                        //       "flags": [
+                        //         "",
+                        //         ""
+                        //       ],
+                        //       "next": "7-3-a-1-1"
+                        //     },
+                        //   ]
+                        // },
+                      ]
+                      
+                    },
+                    {
+                      id: "7-3-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "龚云清完成了祈福，一个美若天仙的女子，出现在祈福台上。众人都称这是天仙下凡了，祈福彻底成功啦。",
+                      completion: "",
+                    },
+                    {
+                      id: "7-3-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-3-c",
+                          side: "npc",
+                          speaker: "龚云清仅仅的保住了那位出现的女子。",
+                          text: "各位村民，这次祈福应该彻底成功啦，以后我们都不需要祈福啦！",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "你是何人，为何与他一起装神弄鬼。（主角姓名愤怒的冲上台质问女子，可是村民也冲上台把主角姓名拉走了。并将主角姓名赶出了村子）",
+                              "next": "7-3-c-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-3-c-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-3-c-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第四节：",
                   guide: "地点：江云县",
                   status: "draft",
-                  value: "返回江云县调养，得知自己是中了蛊术，遇到之前的道士（boss徒弟）如果不管需要很长时间才能恢复。主角找寻回复的方法。得到小灵猴的帮助。"
+                  value: "主角被赶出了村子。主角想要使用法术，可是发现用不出。主角以为自己对战僵尸受伤，需要调养一番，于是前往江云县治疗调养。在江云县得知自己是中了蛊术，（遇到之前的道士（boss徒弟）废案）。如果不管，需要很长时间才能恢复。主角找寻回复的方法。得到小灵猴的帮助，小灵猴化作自己的模样，去鬼市购买解除蛊术的方法。",
+                  segments: [
+                    {
+                      id: "7-4-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-4-a",
+                          side: "npc",
+                          speaker: "郎中张玉竹",
+                          text: "道士长爷，你这病情不对呀。不是普通的病，也不是内伤。应该是他没错了。你是被人下了蛊，中了蛊毒。下蛊之人蛊术高深，我也无能为力。而且你这蛊术越来越重，若不及时医治，轻则伤及筋脉手脚残废，重则伤及性命。现在你最好静养，减缓蛊毒的进一步加深。",
+                          choices: [
+                            {
+                              "id": "7-4-a",
+                              "text": "那您看我该如何是好？",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-4-a-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-4-a-1",
+                          side: "npc",
+                          speaker: "郎中张玉竹",
+                          text: "我知道一地方，听说那里有能满足各种的需要，你可以试试运气。就是鬼市。",
+                          choices: [
+                            {
+                              "id": "7-4-a-1",
+                              "text": "好的，多谢您的提醒",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-4-a-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                      
+                    },
+                    {
+                      id: "7-4-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "小灵猴化作主角摸样去鬼市寻找解除蛊毒的方法，并且学会防御蛊术的方法。（以及下蛊的方法？）。（是不是小灵猴化成主角的模样，可以请求之前人的帮助，或者调动僵尸，鬼魂等等？）",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-4-b",
+                          side: "npc",
+                          speaker: "小灵猴",
+                          text: "我化成你的模样去吧，哈哈，还是要靠我吧，嘻嘻",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "唉，这次真的只能全靠你了。一路上要多多注意安全。",
+                              "next": "7-4-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-4-b-1",
+                          side: "npc",
+                          speaker: "你就把心放在肚子里吧。",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "小灵猴，有你真好。",
+                              "next": "7-4-b-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "7-4-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "买到。学会防御蛊术的方法。",
+                      completion: "",
+                      // dialogue: [
+                      //   {
+                      //     id: "7-4-c",
+                      //     side: "npc",
+                      //     speaker: "",
+                      //     text: "",
+                      //     choices: [
+                      //       {
+                      //         "id": "",
+                      //         "text": "",
+                      //         "next": "7-4-c-1"
+                      //       },
+                      //     ]
+                      //   },
+                      //   {
+                      //     id: "7-4-c-1",
+                      //     side: "npc",
+                      //     speaker: "",
+                      //     text: "",
+                      //     choices: [
+                      //       {
+                      //         "id": "",
+                      //         "text": "",
+                      //         "next": "7-4-c-1-1"
+                      //       },
+                      //     ]
+                      //   },
+                      // ]
+                    },
+                  ],
                 },
                 {
                   label: "第五节：调查龚云清",
                   guide: "地点：苗岚村，夜晚",
                   status: "draft",
-                  value: "与道士（boss徒弟）一起调查清楚龚云清，学会防御蛊术的方法。调查处羊妖璃媚的真相"
+                  value: "与道士（boss徒弟）一起调查清楚龚云清，调查处羊妖璃媚的真相",
+                  segments: [
+                    {
+                      id: "7-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-a",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "7-1-a",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-1-a-1"
+                            },
+                          ]
+                        },
+                      ]
+                      
+                    },
+                    {
+                      id: "7-1-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-b",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "7-1-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-c",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-c-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-c-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-c-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第六节：揭穿羊妖璃媚",
                   guide: "",
                   status: "draft",
-                  value: "破解龚云清身上的蛊术，揭穿羊妖璃媚的妖术，与其发生事件。"
+                  value: "破解龚云清身上的蛊术，得知龚云清的真正目的。揭穿羊妖璃媚的妖术，与其发生事件。",
+                  segments: [
+                    {
+                      id: "7-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-a",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "7-1-a",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-1-a-1"
+                            },
+                          ]
+                        },
+                      ]
+                      
+                    },
+                    {
+                      id: "7-1-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-b",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "7-1-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-c",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-c-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-c-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-c-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第七节：除却巫山不是云",
                   guide: "",
                   status: "draft",
-                  value: "龚云清深爱颜凝玉，难以自拔，主角寻找到颜凝玉的灵魂，让两个爱人再次相遇，并表示龚云清依然深爱的颜凝玉请求帮忙两人。主角道士表示不会这种道术。道士（boss）帮忙"
+                  value: "龚云清深爱颜凝玉，难以自拔，主角寻找到颜凝玉的灵魂，让两个爱人再次相遇，并表示龚云清依然深爱的颜凝玉请求帮忙两人。主角道士表示不会这种道术。道士（boss）帮忙",
+                  segments: [
+                    {
+                      id: "7-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-a",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "7-1-a",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-1-a-1"
+                            },
+                          ]
+                        },
+                      ]
+                      
+                    },
+                    {
+                      id: "7-1-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-b",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "7-1-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-c",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-c-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-c-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-c-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
                 {
                   label: "第八节：",
                   guide: "地点：苗岚村，僵尸地",
                   status: "draft",
-                  value: "带领村民来看僵尸地，僵尸已经被清理"
+                  value: "僵尸祸患再现，主角继续处理僵尸祸患",
+                  segments: [
+                    {
+                      id: "7-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-a",
+                          side: "npc",
+                          speaker: "村民",
+                          text: "道士长爷，不好了，村北边又有僵尸出现了",
+                          choices: [
+                            {
+                              "id": "7-1-a",
+                              "text": "什么，竟有此事。我去看看！",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-1-a-1"
+                            },
+                          ]
+                        }
+                      ]
+                      
+                    },
+                    {
+                      id: "7-1-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "再战僵尸群",
+                      completion: "",
+                    },
+                  ],
                 },
                 {
                   label: "第九节：大战魔化僵尸战臣",
                   guide: "",
                   status: "draft",
-                  value: ""
+                  value: "僵尸祸患处理完毕，魔化僵尸战臣出现",
+                  segments: [
+                    {
+                      id: "7-1-a",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-a",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "7-1-a",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": "7-1-a-1"
+                            },
+                          ]
+                        }
+                      ]
+                      
+                    },
+                    {
+                      id: "7-1-b",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-b",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-b-1-1-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-b-1-1-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                    {
+                      id: "7-1-c",
+                      title: "",
+                      location: "",
+                      objective: "",
+                      trigger: "",
+                      content: "",
+                      completion: "",
+                      dialogue: [
+                        {
+                          id: "7-1-c",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-c-1"
+                            },
+                          ]
+                        },
+                        {
+                          id: "7-1-c-1",
+                          side: "npc",
+                          speaker: "",
+                          text: "",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "",
+                              "next": "7-1-c-1-1"
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
               ]
             },
