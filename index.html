@@ -9,20 +9,11 @@
   <style>
     :root {
       --bg: #0d1111;
-      --panel: #121817;
-      --panel-2: #171f1d;
-      --paper: rgba(255, 255, 255, 0.06);
-      --paper-strong: rgba(255, 255, 255, 0.1);
       --text: #f2ead7;
       --muted: #b2b8aa;
-      --soft: #889184;
       --line: rgba(242, 234, 215, 0.13);
       --gold: #d6a84f;
       --jade: #2dd4bf;
-      --blue: #60a5fa;
-      --green: #22c55e;
-      --orange: #f59e0b;
-      --red: #ef4444;
       --radius: 12px;
       --max: 1120px;
       --sidebar-width: 248px;
@@ -1141,11 +1132,6 @@
       background: rgba(34, 197, 94, 0.14);
     }
 
-    .relation-tag.red {
-      color: #fecaca;
-      background: rgba(239, 68, 68, 0.14);
-    }
-
     .table-wrap {
       width: 100%;
       overflow-x: auto;
@@ -1485,7 +1471,7 @@
         <div class="container" id="documentInner"></div>
       </section>
 
-      <section class="relation-section chapter" id="chapter-relation-map" data-chapter="relation-map">
+      <section class="relation-section chapter" id="chapter-relation-map">
         <div class="container">
           <div class="chapter-head">
             <div class="chapter-index">Chapter 19</div>
@@ -18551,7 +18537,7 @@
         : renderedSections.filter((item) => item.sectionIndex === activeSectionIndex);
 
       return `
-        <article class="chapter" id="chapter-${escapeHtml(chapter.id)}" data-chapter="${escapeHtml(chapter.id)}">
+        <article class="chapter" id="chapter-${escapeHtml(chapter.id)}">
           <div class="chapter-head">
             <div class="chapter-index">Chapter ${escapeHtml(chapter.index)}</div>
             <h2>${escapeHtml(chapter.title)}</h2>
@@ -19072,7 +19058,6 @@
           class="dialogue-choice"
           type="button"
           data-dialogue-choice
-          data-choice-id="${escapeHtml(choice.id)}"
           data-choice-text="${escapeHtml(choice.text)}"
           data-choice-result="${escapeHtml(choice.result)}"
           data-choice-reward="${escapeHtml(choice.reward)}"
