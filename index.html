@@ -34,6 +34,10 @@
       box-sizing: border-box;
     }
 
+    [hidden] {
+      display: none !important;
+    }
+
     html {
       min-height: 100%;
       background: var(--bg);
@@ -490,6 +494,52 @@
       color: #d8d0bd;
       border-color: rgba(242, 234, 215, 0.12);
       background: rgba(255, 255, 255, 0.04);
+    }
+
+    .story-section-picker {
+      margin: 0 0 18px;
+      padding: 14px;
+      border: 1px solid rgba(45, 212, 191, 0.18);
+      border-radius: var(--radius);
+      background: rgba(45, 212, 191, 0.045);
+    }
+
+    .story-section-picker-label {
+      margin: 0 0 10px;
+      color: var(--jade);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .story-section-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .story-section-tab {
+      min-height: 38px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: #d9f8f1;
+      background: rgba(255, 255, 255, 0.045);
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .story-section-tab:hover {
+      border-color: rgba(45, 212, 191, 0.52);
+      background: rgba(45, 212, 191, 0.11);
+    }
+
+    .story-section-tab.active {
+      color: #071211;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--jade), #8ce8d9);
     }
 
     .doc-section {
@@ -4595,6 +4645,53 @@
                           choices: [
                             {
                               "id": "ask-why",
+                              requirement: {
+                                  // type：
+                                  //   "stat"         // 基础属性
+                                  //   "skill"        // 技能等级
+                                  //   "flag"         // 剧情旗标
+                                  //   "item"         // 物品及数量
+                                  //   "reputation"   // 地区或阵营声望
+                                  //   "relationship" // NPC好感
+                                  //   "quest"        // 任务状态
+                                  //   "npc"          // NPC生死、是否在场
+                                  //   "time"         // 时辰、日期
+                                  //   "weather"      // 天气
+                                  //   "location"     // 所在地点
+                                all: [
+                                  {
+                                    type: "stat",
+                                    key: "perception",
+                                    operator: ">=",
+                                    value: 5
+                                  },
+                                  {
+                                    any: [
+                                      {
+                                        type: "flag",
+                                        key: "elder_trust",
+                                        operator: "==",
+                                        value: true
+                                      },
+                                      {
+                                        type: "item",
+                                        key: "village_token",
+                                        operator: ">=",
+                                        value: 1
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    not: {
+                                      type: "flag",
+                                      key: "hunter_hostile",
+                                      operator: "==",
+                                      value: true
+                                    }
+                                  }
+                                ],
+                                label: "感知达到5，获得老人信任或持有村中信物，并且猎户尚未敌对"
+                              },
                               "text": "爷爷今天怎么这么开心呢！",
                               "result": "",
                               "reward": "",
@@ -18099,10 +18196,10 @@
     const state = {
       searchText: "",
       todoOnly: false,
-      observer: null,
+      activeChapterId: "",
       activeSections: {},
-      relationView: "overview",
-      navigationLockUntil: 0
+      activeStorySections: {},
+      relationView: "overview"
     };
 
     const elements = {
@@ -18125,23 +18222,26 @@
       progressText: document.getElementById("progressText"),
       progressBar: document.getElementById("progressBar"),
       relationTabs: document.getElementById("relationTabs"),
-      relationView: document.getElementById("relationView")
+      relationView: document.getElementById("relationView"),
+      relationSection: document.getElementById("chapter-relation-map"),
+      documentSection: document.getElementById("document")
     };
 
     document.addEventListener("DOMContentLoaded", initializeApp);
 
     function initializeApp() {
       validateDocumentData();
+      state.activeChapterId = getInitialChapterId();
 
       renderProject();
       renderToc();
       renderDocument();
+      syncChapterVisibility();
       renderProgress();
       renderRelationTabs();
       renderRelationView();
       bindEvents();
       setupStickyMeasurements();
-      observeActiveChapter();
       syncActiveChapterFromHash();
     }
 
@@ -18154,16 +18254,12 @@
       elements.searchInput.addEventListener("input", (event) => {
         state.searchText = event.target.value.trim().toLowerCase();
         renderDocument();
-        observeActiveChapter();
-        syncActiveChapterFromViewport();
       });
 
       elements.todoOnlyBtn.addEventListener("click", () => {
         state.todoOnly = !state.todoOnly;
         elements.todoOnlyBtn.classList.toggle("active", state.todoOnly);
         renderDocument();
-        observeActiveChapter();
-        syncActiveChapterFromViewport();
       });
 
       elements.documentInner.addEventListener("click", (event) => {
@@ -18183,13 +18279,20 @@
 
         const button = event.target.closest("[data-section-tab]");
 
+        const storySectionButton = event.target.closest("[data-story-section-tab]");
+
+        if (storySectionButton) {
+          state.activeStorySections[storySectionButton.dataset.sectionKey] = Number(storySectionButton.dataset.fieldIndex);
+          renderDocument();
+          return;
+        }
+
         if (!button) {
           return;
         }
 
         state.activeSections[button.dataset.chapterId] = Number(button.dataset.sectionIndex);
         renderDocument();
-        observeActiveChapter();
       });
 
       [elements.desktopToc, elements.mobileToc].forEach((toc) => {
@@ -18200,10 +18303,11 @@
             return;
           }
 
-          state.navigationLockUntil = Date.now() + 800;
+          event.preventDefault();
           setMobileMenuOpen(false);
           setActiveChapter(link.dataset.chapterLink);
-          window.setTimeout(syncActiveChapterFromHash, 850);
+          window.history.pushState(null, "", `#chapter-${link.dataset.chapterLink}`);
+          scrollActiveChapterIntoView();
         });
       });
 
@@ -18369,6 +18473,15 @@
       ];
     }
 
+    function getInitialChapterId() {
+      const chapterId = getChapterIdFromHash();
+      const validIds = new Set(getTocItems().map((item) => item.id));
+
+      return validIds.has(chapterId)
+        ? chapterId
+        : GAME_DOCUMENT.chapters[0].id;
+    }
+
     function renderToc() {
       const tocItems = getTocItems();
 
@@ -18398,13 +18511,14 @@
 
     function renderDocument() {
       const html = GAME_DOCUMENT.chapters
+        .filter((chapter) => chapter.id === state.activeChapterId)
         .map((chapter) => renderChapter(chapter))
         .filter(Boolean)
         .join("");
 
       elements.documentInner.innerHTML = html || `
         <div class="empty-state">
-          没有找到匹配内容。可以换一个关键词，或关闭“只看待补充”。
+          当前栏目没有找到匹配内容。可以换一个关键词，或关闭“只看待补充”。
         </div>
       `;
     }
@@ -18421,7 +18535,7 @@
           return {
             section,
             sectionIndex,
-            html: renderSection(section, chapterMatchesSearch, chapter)
+            html: renderSection(section, chapterMatchesSearch, chapter, sectionIndex)
           };
         })
         .filter((item) => item.html);
@@ -18495,19 +18609,34 @@
       `;
     }
 
-    function renderSection(section, inheritedSearchMatch, chapter) {
+    function renderSection(section, inheritedSearchMatch, chapter, sectionIndex) {
       const sectionMatchesSearch = inheritedSearchMatch || matchesSearch([
         section.title,
         section.description
       ]);
 
       const renderedFields = section.fields
-        .map((field) => renderField(field, sectionMatchesSearch, { chapter, section }))
-        .filter(Boolean);
+        .map((field, fieldIndex) => ({
+          field,
+          fieldIndex,
+          html: renderField(field, sectionMatchesSearch, { chapter, section })
+        }))
+        .filter((item) => item.html);
 
       if (renderedFields.length === 0) {
         return "";
       }
+
+      const isStoryChapter = chapter.id === "main-story" && /^第.+章主线$/.test(String(section.title || "").trim());
+      const isFiltering = Boolean(state.searchText || state.todoOnly);
+      const sectionKey = `${chapter.id}:${sectionIndex}`;
+      const savedFieldIndex = state.activeStorySections[sectionKey];
+      const activeFieldIndex = renderedFields.some((item) => item.fieldIndex === savedFieldIndex)
+        ? savedFieldIndex
+        : renderedFields[0].fieldIndex;
+      const visibleFields = isStoryChapter && !isFiltering
+        ? renderedFields.filter((item) => item.fieldIndex === activeFieldIndex)
+        : renderedFields;
 
       return `
         <section class="doc-section">
@@ -18516,10 +18645,44 @@
             <p>${escapeHtml(section.description)}</p>
           </div>
 
+          ${isStoryChapter ? renderStorySectionTabs(renderedFields, sectionKey, activeFieldIndex, isFiltering) : ""}
+
           <div class="field-list">
-            ${renderedFields.join("")}
+            ${visibleFields.map((item) => item.html).join("")}
           </div>
         </section>
+      `;
+    }
+
+    function renderStorySectionTabs(renderedFields, sectionKey, activeFieldIndex, isFiltering) {
+      if (renderedFields.length <= 1) {
+        return "";
+      }
+
+      return `
+        <div class="story-section-picker">
+          <p class="story-section-picker-label">选择本章小节</p>
+          <div class="story-section-tabs" aria-label="本章小节切换">
+            ${renderedFields.map((item) => {
+              const label = item.field.label && item.field.label.trim()
+                ? item.field.label
+                : `未命名小节 ${item.fieldIndex + 1}`;
+              const activeClass = item.fieldIndex === activeFieldIndex && !isFiltering ? "active" : "";
+
+              return `
+                <button
+                  class="story-section-tab ${activeClass}"
+                  type="button"
+                  data-story-section-tab
+                  data-section-key="${escapeHtml(sectionKey)}"
+                  data-field-index="${escapeHtml(String(item.fieldIndex))}"
+                >
+                  ${escapeHtml(label)}
+                </button>
+              `;
+            }).join("")}
+          </div>
+        </div>
       `;
     }
 
@@ -19472,44 +19635,16 @@
       return fallbackNames[id] || id;
     }
 
-    function observeActiveChapter() {
-      if (state.observer) {
-        state.observer.disconnect();
-      }
-
-      state.observer = new IntersectionObserver(
-        (entries) => {
-          if (Date.now() < state.navigationLockUntil) {
-            return;
-          }
-
-          const visible = entries.some((entry) => entry.isIntersecting);
-
-          if (visible) {
-            syncActiveChapterFromViewport();
-          }
-        },
-        {
-          root: null,
-          threshold: [0, 0.12, 0.32],
-          rootMargin: "-12% 0px -68% 0px"
-        }
-      );
-
-      document.querySelectorAll("[data-chapter]").forEach((chapter) => {
-        state.observer.observe(chapter);
-      });
-    }
-
     function syncActiveChapterFromHash() {
       const chapterId = getChapterIdFromHash();
+      const validIds = new Set(getTocItems().map((item) => item.id));
 
-      if (chapterId) {
+      if (validIds.has(chapterId)) {
         setActiveChapter(chapterId);
         return;
       }
 
-      syncActiveChapterFromViewport();
+      setActiveChapter(GAME_DOCUMENT.chapters[0].id);
     }
 
     function getChapterIdFromHash() {
@@ -19522,51 +19657,33 @@
       return decodeURIComponent(match[1]);
     }
 
-    function syncActiveChapterFromViewport() {
-      if (Date.now() < state.navigationLockUntil) {
-        return;
-      }
-
-      const chapters = [...document.querySelectorAll("[data-chapter]")];
-
-      if (chapters.length === 0) {
-        return;
-      }
-
-      const anchorLine = getReadingAnchorLine();
-      const coveringChapter = chapters.find((chapter) => {
-        const rect = chapter.getBoundingClientRect();
-        return rect.top <= anchorLine && rect.bottom > anchorLine;
-      });
-
-      const current = coveringChapter || chapters.reduce((closest, chapter) => {
-        const closestDistance = Math.abs(closest.getBoundingClientRect().top - anchorLine);
-        const chapterDistance = Math.abs(chapter.getBoundingClientRect().top - anchorLine);
-        return chapterDistance < closestDistance ? chapter : closest;
-      }, chapters[0]);
-
-      setActiveChapter(current.dataset.chapter);
-    }
-
-    function getReadingAnchorLine() {
-      if (window.innerWidth > 900) {
-        return 122;
-      }
-
-      const mobileHeaderHeight = elements.mobileHeader
-        ? elements.mobileHeader.getBoundingClientRect().height
-        : 0;
-      const toolbarWrapHeight = elements.toolbarWrap
-        ? elements.toolbarWrap.getBoundingClientRect().height
-        : 0;
-
-      return Math.ceil(mobileHeaderHeight + toolbarWrapHeight + 18);
-    }
-
     function setActiveChapter(chapterId) {
+      const chapterChanged = state.activeChapterId !== chapterId;
+      state.activeChapterId = chapterId;
+
+      if (chapterChanged) {
+        renderDocument();
+        syncChapterVisibility();
+      }
+
       document.querySelectorAll("[data-chapter-link]").forEach((link) => {
         link.classList.toggle("active", link.dataset.chapterLink === chapterId);
+        link.setAttribute("aria-current", link.dataset.chapterLink === chapterId ? "page" : "false");
       });
+    }
+
+    function syncChapterVisibility() {
+      const showingRelationMap = state.activeChapterId === "relation-map";
+      elements.documentSection.hidden = showingRelationMap;
+      elements.relationSection.hidden = !showingRelationMap;
+    }
+
+    function scrollActiveChapterIntoView() {
+      const target = state.activeChapterId === "relation-map"
+        ? elements.relationSection
+        : elements.documentSection;
+
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function escapeHtml(value) {
