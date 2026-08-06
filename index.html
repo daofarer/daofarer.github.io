@@ -1766,7 +1766,7 @@
                 },
                 {
                   label: "任务栏",
-                  guide: "默认按键：C。分为：全部任务，主线任务，支线任务，公告栏任务，偶发任务。5个tab",
+                  guide: "默认按键：C。分为：全部任务，主线任务，支线任务，榜墙任务，偶发任务。5个tab",
                   status: "draft",
                   value: `
                     分为5栏
@@ -2686,7 +2686,7 @@
                   value: ""
                 },
                 {
-                  label: "公告栏任务",
+                  label: "榜墙任务",
                   guide: "随机刷新，结合当地的情况。甚至还有悬赏抓坏人，找小孩，等等。主角也可以张贴悬赏？",
                   status: "draft",
                   value: "时不时的会刷新，然后可以领取，不过时间到了，即使领取了也会消失。"
@@ -2713,7 +2713,7 @@
             },
             {
               title: "经验体系",
-              description: "主线任务经验，支线任务经验，公告栏任务经验，偶遇任务经验，杀怪经验",
+              description: "主线任务经验，支线任务经验，榜墙任务经验，偶遇任务经验，杀怪经验",
               fields: [
                 {
                   label: "主线任务经验",
@@ -2728,7 +2728,7 @@
                   value: ""
                 },
                 {
-                  label: "公告栏任务经验",
+                  label: "榜墙任务经验",
                   guide: "较少,不到主线1节",
                   status: "draft",
                   value: "每天刷新一个"
@@ -5699,7 +5699,7 @@
                       location: "祥云村，爷爷家",
                       objective: "获取鸡肉",
                       trigger: "开局和爷爷对话就是这个任务",
-                      content: "村中富户王员外近日被鬼祟缠身，今天爷爷将鬼祟从王员外的体内驱离，又为鬼祟进行了超度。王员外给了爷爷的10两银子。爷爷推脱不过，就只好收下了。感觉今天行了大善，爷爷心情自然开心，决定杀掉家中的一只鸡，晚上喝两杯。",
+                      content: "村中富户王员外近日被鬼祟缠身，今天爷爷将鬼祟从王员外的体内驱离，又为鬼祟进行了超度。王员外给了爷爷1两银子。爷爷推脱不过，就只好收下了。感觉今天行了大善，爷爷心情自然开心，决定杀掉家中的一只鸡，晚上喝两杯。",
                       completion: "成功把鸡杀死",
                       dialogue: [
                         {
@@ -6010,9 +6010,7 @@
                             {
                               "id": "",
                               "text": "多谢爷爷，我一定勤加学习。",
-                              "result": "",
-                              "flags": [""],
-                              "next": "end-narration"
+                              "next": "last-narration"
                             }
                           ]
                         },
@@ -6025,6 +6023,21 @@
                             {
                               "id": "",
                               "text": "好的爷爷，我一定抓紧学习。",
+                              "requirement": "",
+                              "result": "",
+                              "next": "last-narration"
+                            },
+                          ]
+                        },
+                        {
+                          id: "last-narration",
+                          side: "npc",
+                          speaker: "爷爷",
+                          text: "以往都不让你夜间出门。以后若你有事需夜间出门，要小心鬼怪，切记切记。",
+                          choices: [
+                            {
+                              "id": "",
+                              "text": "好的爷爷。我一定多加小心。",
                               "requirement": "",
                               "result": "",
                               "reward": "获取 道德真经",
@@ -18542,27 +18555,8 @@
               title: "第一章支线",
               description: "。",
               fields: [
-
                 {
-                  label: "村民的黄牛走丢了帮助寻找",
-                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "物品遗失帮助寻找",
-                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "支线任务救治被蛇咬伤的人",
-                  guide: "主线任务处理蛇患，蛇患处理后，这个支线任务不再出现 ",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "第一章支线任务1：",
+                  label: "第一章支线任务1：支线任务救治被蛇咬伤的人",
                   guide: "",
                   status: "todo",
                   value: "",
@@ -18611,7 +18605,7 @@
                   ],
                 },
                 {
-                  label: "第一章支线任务2",
+                  label: "第一章支线任务2：物品遗失帮助寻找",
                   guide: "",
                   status: "todo",
                   value: "",
@@ -18660,7 +18654,7 @@
                   ],
                 },
                 {
-                  label: "第一章支线任务3",
+                  label: "第一章支线任务3：村民的黄牛走丢了帮助寻找",
                   guide: "",
                   status: "todo",
                   value: "",
@@ -19049,10 +19043,1673 @@
               description: "",
               fields: [
                 {
+                  label: "刺猬讨仙",
+                  guide: "第三章刚到天衡府的医馆的，可以就是刺猬化身的，是好的。",
+                  status: "todo",
+                  value: "他讨封，被车压了。主角施救，后面还帮他讨封(后面中了蛊毒再回来)。",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+              ]
+            },
+            {
+              title: "第五章支线",
+              description: "先写结构，不急着写对白。",
+              fields: [
+                {
+                  label: "狐妖魅惑",
+                  guide: "因为有个人贩卖狐狸皮。他居然活剥了狐狸皮。说是这样可以得到最好的狐狸皮",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "祈福",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "村民李守田",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "支线任务",
+                  guide: "善恶：中。可以匡扶正义把那个员外正法。也可以坏道士为了更多的金银珠宝，然后杀死了那个水鬼。",
+                  status: "todo",
+                  value: "水鬼，男。要报复一个员外家。这个水鬼和一个女子原本相爱。可是那个员外强行抢走了那个女子，当晚奸污了她。然后，那个男子找上门要调查事情的真相，结果被扔下了河中，冲了一个溺死了厉鬼。一开始员外爷还欺骗主角。最后主角在查明的真相。"
+                },
+                {
                   label: "支线任务",
                   guide: "任务名、触发条件、关联 NPC、奖励、后果。",
                   status: "todo",
                   value: ""
+                },
+              ]
+            },
+            {
+              title: "第六章支线",
+              description: "先写结构，不急着写对白。",
+              fields: [
+                {
+                  label: "支线任务",
+                  guide: "采石场奴役的冤魂。可以在支线出现",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第七章支线",
+              description: "七月七日长生殿，夜半无人私语时。",
+              fields: [
+                {
+                  label: "支线任务",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第八章支线",
+              description: "在天愿作比翼鸟，在地愿为连理枝。",
+              fields: [
+                {
+                  label: "支线任务",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第九章支线",
+              description: "天长地久有尽时，此恨绵绵无绝期。",
+              fields: [
+                {
+                  label: "支线任务",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "支线结局变量",
+              description: "支线最终如何影响世界、人物和结局。",
+              fields: [
+                {
+                  label: "人物结局",
+                  guide: "重要 NPC 的命运。",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "地区结局",
+                  guide: "不同村镇、寺庙、山林、妖族地盘的变化。",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "隐藏结局",
+                  guide: "通过支线解锁的特殊结局。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            }
+          ]
+        },
+
+        {
+          id: "bulletin-board",
+          index: "17",
+          title: "榜墙任务",
+          description: "每日X日更新一个，随机更新善，中，恶的任务。",
+          sections: [
+            {
+              title: "",
+              description: "",
+              fields: [
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: " NPC、解决路线、声望影响和长期后果。"
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                }
+              ]
+            },
+            {
+              title: "任务灵感",
+              description: "",
+              fields: [
+                {
+                  label: "帮人获取心爱的女人，（邪修）",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "和尚，",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "盗墓贼",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "阴宅",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "还有个市场是倒买倒卖的，有的时候可以捡漏",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "九尾白狐与仙鹤（可以变成人）",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "对话算命？摆摊算命",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "白天没精神，请道长看，发现印堂发黑。认为是有恶鬼缠身，晚上过来看果然有晚上把恶鬼首服。",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "鬼市能买到一个铃铛，可以摇来买卖东西的鬼",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "回魂夜，设计不同的任务",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "有些技能学习过任务",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "彼岸花写一个任务故事。在阳间看到彼岸花？",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "黄泉路，救回来一个灵魂。只有好人有。为了申请者爱情，亲情，友情？",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "双瞳人",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第一章榜墙",
+              description: "。",
+              fields: [
+                {
+                  label: "榜墙1：主线任务处理蛇患，蛇患处理后，这个支线任务不再出现",
+                  guide: "",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务2：物品遗失帮助寻找",
+                  guide: "",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务3：村民的黄牛走丢了帮助寻找",
+                  guide: "",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务4",
+                  guide: "",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务5",
+                  guide: "",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务6",
+                  guide: "",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务7",
+                  guide: "",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务8：帮助村民松土犁地",
+                  guide: "",
+                  status: "todo",
+                  value: "需要使用铲子",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                  experience: "少量经验，偏生活支线和工具使用教学。",
+                  items: "铜钱、粗粮、低级草药，或村民赠送的铲子耐久修补。",
+                  reputation: "祥云村声望小幅提升；百姓对主角更亲近。",
+                  followup: "后续更容易触发农田、牛精、土地庙、村民传闻类支线。"
+                },
+                {
+                  label: "第一章支线任务9",
+                  guide: "",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+              ]
+            },
+            {
+              title: "第二章支线",
+              description: "",
+              fields: [
+                {
+                  label: "小和尚帮忙",
+                  guide: "青森寺设计一个支线任务，如果帮助小和尚，后面打boss的时候就可以得到小和尚的帮助",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "支线任务",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第三章支线",
+              description: "",
+              fields: [
+                {
+                  label: "支线任务",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "帮村民寻找哪里可以挖井。",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第四章支线",
+              description: "",
+              fields: [
+                {
+                  label: "刺猬讨仙",
+                  guide: "第三章刚到天衡府的医馆的，可以就是刺猬化身的，是好的。",
+                  status: "todo",
+                  value: "他讨封，被车压了。主角施救，后面还帮他讨封(后面中了蛊毒再回来)。",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+              ]
+            },
+            {
+              title: "第五章支线",
+              description: "先写结构，不急着写对白。",
+              fields: [
+                {
+                  label: "狐妖魅惑",
+                  guide: "因为有个人贩卖狐狸皮。他居然活剥了狐狸皮。说是这样可以得到最好的狐狸皮",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "祈福",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "村民李守田",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "支线任务",
+                  guide: "善恶：中。可以匡扶正义把那个员外正法。也可以坏道士为了更多的金银珠宝，然后杀死了那个水鬼。",
+                  status: "todo",
+                  value: "水鬼，男。要报复一个员外家。这个水鬼和一个女子原本相爱。可是那个员外强行抢走了那个女子，当晚奸污了她。然后，那个男子找上门要调查事情的真相，结果被扔下了河中，冲了一个溺死了厉鬼。一开始员外爷还欺骗主角。最后主角在查明的真相。"
+                },
+                {
+                  label: "支线任务",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第六章支线",
+              description: "先写结构，不急着写对白。",
+              fields: [
+                {
+                  label: "支线任务",
+                  guide: "采石场奴役的冤魂。可以在支线出现",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第七章支线",
+              description: "七月七日长生殿，夜半无人私语时。",
+              fields: [
+                {
+                  label: "支线任务",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第八章支线",
+              description: "在天愿作比翼鸟，在地愿为连理枝。",
+              fields: [
+                {
+                  label: "支线任务",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第九章支线",
+              description: "天长地久有尽时，此恨绵绵无绝期。",
+              fields: [
+                {
+                  label: "支线任务",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "支线结局变量",
+              description: "支线最终如何影响世界、人物和结局。",
+              fields: [
+                {
+                  label: "人物结局",
+                  guide: "重要 NPC 的命运。",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "地区结局",
+                  guide: "不同村镇、寺庙、山林、妖族地盘的变化。",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "隐藏结局",
+                  guide: "通过支线解锁的特殊结局。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            }
+          ]
+        },
+
+        {
+          id: "encounter-quest‌",
+          index: "18",
+          title: "偶遇任务",
+          description: "某地，在之前达成了某种条件，然后才会出现的任务",
+          sections: [
+            {
+              title: "",
+              description: "",
+              fields: [
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: " NPC、解决路线、声望影响和长期后果。"
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                }
+              ]
+            },
+            {
+              title: "任务灵感",
+              description: "",
+              fields: [
+                {
+                  label: "帮人获取心爱的女人，（邪修）",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "和尚，",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "盗墓贼",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "阴宅",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "还有个市场是倒买倒卖的，有的时候可以捡漏",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "九尾白狐与仙鹤（可以变成人）",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "对话算命？摆摊算命",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "白天没精神，请道长看，发现印堂发黑。认为是有恶鬼缠身，晚上过来看果然有晚上把恶鬼首服。",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "鬼市能买到一个铃铛，可以摇来买卖东西的鬼",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "回魂夜，设计不同的任务",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "有些技能学习过任务",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "彼岸花写一个任务故事。在阳间看到彼岸花？",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "黄泉路，救回来一个灵魂。只有好人有。为了申请者爱情，亲情，友情？",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "双瞳人",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第一章支线",
+              description: "。",
+              fields: [
+                {
+                  label: "第一章支线任务1：支线任务救治被蛇咬伤的人",
+                  guide: "中",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务2：物品遗失帮助寻找",
+                  guide: "中",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务3：村民的黄牛走丢了帮助寻找",
+                  guide: "中",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务4：帮忙再山上找一种草药",
+                  guide: "善",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务5",
+                  guide: "救治被鬼缠身的人。",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务6",
+                  guide: "帮忙看屋内风水摆设",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务7",
+                  guide: "帮忙盗墓",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+                {
+                  label: "第一章支线任务8：帮助村民松土犁地",
+                  guide: "善",
+                  status: "todo",
+                  value: "需要使用铲子",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                  experience: "少量经验，偏生活支线和工具使用教学。",
+                  items: "铜钱、粗粮、低级草药，或村民赠送的铲子耐久修补。",
+                  reputation: "祥云村声望小幅提升；百姓对主角更亲近。",
+                  followup: "后续更容易触发农田、牛精、土地庙、村民传闻类支线。"
+                },
+                {
+                  label: "第一章支线任务9",
+                  guide: "帮忙斋醮科仪害人。(有重谢)",
+                  status: "todo",
+                  value: "",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
+                },
+              ]
+            },
+            {
+              title: "第二章支线",
+              description: "",
+              fields: [
+                {
+                  label: "小和尚帮忙",
+                  guide: "青森寺设计一个支线任务，如果帮助小和尚，后面打boss的时候就可以得到小和尚的帮助",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "支线任务",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第三章支线",
+              description: "",
+              fields: [
+                {
+                  label: "支线任务",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "帮村民寻找哪里可以挖井。",
+                  guide: "任务名、触发条件、关联 NPC、奖励、后果。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "第四章支线",
+              description: "",
+              fields: [
+                {
+                  label: "刺猬讨仙",
+                  guide: "第三章刚到天衡府的医馆的，可以就是刺猬化身的，是好的。",
+                  status: "todo",
+                  value: "他讨封，被车压了。主角施救，后面还帮他讨封(后面中了蛊毒再回来)。",
+                  segments: [
+                    {
+                      "id": "",
+                      "title": "",
+                      "location": "",
+                      "objective": "",
+                      "trigger": "",
+                      "content": "",
+                      "completion": "",
+                      "dialogue": [
+                        {
+                          "id": "",
+                          "side": "npc",
+                          "speaker": "",
+                          "text": "",
+                          "choices": [
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                            {
+                              "id": "",
+                              "text": "",
+                              "result": "",
+                              "reward": "",
+                              "flags": [
+                                "",
+                                ""
+                              ],
+                              "next": ""
+                            },
+                          ]
+                        },
+                      ]
+                    },
+                  ],
                 },
               ]
             },
@@ -19199,7 +20856,7 @@
         },
         {
           id: "production",
-          index: "17",
+          index: "19",
           title: "开发计划与原型优先级",
           description: "6个月",
           sections: [
@@ -19382,7 +21039,7 @@
         
         {
           id: "model-construction",
-          index: "18",
+          index: "20",
           title: "建模计划",
           description: "6个月",
           sections: [
@@ -20343,7 +22000,7 @@
         })),
         {
           id: "relation-map",
-          index: "19",
+          index: "21",
           title: "关系图谱与影响矩阵"
         }
       ];
