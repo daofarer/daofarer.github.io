@@ -2692,7 +2692,7 @@
                   value: "时不时的会刷新，然后可以领取，不过时间到了，即使领取了也会消失。"
                 },
                 {
-                  label: "偶遇任务",
+                  label: "异闻任务",
                   guide: "随机触发。或者再某个地点，某个区域，某个时段，随机触发的任务。npc回主动找到。或者某个战斗中随机触发。",
                   status: "draft",
                   value: "比如，某个npc主动找上主角。某个怪物被击倒后，触发主角对话任务。某个npc对话时触发的。"
@@ -2713,7 +2713,7 @@
             },
             {
               title: "经验体系",
-              description: "主线任务经验，支线任务经验，榜墙任务经验，偶遇任务经验，杀怪经验",
+              description: "主线任务经验，支线任务经验，榜墙任务经验，异闻任务经验，杀怪经验",
               fields: [
                 {
                   label: "主线任务经验",
@@ -2734,7 +2734,7 @@
                   value: "每天刷新一个"
                 },
                 {
-                  label: "偶遇任务经验",
+                  label: "异闻任务经验",
                   guide: "根据情况",
                   status: "draft",
                   value: ""
@@ -3754,53 +3754,11 @@
         },
 
         {
-          id: "items",
+          id: "Consumables",
           index: "11",
-          title: "道具法器",
+          title: "消耗品",
           description: "道具系统负责管理玩家使用、收集、消耗和成长的物品。符箓和法器是道教背景下最重要的特色道具。",
           sections: [
-            {
-              title: "任务道具",
-              description: "任务道具不只是收集物，应该经常影响任务路线。例如找到婚书可以开启调查真相路线，拿到官府令牌可以威慑村长，保存妖物信物可以换取妖族信任。",
-              fields: [
-                {
-                  label: "令牌",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
-                {
-                  label: "妖骨",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
-                {
-                  label: "残魂瓶",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
-                {
-                  label: "旧契约",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
-                {
-                  label: "官府文书",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
-                {
-                  label: "",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
-              ]
-            },
             {
               title: "客栈堂食",
               description: "随着章节的推进，县城、府城客栈的食物也会越来越好。",
@@ -3976,59 +3934,44 @@
               ]
             },
             {
-              title: "材料体系",
-              description: "材料不只用于制作，也可作为任务证据或交易筹码。妖丹强化法器但可能污染因果；香火可维持坛仪；灵木和矿石用于升级武器；符灰、骨粉则多用于禁术或破邪仪式。",
+              title: "灵符体系",
+              description: "符箓可以作为战斗、调查、封印和交涉工具。各种符专门有一个存放的包裹。",
               fields: [
                 {
-                  label: "东珍木",
-                  guide: "制作丹药的材料之一，很珍惜。每天只刷新一次",
+                  label: "攻击符 / 属性符",
+                  guide: "金符、木符、水符、火符、土符、雷符等。",
                   status: "draft",
-                  value: ""
+                  value: "攻击符按五行与雷法区分用途：火符克阴寒与尸气，水符压制火煞，木符克毒瘴与蛊藤，金符破甲破邪，土符镇压地脉异动，雷符爆发强但声势大，容易引发 NPC 注意。"
                 },
                 {
-                  label: "灵木",
-                  guide: "",
+                  label: "辅助符",
+                  guide: "隐身符、疾行符、护身符、清心符、傀儡符等。",
                   status: "draft",
-                  value: ""
+                  value: "辅助符服务探索和任务路线。隐身符用于潜入，疾行符用于追踪或逃离，护身符抵挡一次致命异常，清心符解除迷魂 / 恐惧，傀儡符可短暂转移敌人注意力。"
                 },
                 {
-                  label: "骨粉",
-                  guide: "",
+                  label: "调查符",
+                  guide: "寻踪符、显形符、问魂符、破妄符等。",
                   status: "draft",
-                  value: ""
+                  value: "调查符可以作为任务路线钥匙。例如寻踪符追踪妖气，显形符识破伪装，问魂符获得死者证词。"
                 },
                 {
-                  label: "矿石",
-                  guide: "",
+                  label: "封印符",
+                  guide: "镇灵符、傀儡符，用于非杀戮解决妖魔。",
                   status: "draft",
-                  value: ""
-                },
-                {
-                  label: "香火",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
-                {
-                  label: "",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
-                {
-                  label: "",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
-                {
-                  label: "",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
+                  value: "封印符提供非杀戮解决方式。镇灵符用于压制怨灵，缚妖符用于限制妖物行动，安魂符用于化解执念。封印成功后可开启审问、度化、交易或交给道门处理的路线。"
+                }
               ]
             },
+          ]
+        },
+
+        {
+          id: "Artifacts-Treasures",
+          index: "12",
+          title: "装备与宝物",
+          description: "道具系统负责管理玩家使用、收集、消耗和成长的物品。符箓和法器是道教背景下最重要的特色道具。",
+          sections: [
             {
               title: "武器体系 右手",
               description: "桃木剑，七星剑，金属类剑，拂尘，金钱剑。武器法器：有的制作，有的爆出来，有的爆出来材料制作。",
@@ -4285,36 +4228,6 @@
               ]
             },
             {
-              title: "符箓体系",
-              description: "符箓可以作为战斗、调查、封印和交涉工具。各种符专门有一个存放的包裹。",
-              fields: [
-                {
-                  label: "攻击符 / 属性符",
-                  guide: "金符、木符、水符、火符、土符、雷符等。",
-                  status: "draft",
-                  value: "攻击符按五行与雷法区分用途：火符克阴寒与尸气，水符压制火煞，木符克毒瘴与蛊藤，金符破甲破邪，土符镇压地脉异动，雷符爆发强但声势大，容易引发 NPC 注意。"
-                },
-                {
-                  label: "辅助符",
-                  guide: "隐身符、疾行符、护身符、清心符、傀儡符等。",
-                  status: "draft",
-                  value: "辅助符服务探索和任务路线。隐身符用于潜入，疾行符用于追踪或逃离，护身符抵挡一次致命异常，清心符解除迷魂 / 恐惧，傀儡符可短暂转移敌人注意力。"
-                },
-                {
-                  label: "调查符",
-                  guide: "寻踪符、显形符、问魂符、破妄符等。",
-                  status: "draft",
-                  value: "调查符可以作为任务路线钥匙。例如寻踪符追踪妖气，显形符识破伪装，问魂符获得死者证词。"
-                },
-                {
-                  label: "封印符",
-                  guide: "镇灵符、傀儡符，用于非杀戮解决妖魔。",
-                  status: "draft",
-                  value: "封印符提供非杀戮解决方式。镇灵符用于压制怨灵，缚妖符用于限制妖物行动，安魂符用于化解执念。封印成功后可开启审问、度化、交易或交给道门处理的路线。"
-                }
-              ]
-            },
-            {
               title: "法器体系",
               description: "法印，令牌，念珠。",
               fields: [
@@ -4344,6 +4257,242 @@
                 }
               ]
             },
+            {
+              title: "宝石体系",
+              description: "",
+              fields: [
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+              ]
+            },
+          ]
+        },
+
+        {
+          id: "Materials",
+          index: "13",
+          title: "材料物品",
+          description: "道具系统负责管理玩家使用、收集、消耗和成长的物品。符箓和法器是道教背景下最重要的特色道具。",
+          sections: [
+            {
+              title: "木材",
+              description: "材料不只用于制作，也可作为任务证据或交易筹码。妖丹强化法器但可能污染因果；香火可维持坛仪；灵木和矿石用于升级武器；符灰、骨粉则多用于禁术或破邪仪式。",
+              fields: [
+                {
+                  label: "东珍木",
+                  guide: "制作丹药的材料之一，很珍惜。每天只刷新一次",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "灵木",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "花草类",
+              description: "",
+              fields: [
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "矿石类",
+              description: "",
+              fields: [
+                {
+                  label: "骨粉",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "矿石",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "皮革类",
+              description: "",
+              fields: [
+                {
+                  label: "鹿皮",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "肉类",
+              description: "",
+              fields: [
+                {
+                  label: "鹿肉",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "鸡肉",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "骨头类",
+              description: "",
+              fields: [
+                {
+                  label: "鹿茸",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+              ]
+            },
+          ]
+        },
+        {
+          id: "Quest-Items",
+          index: "14",
+          title: "任务道具",
+          description: "道具系统负责管理玩家使用、收集、消耗和成长的物品。符箓和法器是道教背景下最重要的特色道具。",
+          sections: [
+            {
+              title: "任务",
+              description: "",
+              fields: [
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+              ]
+            },
+          ]
+        },
+
+        {
+          id: "Items",
+          index: "15",
+          title: "道具法器",
+          description: "道具系统负责管理玩家使用、收集、消耗和成长的物品。符箓和法器是道教背景下最重要的特色道具。",
+          sections: [
             {
               title: "坛图阵法道具",
               description: "布阵所用之物。",
@@ -4429,24 +4578,6 @@
               ]
             },
             {
-              title: "宝石体系",
-              description: "",
-              fields: [
-                {
-                  label: "",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
-                {
-                  label: "",
-                  guide: "",
-                  status: "draft",
-                  value: ""
-                },
-              ]
-            },
-            {
               title: "",
               description: "",
               fields: [
@@ -4509,10 +4640,116 @@
           ]
         },
 
+
         {
-          id: "monsters",
-          index: "12",
-          title: "妖魔与敌人",
+          id: "Animals",
+          index: "16",
+          title: "动物类",
+          description: "家畜，野兽",
+          sections: [
+            {
+              title: "家畜",
+              description: "家畜等。",
+              fields: [
+                {
+                  label: "鸡",
+                  guide: "普通生物，也可触发特殊失败声望。",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "家犬",
+                  guide: "村镇生活生态、预警、任务线索。",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "鹿",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "鸭",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "鹅",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "家猪",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "大狗",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "小狗",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "麻雀",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "野兽",
+              description: "",
+              fields: [
+                {
+                  label: "乌鸦",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "蛇",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "野猪",
+                  guide: "",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "狼",
+                  guide: "野外群体敌人。",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "虎",
+                  guide: "山林强敌或山神相关生态。",
+                  status: "todo",
+                  value: ""
+                },
+              ]
+            },
+          ]
+        },
+
+        {
+          id: "Demon-Spirit",
+          index: "17",
+          title: "妖精类",
           description: "妖魔不只是怪物图鉴，每个重要妖魔都应该有来源、执念和社会关系。",
           sections: [
             {
@@ -4569,96 +4806,7 @@
                 },
               ]
             },
-            {
-              title: "生物类",
-              description: "家畜家禽、野生动物等。",
-              fields: [
-                {
-                  label: "鸡",
-                  guide: "普通生物，也可触发特殊失败声望。",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "家犬",
-                  guide: "村镇生活生态、预警、任务线索。",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "鹿",
-                  guide: "",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "鸭",
-                  guide: "",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "鹅",
-                  guide: "",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "家猪",
-                  guide: "",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "大狗",
-                  guide: "",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "小狗",
-                  guide: "",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "麻雀",
-                  guide: "",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "乌鸦",
-                  guide: "",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "蛇",
-                  guide: "",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "野猪",
-                  guide: "",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "狼",
-                  guide: "野外群体敌人。",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "虎",
-                  guide: "山林强敌或山神相关生态。",
-                  status: "todo",
-                  value: ""
-                }
-              ]
-            },
+         
             {
               title: "妖精类",
               description: "生物修炼而成。妖偏坏，为修炼不惜作恶；精坚持修行，不故意作恶。高级妖精可以幻化成人形。",
@@ -4923,6 +5071,92 @@
                 }
               ]
             },
+      
+            {
+              title: "灵类",
+              description: "物品吸收天地灵气、日月精华而生。",
+              fields: [
+                {
+                  label: "来源",
+                  guide: "器物、树木、石头、古井等如何成灵？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "互动方式",
+                  guide: "能否交易、结契、修复、封印？",
+                  status: "todo",
+                  value: ""
+                }
+              ]
+            },
+          ]
+        },
+
+        {
+          id: "Jiangshi",
+          index: "18",
+          title: "僵尸类",
+          description: "妖魔不只是怪物图鉴，每个重要妖魔都应该有来源、执念和社会关系。",
+          sections: [
+           
+            {
+              title: "僵尸类",
+              description: "尸体因地气、怨气、邪术、风水或执念变化而成。",
+              fields: [
+                {
+                  label: "击败后如何处理",
+                  guide: "彻底击杀，收为己用，获取僵尸牙",
+                  status: "todo",
+                  value: `
+                    彻底击杀：正道作为。经验较少
+                    收为己用：通过做法。贴符，符在背后。
+                    获取僵尸牙：无经验，僵尸牙很珍惜
+
+                    根据自己的道行，每10级能多保留1个，然后出战只能有1个。
+                  `
+                },
+                {
+                  label: "形成原因",
+                  guide: "风水、邪术、怨气、尸变、炼尸？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "善良僵尸",
+                  guide: "是否存在可以被放走、保护或隐藏的特殊僵尸？",
+                  status: "draft",
+                  value: "主角曾经不顾爷爷反对，放走过一个善良的僵尸。这件事可作为后续因果、爷爷秘密或妖魔观念变化的重要伏笔。"
+                },
+                {
+                  label: "第一章小僵尸",
+                  guide: "是否存在可以被放走、保护或隐藏的特殊僵尸？主角曾经不顾爷爷反对，放走过一个善良的僵尸。这件事可作为后续因果、爷爷秘密或妖魔观念变化的重要伏笔。",
+                  status: "draft",
+                  value: `
+                    小僵尸分别会在第一章，第三章，第七章出现。
+                    如果第一章主角没有背着爷爷放走小僵尸，而是帮着爷爷直接杀死了小僵尸，那么小僵尸实际没有真的死，只是奄奄一息，存活了过来，然后暗中跟着主角，
+                    然后第三章的大僵尸战臣，无论是被主角善念放走或者斋醮科仪使其向好，还是杀死，都会被小僵尸暗中控制，然后吞噬了大僵尸战臣。
+                    第七章的时候，如果大僵尸战臣被善念放走，那么小僵尸就是大boss，在和主角战斗到一半时会因为小僵尸虚弱而从其中逃脱出来，帮助主角。然后开始主角再次选择是继续战斗，还是口才，还是斋醮科仪。
+
+                    如果第一章主角放走了小僵尸，小僵尸也会暗中跟着主角想要保护主角，在第三章，如果主角与第三章的boss战斗，则会出来帮助主角，挡在主角前面与大僵尸战臣战斗，结果不幸被大僵尸战臣吞噬。然后主角继续与大僵尸战臣战斗。（如果战斗失败，第二次战斗的时候，主角就已经知道小僵尸被大僵尸战臣吞噬了。对话内容会有所改变）第七章的时候，当大僵尸战臣血量降低到一定程度后，小僵尸会把大僵尸战臣反噬。
+
+                    如果小僵尸是放走的，大僵尸战臣也是口才感化向好，或者斋醮科仪向好。那么第七章就没有僵尸作乱的内容，取而代之的就是那里的百姓生活的很好。
+
+                    第九章，根据第七章的结果，如果小僵尸第一章就是放走的，那么第九章或者有小僵尸反噬了大僵尸战臣后来帮主角，或者是大僵尸战臣，小僵尸，一起来帮主角对付最终boss。
+                  `
+                }
+              ]
+            },
+          
+          ]
+        },
+
+        {
+          id: "Specter",
+          index: "19",
+          title: "鬼怪类",
+          description: "妖魔不只是怪物图鉴，每个重要妖魔都应该有来源、执念和社会关系。",
+          sections: [
             {
               title: "鬼魂",
               description: "死者残念、冤魂、厉鬼、孤魂野鬼等。",
@@ -4990,74 +5224,36 @@
                 },
               ]
             },
+          ]
+        },
+
+        {
+          id: "Humans",
+          index: "20",
+          title: "人类",
+          description: "妖魔不只是怪物图鉴，每个重要妖魔都应该有来源、执念和社会关系。",
+          sections: [
             {
-              title: "灵类",
-              description: "物品吸收天地灵气、日月精华而生。",
+              title: "强盗",
+              description: "强盗类",
               fields: [
                 {
-                  label: "来源",
-                  guide: "器物、树木、石头、古井等如何成灵？",
+                  label: "王猎户",
+                  guide: "过度捕杀野兽，引来的兽精，然后发生矛盾",
                   status: "todo",
                   value: ""
                 },
                 {
-                  label: "互动方式",
-                  guide: "能否交易、结契、修复、封印？",
-                  status: "todo",
+                  label: "",
+                  guide: "",
+                  status: "draft",
                   value: ""
-                }
+                },
               ]
             },
             {
-              title: "僵尸类",
-              description: "尸体因地气、怨气、邪术、风水或执念变化而成。",
-              fields: [
-                {
-                  label: "击败后如何处理",
-                  guide: "彻底击杀，收为己用，获取僵尸牙",
-                  status: "todo",
-                  value: `
-                    彻底击杀：正道作为。经验较少
-                    收为己用：通过做法。贴符，符在背后。
-                    获取僵尸牙：无经验，僵尸牙很珍惜
-
-                    根据自己的道行，每10级能多保留1个，然后出战只能有1个。
-                  `
-                },
-                {
-                  label: "形成原因",
-                  guide: "风水、邪术、怨气、尸变、炼尸？",
-                  status: "todo",
-                  value: ""
-                },
-                {
-                  label: "善良僵尸",
-                  guide: "是否存在可以被放走、保护或隐藏的特殊僵尸？",
-                  status: "draft",
-                  value: "主角曾经不顾爷爷反对，放走过一个善良的僵尸。这件事可作为后续因果、爷爷秘密或妖魔观念变化的重要伏笔。"
-                },
-                {
-                  label: "第一章小僵尸",
-                  guide: "是否存在可以被放走、保护或隐藏的特殊僵尸？主角曾经不顾爷爷反对，放走过一个善良的僵尸。这件事可作为后续因果、爷爷秘密或妖魔观念变化的重要伏笔。",
-                  status: "draft",
-                  value: `
-                    小僵尸分别会在第一章，第三章，第七章出现。
-                    如果第一章主角没有背着爷爷放走小僵尸，而是帮着爷爷直接杀死了小僵尸，那么小僵尸实际没有真的死，只是奄奄一息，存活了过来，然后暗中跟着主角，
-                    然后第三章的大僵尸战臣，无论是被主角善念放走或者斋醮科仪使其向好，还是杀死，都会被小僵尸暗中控制，然后吞噬了大僵尸战臣。
-                    第七章的时候，如果大僵尸战臣被善念放走，那么小僵尸就是大boss，在和主角战斗到一半时会因为小僵尸虚弱而从其中逃脱出来，帮助主角。然后开始主角再次选择是继续战斗，还是口才，还是斋醮科仪。
-
-                    如果第一章主角放走了小僵尸，小僵尸也会暗中跟着主角想要保护主角，在第三章，如果主角与第三章的boss战斗，则会出来帮助主角，挡在主角前面与大僵尸战臣战斗，结果不幸被大僵尸战臣吞噬。然后主角继续与大僵尸战臣战斗。（如果战斗失败，第二次战斗的时候，主角就已经知道小僵尸被大僵尸战臣吞噬了。对话内容会有所改变）第七章的时候，当大僵尸战臣血量降低到一定程度后，小僵尸会把大僵尸战臣反噬。
-
-                    如果小僵尸是放走的，大僵尸战臣也是口才感化向好，或者斋醮科仪向好。那么第七章就没有僵尸作乱的内容，取而代之的就是那里的百姓生活的很好。
-
-                    第九章，根据第七章的结果，如果小僵尸第一章就是放走的，那么第九章或者有小僵尸反噬了大僵尸战臣后来帮主角，或者是大僵尸战臣，小僵尸，一起来帮主角对付最终boss。
-                  `
-                }
-              ]
-            },
-            {
-              title: "人类",
-              description: "坏的修道者，好的修道者，坏人，好人",
+              title: "道士",
+              description: "坏的修道者，好的修道者",
               fields: [
                 {
                   label: "击倒后可以爆出的东西",
@@ -5091,7 +5287,7 @@
                   value: ""
                 },
               ]
-            }
+            },
           ]
         },
 
@@ -20048,7 +20244,7 @@
         {
           id: "encounter-quest‌",
           index: "18",
-          title: "偶遇任务",
+          title: "异闻任务",
           description: "某地，在之前达成了某种条件，然后才会出现的任务",
           sections: [
             {
