@@ -21063,8 +21063,160 @@
           ]
         },
         {
-          id: "production",
+          id: "interface-operation-logic",
           index: "19",
+          title: "界面操作逻辑",
+          description: "定义玩家在各类界面中的点击、拖拽、使用、移动与反馈规则。",
+          sections: [
+            {
+              title: "物品使用逻辑",
+              description: "说明不同类型物品从选中到生效的完整操作流程。",
+              fields: [
+                {
+                  label: "直接使用",
+                  guide: "单击、双击、右键菜单或快捷键如何触发物品使用？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "目标型物品",
+                  guide: "需要选择角色、敌人、地面位置或场景目标时，如何进入与退出目标选择状态？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "使用限制",
+                  guide: "战斗状态、冷却、数量不足、目标无效、任务锁定等情况如何判断与提示？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "使用反馈",
+                  guide: "使用成功或失败后，图标、数量、音效、提示文字和角色动作如何反馈？",
+                  status: "todo",
+                  value: ""
+                }
+              ]
+            },
+            {
+              title: "拖拽与放置逻辑",
+              description: "定义物品、装备、技能和界面元素的拖拽规则。",
+              fields: [
+                {
+                  label: "开始拖拽",
+                  guide: "按住多久开始拖拽？拖拽时显示原图、半透明图标还是物品缩略图？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "有效放置区域",
+                  guide: "背包格、装备栏、快捷栏、容器、商店和地面分别允许放入哪些内容？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "交换、合并与拆分",
+                  guide: "格子已有物品时是交换、堆叠还是拒绝？堆叠物品如何拆分数量？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "取消与无效放置",
+                  guide: "拖到无效区域、按 Esc 或松开鼠标后，物品如何回到原位并给出提示？",
+                  status: "todo",
+                  value: ""
+                }
+              ]
+            },
+            {
+              title: "背包、装备与快捷栏",
+              description: "统一物品在各个界面之间移动和调用的规则。",
+              fields: [
+                {
+                  label: "背包整理",
+                  guide: "排序、筛选、自动整理、锁定物品和批量选择如何操作？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "装备操作",
+                  guide: "穿戴、替换、卸下装备时，属性对比和装备条件如何显示？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "快捷栏绑定",
+                  guide: "物品或技能如何拖入快捷栏、替换位置、解除绑定并响应数字键？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "多界面同步",
+                  guide: "同一物品被使用、售出、丢弃或耗尽后，背包与快捷栏如何同步更新？",
+                  status: "todo",
+                  value: ""
+                }
+              ]
+            },
+            {
+              title: "拾取、丢弃与容器交互",
+              description: "定义物品在角色、地面和容器之间转移的操作。",
+              fields: [
+                {
+                  label: "拾取物品",
+                  guide: "靠近拾取、按键拾取、自动拾取和拾取列表分别在什么情况下使用？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "丢弃物品",
+                  guide: "拖到界面外或选择丢弃时，是否输入数量、二次确认，任务物品是否禁止丢弃？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "容器转移",
+                  guide: "箱子、仓库、尸体掉落和交易窗口之间如何单个、批量或全部转移？",
+                  status: "todo",
+                  value: ""
+                }
+              ]
+            },
+            {
+              title: "通用界面操作与反馈",
+              description: "约定所有菜单和弹窗共用的交互习惯。",
+              fields: [
+                {
+                  label: "鼠标与键盘操作",
+                  guide: "单击、双击、右键、滚轮、Esc、Enter 和方向键在各界面的统一规则。",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "确认与撤销",
+                  guide: "哪些操作立即生效，哪些操作需要确认？是否支持撤销或恢复？",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "状态提示",
+                  guide: "悬停、高亮、禁用、选中、拖拽中、加载中和错误状态的视觉及声音反馈。",
+                  status: "todo",
+                  value: ""
+                },
+                {
+                  label: "手柄与触屏适配",
+                  guide: "手柄焦点移动、长按菜单以及触屏拖拽是否需要单独规则？",
+                  status: "todo",
+                  value: ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "production",
+          index: "20",
           title: "开发计划与原型优先级",
           description: "6个月",
           sections: [
@@ -21247,7 +21399,7 @@
         
         {
           id: "model-construction",
-          index: "20",
+          index: "21",
           title: "建模计划",
           description: "6个月",
           sections: [
@@ -22208,7 +22360,7 @@
         })),
         {
           id: "relation-map",
-          index: "21",
+          index: "22",
           title: "关系图谱与影响矩阵"
         }
       ];
