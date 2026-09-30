@@ -258,7 +258,7 @@
       transition: opacity 150ms ease, transform 150ms ease, visibility 150ms ease;
     }
 
-    .mobile-header.menu-open .mobile-toc {
+    .mobile-menu[open] .mobile-toc {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
@@ -284,9 +284,18 @@
       background: linear-gradient(135deg, var(--gold), var(--jade));
     }
 
-    .mobile-menu-toggle {
+    .mobile-menu {
       flex: 0 0 auto;
-      min-height: 38px;
+    }
+
+    .mobile-menu-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      touch-action: manipulation;
+      flex: 0 0 auto;
+      min-height: 44px;
       padding: 0 11px;
       border: 1px solid rgba(214, 168, 79, 0.28);
       border-radius: 8px;
@@ -297,6 +306,10 @@
       font-weight: 900;
     }
 
+    .mobile-menu-toggle::-webkit-details-marker {
+      display: none;
+    }
+
     .mobile-menu-toggle::after {
       display: inline-block;
       margin-left: 6px;
@@ -304,7 +317,7 @@
       transition: transform 150ms ease;
     }
 
-    .mobile-header.menu-open .mobile-menu-toggle::after {
+    .mobile-menu[open] .mobile-menu-toggle::after {
       transform: rotate(180deg);
     }
 
@@ -1414,16 +1427,15 @@
         </span>
       </a>
 
-      <button
-        class="mobile-menu-toggle"
-        id="mobileMenuToggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="mobileToc"
-      >目录</button>
+      <details class="mobile-menu" id="mobileMenu">
+        <summary
+          class="mobile-menu-toggle"
+          id="mobileMenuToggle"
+          aria-controls="mobileToc"
+        >目录</summary>
+        <nav class="mobile-toc" id="mobileToc" aria-label="章节目录"></nav>
+      </details>
     </div>
-
-    <nav class="mobile-toc" id="mobileToc"></nav>
   </header>
 
   <div class="desktop-shell">
@@ -22397,6 +22409,7 @@
       desktopToc: document.getElementById("desktopToc"),
       mobileToc: document.getElementById("mobileToc"),
       mobileHeader: document.querySelector(".mobile-header"),
+      mobileMenu: document.getElementById("mobileMenu"),
       mobileMenuToggle: document.getElementById("mobileMenuToggle"),
       toolbarWrap: document.querySelector(".toolbar-wrap"),
       documentInner: document.getElementById("documentInner"),
@@ -22429,11 +22442,6 @@
     }
 
     function bindEvents() {
-      elements.mobileMenuToggle.addEventListener("click", () => {
-        const shouldOpen = !elements.mobileHeader.classList.contains("menu-open");
-        setMobileMenuOpen(shouldOpen);
-      });
-
       elements.searchInput.addEventListener("input", (event) => {
         state.searchText = event.target.value.trim().toLowerCase();
         renderDocument();
@@ -22523,8 +22531,7 @@
     }
 
     function setMobileMenuOpen(isOpen) {
-      elements.mobileHeader.classList.toggle("menu-open", isOpen);
-      elements.mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+      elements.mobileMenu.open = isOpen;
     }
 
     function setupStickyMeasurements() {
