@@ -1796,11 +1796,11 @@
                 },
                 {
                   label: "行囊与物品界面",
-                  guide: "默认按键：B。在屏幕的左侧，右侧只有点开装备与宝物后显示角色的装备状态。行囊分为：消耗品（草药，丹药，食物，符箓等）、装备与宝物（武器，法器，法印，道袍，宝石等）、材料（肉类，木头类，花草类等）、任务物品。共4栏。4个tab",
+                  guide: "默认按键：B。在屏幕的左侧，右侧只有点开装备与宝物后显示角色的装备状态。行囊分为：消耗品（丸药，散药，膏药，丹药，食物，符箓等）、装备与宝物（武器，法器，法印，道袍，宝石等）、材料（肉类，木头类，花草类等）、任务物品。共4栏。4个tab",
                   status: "draft",
                   value: `
                     行囊分为：共4栏。
-                      消耗品（草药，丹药，食物，符箓等）、
+                      消耗品（丸药，散药，膏药，丹药，食物，符箓等）、
                       装备与宝物（武器，法器，法印，道袍，宝石等，右侧是人物装备的实际状态）、
                       材料（肉类，木头类，花草类等）、
                       任务物品。
@@ -3878,9 +3878,33 @@
               ]
             },
             {
-              title: "药物体系",
-              description: "",
+              title: "丸药体系",
+              description: "缓慢回血，不同的级别恢复的量不一样，100~900，吃多少遍都只会增加持续时间，不叠加效果。cd时间1秒",
               fields: [
+                {
+                  label: "凝神丸",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "养气丸",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "通络丸",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "金匮丸",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
                 {
                   label: "兰芝草蜜丸",
                   guide: "",
@@ -3888,7 +3912,7 @@
                   value: ""
                 },
                 {
-                  label: "",
+                  label: "黄精延年丸",
                   guide: "",
                   status: "draft",
                   value: ""
@@ -3900,7 +3924,19 @@
                   value: ""
                 },
                 {
-                  label: "",
+                  label: "易筋调和丸",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "玄元固本丸",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "玄元固本丸",
                   guide: "",
                   status: "draft",
                   value: ""
@@ -3908,59 +3944,239 @@
               ]
             },
             {
-              title: "丹药体系",
-              description: "",
+              title: "散药体系",
+              description: "快速回血，不同的级别恢复的量不一样，100~900，吃多少遍都只会增加持续时间，不叠加效果。cd时间1秒",
               fields: [
                 {
-                  label: "聚灵丹",
+                  label: "跌打散",
                   guide: "",
                   status: "draft",
                   value: ""
                 },
                 {
-                  label: "九转还阳丹",
+                  label: "止血散",
                   guide: "",
                   status: "draft",
                   value: ""
                 },
+                {
+                  label: "鸡鸣散",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "玉泉散",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "甘霖散",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "六合灵散",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "归元春散",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "坤乙福散",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "乾甲星寿散",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+              ]
+            },
+            {
+              title: "膏药体系",
+              description: "外用，消除状态用的。灼烧（掉血），电击（掉血，动作缓慢），中毒（能力降低），冻伤（动作缓慢）。使用时，每用一个就减少持续时间，知道治好，cd时间3秒。受伤分为三档，普通，中等，重度",
+              fields: [
+                {
+                  label: "乌玉膏",
+                  guide: "",
+                  status: "draft",
+                  value: "普通电击恢复，中等电击时间-40%秒，重度电击时间-15%秒"
+                },
+                {
+                  label: "玉露膏",
+                  guide: "",
+                  status: "draft",
+                  value: "普通灼烧恢复，中等灼烧时间-40%秒，重度灼烧时间-15%秒"
+                },
+                {
+                  label: "百花膏",
+                  guide: "",
+                  status: "draft",
+                  value: "普通中毒恢复，中等中毒时间-40%秒，重度中毒时间-15%秒"
+                },
+                {
+                  label: "青玉膏",
+                  guide: "",
+                  status: "draft",
+                  value: "普通冻伤恢复，中等冻伤时间-40%秒，重度冻伤时间-15%秒"
+                },
+                {
+                  label: "云母光华膏",
+                  guide: "",
+                  status: "draft",
+                  value: "普通、中等电击恢复，重度电击时间-40%秒"
+                },
+                {
+                  label: "琼脂玉髓膏",
+                  guide: "",
+                  status: "draft",
+                  value: "普通、中等中毒恢复，重度中毒时间-40%秒"
+                },
+                {
+                  label: "天山雪莲膏",
+                  guide: "",
+                  status: "draft",
+                  value: "普通、中等灼伤恢复，重度灼伤时间-40%秒"
+                },
+                {
+                  label: "吕祖纯阳膏",
+                  guide: "",
+                  status: "draft",
+                  value: "普通、中等冻伤恢复，重度冻伤时间-40%秒"
+                },
+                {
+                  label: "太乙紫金膏",
+                  guide: "",
+                  status: "draft",
+                  value: "消除全部受伤状态"
+                },
+                {
+                  label: "珍珠养颜膏",
+                  guide: "",
+                  status: "draft",
+                  value: "提升魅力"
+                },
+                {
+                  label: "丹霞玉颜膏",
+                  guide: "",
+                  status: "draft",
+                  value: "提升魅力"
+                },
+              ]
+            },
+            {
+              title: "丹药体系",
+              description: "瞬间恢复对应的",
+              fields: [
                 {
                   label: "小还丹",
                   guide: "",
                   status: "draft",
-                  value: ""
+                  value: "瞬间恢气血，体力，法力 30%"
                 },
                 {
                   label: "大还丹",
                   guide: "",
                   status: "draft",
-                  value: ""
+                  value: "瞬间恢气血，体力，法力 60%"
                 },
                 {
-                  label: "增加物理伤害丹",
+                  label: "通脉聚灵丹",
+                  guide: "",
+                  status: "draft",
+                  value: "气血，体力，法力持续恢复，恢复速度和散药一样，持续时间3个时辰"
+                },
+                {
+                  label: "九转还阳丹",
+                  guide: "",
+                  status: "draft",
+                  value: "瞬间恢气血，体力，法力"
+                },
+                {
+                  label: "五行归元丹",
+                  guide: "",
+                  status: "draft",
+                  value: "" 
+                },
+                {
+                  label: "九鼎神丹",
                   guide: "",
                   status: "draft",
                   value: ""
                 },
                 {
-                  label: "增加法术伤害丹",
+                  label: "龙虎交泰丹",
                   guide: "",
                   status: "draft",
                   value: ""
                 },
                 {
-                  label: "增加防御丹",
+                  label: "紫阳通玄丹",
+                  guide: "",
+                  status: "draft",
+                  value: "增加物理伤害丹"
+                },
+                {
+                  label: "七曜星辰丹",
+                  guide: "",
+                  status: "draft",
+                  value: "增加法术伤害丹"
+                },
+                {
+                  label: "先天一炁丹",
+                  guide: "",
+                  status: "draft",
+                  value: "增加防御丹"
+                },
+                {
+                  label: "九霄雷劫丹",
+                  guide: "",
+                  status: "draft",
+                  value: "增加暴击率丹"
+                },
+                {
+                  label: "洞玄造化丹",
                   guide: "",
                   status: "draft",
                   value: ""
                 },
                 {
-                  label: "增加暴击率丹",
+                  label: "太上混元一气丹",
                   guide: "",
                   status: "draft",
                   value: ""
                 },
                 {
                   label: "",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "灵芝驻颜丹",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "抱朴登仙丹",
+                  guide: "",
+                  status: "draft",
+                  value: ""
+                },
+                {
+                  label: "上清灵宝丹",
                   guide: "",
                   status: "draft",
                   value: ""
